@@ -10,11 +10,22 @@ config_version=5
 
 [application]
 
-config/name="Generic Game Template"
+config/name="Specter's Case"
+config/name_localized={
+"en": "Specter's Case",
+"pt_BR": "Caso do Espectro"
+}
+config/description="A protagonista Pam, recém se formou como uma Investigadora Paranormal e recebeu seu primeiro caso. A vizinhança de _Frost Hollow_ recentemente têm reportado um número grande de ocorrências paranormais e precisa da sua ajuda. Investigue a vizinhança e interrogue seus habitantes para descobrir a origem das atividades anormais e libertar essa comunidade dos espíritos que a assombra."
+config/use_custom_user_dir=true
+config/custom_user_dir_name="FlowerGarden/Specter's Case"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 boot_splash/bg_color.editor_hint=Color(0.14, 0.14, 0.14, 1)
 boot_splash/image.editor_hint=""
+
+[autoload]
+
+SceneTransitionManager="*res://scenes/mangers/scene_transition/scene_transition.tscn"
 
 [debug]
 

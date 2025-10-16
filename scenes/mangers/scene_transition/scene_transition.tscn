@@ -1,0 +1,272 @@
+[gd_scene load_steps=14 format=3 uid="uid://txydcsuw1bx2"]
+
+[ext_resource type="Script" uid="uid://mplyjta2u5pk" path="res://scenes/mangers/scene_transition/scene_transition.gd" id="1_3y8qk"]
+
+[sub_resource type="Animation" id="Animation_3y8qk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.12941177, 0.047058824, 0.13725491, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/ProgressBar:indeterminate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_a0skj"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Color(0.12941177, 0.047058824, 0.13725491, 0), Color(0.12941177, 0.047058824, 0.13725491, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/ProgressBar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ProgressBar:indeterminate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_request_load"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_3fkr7"]
+resource_name = "transitioning"
+length = 0.01
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Color(0.12941177, 0.047058824, 0.13725491, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/ProgressBar:indeterminate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fkr7"]
+_data = {
+&"RESET": SubResource("Animation_3y8qk"),
+&"transition": SubResource("Animation_a0skj"),
+&"transitioning": SubResource("Animation_3fkr7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3y8qk"]
+animation = &"transition"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fkr7"]
+animation = &"transition"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1tpv"]
+animation = &"transitioning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3fkr7"]
+advance_mode = 2
+advance_expression = "transition_state == TransitionState.IN"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hlq7p"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "transitioning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3y8qk"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_expression = "not transitioning and transition_state == TransitionState.OUT"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1tpv"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "transition_state == TransitionState.IN"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hlq7p"]
+states/End/position = Vector2(726.6666, 99.25926)
+states/transition_in/node = SubResource("AnimationNodeAnimation_3y8qk")
+states/transition_in/position = Vector2(408.88892, 41.4074)
+states/transition_out/node = SubResource("AnimationNodeAnimation_3fkr7")
+states/transition_out/position = Vector2(408.88892, 155.4074)
+states/transitioning/node = SubResource("AnimationNodeAnimation_b1tpv")
+states/transitioning/position = Vector2(612.8889, 99.4074)
+transitions = ["Start", "transition_in", SubResource("AnimationNodeStateMachineTransition_3fkr7"), "transition_in", "transitioning", SubResource("AnimationNodeStateMachineTransition_hlq7p"), "transitioning", "transition_out", SubResource("AnimationNodeStateMachineTransition_3y8qk"), "transition_out", "transition_in", SubResource("AnimationNodeStateMachineTransition_b1tpv")]
+graph_offset = Vector2(-169, -26)
+
+[node name="SceneTransitionManager" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_3y8qk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3fkr7")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_hlq7p")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12941177, 0.047058824, 0.13725491, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24652778
+anchor_top = 0.47916666
+anchor_right = 0.7534722
+anchor_bottom = 0.5208333
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = false
+metadata/_edit_use_anchors_ = true
