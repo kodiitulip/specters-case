@@ -34,8 +34,8 @@ concurrency:
 
 env:
   godot_version: 4.5.0
-  app_binary_name: game-name
-  itch_page: "user/game-name"
+  app_binary_name: specters-case
+  itch_page: ""
 
 jobs:
   foward-env:
