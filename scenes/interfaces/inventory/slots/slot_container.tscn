@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://chwlamrudke74"]
+
+[ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="1_puwme"]
+
+[node name="SlotContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_puwme")
+expand_mode = 3
+stretch_mode = 5
