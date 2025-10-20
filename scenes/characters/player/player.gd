@@ -11,7 +11,6 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"left_mouse_button"):
 		target_pos = get_global_mouse_position()
-		get_viewport().set_input_as_handled()
 	
 # Making player move
 func _physics_process(delta: float) -> void:
