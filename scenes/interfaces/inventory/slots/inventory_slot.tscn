@@ -4,6 +4,7 @@
 
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(50, 50)
+mouse_default_cursor_shape = 2
 script = ExtResource("1_lh1jn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
