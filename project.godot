@@ -16,7 +16,7 @@ config/name_localized={
 "pt_BR": "Caso do Espectro"
 }
 config/description="A protagonista Pam, recém se formou como uma Investigadora Paranormal e recebeu seu primeiro caso. A vizinhança de _Frost Hollow_ recentemente têm reportado um número grande de ocorrências paranormais e precisa da sua ajuda. Investigue a vizinhança e interrogue seus habitantes para descobrir a origem das atividades anormais e libertar essa comunidade dos espíritos que a assombra."
-run/main_scene="uid://byf4cshyfqpow"
+run/main_scene="uid://0d6t1cxsqes1"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FlowerGarden/Specter's Case"
 config/features=PackedStringArray("4.5", "Forward Plus")
@@ -26,7 +26,8 @@ boot_splash/image.editor_hint=""
 
 [autoload]
 
-SceneTransitionManager="*res://scenes/mangers/scene_transition/scene_transition.tscn"
+SceneTransitionManager="*res://scenes/managers/scene_transition/scene_transition.tscn"
+OverlayLayer="*res://scripts/managers/overlay_layer.gd"
 
 [debug]
 
@@ -52,6 +53,14 @@ window/size/borderless.editor_hint=false
 
 naming/script_name_casing=2
 
+[input]
+
+left_mouse_button={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(77, 12),"global_position":Vector2(84, 49),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
 [physics]
 
 common/physics_jitter_fix=0.0
@@ -59,4 +68,5 @@ common/physics_interpolation=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
