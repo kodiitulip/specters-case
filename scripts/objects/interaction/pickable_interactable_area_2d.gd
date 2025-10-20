@@ -14,6 +14,7 @@ extends InteractableArea2D
 @export var free_target: Node = null
 
 func _ready() -> void:
+	super._ready()
 	assert(item_data != null, "[code]ItemData[/code] must not be null")
 
 
@@ -22,7 +23,7 @@ func on_interact_started() -> void:
 	InventoryInterface.instance.pickup_item(item_data)
 	if not finite:
 		return
-	if free_target != null:
+	if free_target:
 		return free_target.queue_free()
 	queue_free()
 
