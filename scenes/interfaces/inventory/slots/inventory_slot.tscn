@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://chwlamrudke74"]
 
-[ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="1_puwme"]
+[ext_resource type="Script" uid="uid://clj8linavwdb1" path="res://scenes/interfaces/inventory/slots/inventory_slot.gd" id="1_lh1jn"]
 
-[node name="SlotContainer" type="PanelContainer"]
+[node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(50, 50)
+script = ExtResource("1_lh1jn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -14,6 +15,5 @@ theme_override_constants/margin_bottom = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_puwme")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
