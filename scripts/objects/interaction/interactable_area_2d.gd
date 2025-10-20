@@ -28,11 +28,10 @@ func _process(_delta: float) -> void:
 
 func _on_input_event(v: Viewport, event: InputEvent, _s: int) -> void:
 	if event.is_action_pressed(&"left_mouse_button") and not _interact_started:
+		v.set_input_as_handled()
 		self.on_interact_started()
 		_interact_started = true
-		set_process(true)
 	elif event.is_action_released(&"left_mouse_button"):
+		v.set_input_as_handled()
 		self.on_interact_ended()
 		_interact_started = false
-		set_process(false)
-	v.set_input_as_handled()
