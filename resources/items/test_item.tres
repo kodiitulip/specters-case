@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bgc6sj5v44j1g"]
+
+[ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="1_bppqf"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="1_psov8"]
+
+[resource]
+script = ExtResource("1_psov8")
+item_name = "Test Item"
+item_icon = ExtResource("1_bppqf")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"
