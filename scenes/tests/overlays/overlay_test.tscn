@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dojjb4xkewl1n"]
+
+[ext_resource type="Script" uid="uid://7b6hw2s6f68t" path="res://scenes/tests/overlays/overlay_test.gd" id="1_4udya"]
+[ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="1_58e3w"]
+
+[node name="OverlayTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4udya")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19375
+anchor_right = 0.80625
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75900006
+anchor_right = 0.80600005
+anchor_bottom = 0.086
+offset_left = 0.23995972
+offset_top = 1.0
+offset_right = 0.15997314
+offset_bottom = 0.03999901
+mouse_default_cursor_shape = 2
+icon = ExtResource("1_58e3w")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

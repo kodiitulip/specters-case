@@ -27,9 +27,7 @@ func _get_drag_data(_pos: Vector2) -> Variant:
 	if is_full():
 		var preview: TextureRect = TextureRect.new()
 		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		preview.size = slot_item.item_icon.get_size()
-		# preview.pivot_offset = slot_item.item_icon.get_size() / 2.0
-		preview.rotation_degrees = 10.0
+		preview.size = Vector2.ONE * 50
 		preview.texture = slot_item.item_icon
 		set_drag_preview(preview)
 		return {"type": "ItemData", "id": slot_id}

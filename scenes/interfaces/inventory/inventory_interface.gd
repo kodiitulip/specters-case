@@ -1,3 +1,4 @@
+@static_unload
 class_name InventoryInterface
 extends MarginContainer
 
@@ -8,8 +9,14 @@ const INVENTORY_SLOT_SCENE: PackedScene = preload("uid://chwlamrudke74")
 		item_slot_count = clampi(value, 0, 6)
 
 var inventory_slots: Array[InventorySlot] = []
+static var instance: InventoryInterface
 
 @onready var slots_container: VBoxContainer = %SlotsContainer
+
+func _enter_tree() -> void:
+	if instance and instance != self:
+		return queue_free()
+	instance = self
 
 
 func _ready() -> void:
@@ -24,7 +31,9 @@ func _ready() -> void:
 		inventory_slots.append(slot)
 	var text: PlaceholderTexture2D = PlaceholderTexture2D.new()
 	text.size = Vector2(50, 50)
-	var item: ItemData = ItemData.new("TestIcon", text)
+	var item: ItemData = ItemData.new()
+	item.item_name = "Test"
+	item.item_icon = text
 	pickup_item.call_deferred(item)
 
 
