@@ -16,6 +16,7 @@ config/name_localized={
 "pt_BR": "Caso do Espectro"
 }
 config/description="A protagonista Pam, recém se formou como uma Investigadora Paranormal e recebeu seu primeiro caso. A vizinhança de _Frost Hollow_ recentemente têm reportado um número grande de ocorrências paranormais e precisa da sua ajuda. Investigue a vizinhança e interrogue seus habitantes para descobrir a origem das atividades anormais e libertar essa comunidade dos espíritos que a assombra."
+run/main_scene="uid://byf4cshyfqpow"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FlowerGarden/Specter's Case"
 config/features=PackedStringArray("4.5", "Forward Plus")
