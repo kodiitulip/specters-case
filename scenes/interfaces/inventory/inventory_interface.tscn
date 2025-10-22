@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck2xg28ndep6c"]
+[gd_scene load_steps=6 format=3 uid="uid://ck2xg28ndep6c"]
 
 [ext_resource type="Script" uid="uid://b63p6x4q7j7jh" path="res://scenes/interfaces/inventory/inventory_interface.gd" id="1_nt5kk"]
 [ext_resource type="PackedScene" uid="uid://chwlamrudke74" path="res://scenes/interfaces/inventory/slots/inventory_slot.tscn" id="1_qq0pn"]
+[ext_resource type="Texture2D" uid="uid://cuuevkwd00wky" path="res://assets/player.png" id="2_o5khu"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="3_irs6v"]
+
+[sub_resource type="Resource" id="Resource_scruo"]
+script = ExtResource("3_irs6v")
+item_name = "TESTING"
+item_icon = ExtResource("2_o5khu")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"
 
 [node name="InventoryInterface" type="MarginContainer"]
 anchors_preset = -1
@@ -13,6 +21,7 @@ grow_vertical = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_nt5kk")
+temp_item_data = SubResource("Resource_scruo")
 metadata/_edit_use_anchors_ = true
 
 [node name="SlotsContainer" type="VBoxContainer" parent="."]

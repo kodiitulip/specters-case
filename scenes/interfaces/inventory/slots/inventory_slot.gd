@@ -19,6 +19,7 @@ func fill_slot(data: ItemData) -> void:
 	slot_item = data
 	if is_full():
 		_texture_rect.texture = slot_item.item_icon
+		tooltip_text = slot_item.item_name
 	else:
 		_texture_rect.texture = null
 
@@ -35,7 +36,7 @@ func _get_drag_data(_pos: Vector2) -> Variant:
 
 
 func _can_drop_data(_pos: Vector2, data: Variant) -> bool:
-	return typeof(data) == TYPE_DICTIONARY and data["type"] == "ItemData"
+	return data is Dictionary and data["type"] == "ItemData"
 
 
 func _drop_data(_pos: Vector2, data: Variant) -> void:
