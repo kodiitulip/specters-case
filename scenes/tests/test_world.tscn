@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://0d6t1cxsqes1"]
+[gd_scene load_steps=13 format=3 uid="uid://0d6t1cxsqes1"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="2_vlt61"]
 [ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="3_c8on4"]
 [ext_resource type="PackedScene" uid="uid://dojjb4xkewl1n" path="res://scenes/tests/overlays/overlay_test.tscn" id="3_hd3tn"]
 [ext_resource type="Script" uid="uid://dqnnfjdfxul5r" path="res://scripts/objects/interaction/pickable_interactable_area_2d.gd" id="5_4vpie"]
+[ext_resource type="Texture2D" uid="uid://cv0l0oc3mijm5" path="res://assets/newspaper_icon.png" id="5_yeygg"]
 [ext_resource type="Resource" uid="uid://bgc6sj5v44j1g" path="res://resources/items/test_item.tres" id="6_g5vv6"]
 [ext_resource type="PackedScene" uid="uid://d3gp4axp8ws3v" path="res://scenes/characters/player/player.tscn" id="7_j1ktb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_pf0pg"]
@@ -34,12 +35,13 @@ overlay_scene = ExtResource("3_hd3tn")
 metadata/_custom_type_script = "uid://cheqal1ea658b"
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/OverlayInteractableArea"]
+position = Vector2(0, -6)
 scale = Vector2(0.23048902, 0.23048902)
-texture = ExtResource("3_c8on4")
+texture = ExtResource("5_yeygg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/OverlayInteractableArea"]
 scale = Vector2(0.23048902, 0.23048902)
-polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+polygon = PackedVector2Array(-69.417725, -104.126465, 69.4176, -104.126465, 69.4176, 52.06317, -69.417725, 52.06317)
 
 [node name="PickableInteractableArea2D" type="Area2D" parent="Objects"]
 position = Vector2(483, 219)
