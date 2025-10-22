@@ -2,13 +2,18 @@ extends CharacterBody2D
 
 # Defining some player variables
 @export var speed: float = 150.0
+
 var target_pos: Vector2 # Target position to move
+var _mouse_busy: bool = false: set = _set_mouse_busy
 
 func _ready() -> void:
 	target_pos = global_position
+	GlobalSignalBus.mouse_busy.connect(_set_mouse_busy)
 
 # Function that sets the target position
 func _unhandled_input(event: InputEvent) -> void:
+	if _mouse_busy:
+		return
 	if event.is_action_pressed(&"left_mouse_button"):
 		target_pos = get_global_mouse_position()
 	
@@ -23,3 +28,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
+
+
+func _set_mouse_busy(value: bool) -> void:
+	_mouse_busy = value

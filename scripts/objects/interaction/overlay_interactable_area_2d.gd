@@ -8,7 +8,6 @@ extends InteractableArea2D
 ## The scene used to instanciate the overlay
 @export var overlay_scene: PackedScene
 
-
 ## Called the first frame that the interaction starts
 func on_interact_started() -> void:
 	assert(overlay_scene != null, "[code]overlay_scene[/code] must not be null")

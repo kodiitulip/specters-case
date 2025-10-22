@@ -24,8 +24,8 @@ func on_interact_started() -> void:
 	if not finite:
 		return
 	if free_target:
-		return free_target.queue_free()
-	queue_free()
+		return _remove(free_target)
+	_remove(self)
 
 
 ## Called for every frame that the interaction is happening
@@ -36,3 +36,8 @@ func on_interacting() -> void:
 ## Called on the last frame that the interaction happens
 func on_interact_ended() -> void:
 	pass
+
+
+func _remove(target: Node) -> void:
+	GlobalSignalBus.emit_mouse_busy(false)
+	target.queue_free()
