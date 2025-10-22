@@ -1,15 +1,41 @@
-[gd_scene load_steps=12 format=3 uid="uid://0d6t1cxsqes1"]
+[gd_scene load_steps=20 format=3 uid="uid://0d6t1cxsqes1"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="2_vlt61"]
+[ext_resource type="Texture2D" uid="uid://5hwmiyica81y" path="res://assets/backgrounds/forest.png" id="2_vmb2j"]
 [ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="3_c8on4"]
 [ext_resource type="PackedScene" uid="uid://dojjb4xkewl1n" path="res://scenes/tests/overlays/overlay_test.tscn" id="3_hd3tn"]
 [ext_resource type="Script" uid="uid://dqnnfjdfxul5r" path="res://scripts/objects/interaction/pickable_interactable_area_2d.gd" id="5_4vpie"]
+[ext_resource type="Texture2D" uid="uid://cv0l0oc3mijm5" path="res://assets/newspaper_icon.png" id="5_yeygg"]
 [ext_resource type="Resource" uid="uid://bgc6sj5v44j1g" path="res://resources/items/test_item.tres" id="6_g5vv6"]
 [ext_resource type="PackedScene" uid="uid://d3gp4axp8ws3v" path="res://scenes/characters/player/player.tscn" id="7_j1ktb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_pf0pg"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_yeygg"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_vmb2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlfdu"]
+atlas = ExtResource("2_vmb2j")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmb2j"]
+atlas = ExtResource("2_vmb2j")
+region = Rect2(0, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4fkg"]
+atlas = ExtResource("2_vmb2j")
+region = Rect2(0, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofq5j"]
+atlas = ExtResource("2_vmb2j")
+region = Rect2(0, 1440, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qhr7"]
+atlas = ExtResource("2_vmb2j")
+region = Rect2(0, 1080, 640, 360)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmb2j"]
+normal = Vector2(0, 1)
+distance = 275.0
 
 [sub_resource type="Resource" id="Resource_qlfdu"]
 script = ExtResource("10_vmb2j")
@@ -20,29 +46,76 @@ script = ExtResource("10_vmb2j")
 
 [node name="InventoryInterface" parent="InterfaceLayer" instance=ExtResource("1_r2bnu")]
 
+[node name="ParalaxBackground" type="Node2D" parent="."]
+
+[node name="LeavesFar" type="Parallax2D" parent="ParalaxBackground"]
+scroll_scale = Vector2(0.2, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Forest" type="Sprite2D" parent="ParalaxBackground/LeavesFar"]
+texture = SubResource("AtlasTexture_qlfdu")
+centered = false
+
+[node name="TreesFar" type="Parallax2D" parent="ParalaxBackground"]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Forest" type="Sprite2D" parent="ParalaxBackground/TreesFar"]
+texture = SubResource("AtlasTexture_vmb2j")
+centered = false
+
+[node name="TreesNear" type="Parallax2D" parent="ParalaxBackground"]
+scroll_scale = Vector2(0.8, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Forest" type="Sprite2D" parent="ParalaxBackground/TreesNear"]
+texture = SubResource("AtlasTexture_t4fkg")
+centered = false
+
+[node name="Bushes" type="Parallax2D" parent="ParalaxBackground"]
+scroll_scale = Vector2(0.85, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Forest" type="Sprite2D" parent="ParalaxBackground/Bushes"]
+texture = SubResource("AtlasTexture_ofq5j")
+centered = false
+
+[node name="Path" type="Parallax2D" parent="ParalaxBackground"]
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Forest" type="Sprite2D" parent="ParalaxBackground/Path"]
+texture = SubResource("AtlasTexture_4qhr7")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ParalaxBackground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParalaxBackground/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_vmb2j")
+
 [node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Characters" type="Node2D" parent="Objects"]
-
-[node name="Player" parent="Objects/Characters" instance=ExtResource("7_j1ktb")]
-position = Vector2(168, 266)
+[node name="Player" parent="Objects" instance=ExtResource("7_j1ktb")]
+position = Vector2(85, 312)
 
 [node name="OverlayInteractableArea" type="Area2D" parent="Objects"]
-position = Vector2(309, 209)
+position = Vector2(301, 293)
 script = ExtResource("2_vlt61")
 overlay_scene = ExtResource("3_hd3tn")
 metadata/_custom_type_script = "uid://cheqal1ea658b"
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/OverlayInteractableArea"]
+position = Vector2(0, -6)
 scale = Vector2(0.23048902, 0.23048902)
-texture = ExtResource("3_c8on4")
+texture = ExtResource("5_yeygg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/OverlayInteractableArea"]
 scale = Vector2(0.23048902, 0.23048902)
-polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+polygon = PackedVector2Array(-69.417725, -104.126465, 69.4176, -104.126465, 69.4176, 52.06317, -69.417725, 52.06317)
 
 [node name="PickableInteractableArea2D" type="Area2D" parent="Objects"]
-position = Vector2(483, 219)
+position = Vector2(419, 342)
 script = ExtResource("5_4vpie")
 item_data = ExtResource("6_g5vv6")
 metadata/_custom_type_script = "uid://dqnnfjdfxul5r"
@@ -73,9 +146,10 @@ top_level = true
 position = Vector2(168, 180)
 script = ExtResource("9_yeygg")
 follow_mode = 5
-follow_target = NodePath("../Objects/Characters/Player")
+follow_target = NodePath("../Objects/Player")
 tween_resource = SubResource("Resource_qlfdu")
 tween_on_load = false
+follow_damping = true
 dead_zone_width = 0.35
 dead_zone_height = 1.0
 draw_limits = true

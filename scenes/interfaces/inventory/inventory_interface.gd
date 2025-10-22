@@ -7,6 +7,7 @@ const INVENTORY_SLOT_SCENE: PackedScene = preload("uid://chwlamrudke74")
 @export var item_slot_count: int = 6:
 	set(value):
 		item_slot_count = clampi(value, 0, 6)
+@export var temp_item_data: ItemData
 
 var inventory_slots: Array[InventorySlot] = []
 static var instance: InventoryInterface
@@ -29,12 +30,7 @@ func _ready() -> void:
 		slot.slot_id = i
 		slot.on_item_dropped_on.connect(_on_item_droped_on_slot)
 		inventory_slots.append(slot)
-	var text: PlaceholderTexture2D = PlaceholderTexture2D.new()
-	text.size = Vector2(50, 50)
-	var item: ItemData = ItemData.new()
-	item.item_name = "Test"
-	item.item_icon = text
-	pickup_item.call_deferred(item)
+	pickup_item.call_deferred(temp_item_data)
 
 
 func _on_item_droped_on_slot(origin_id: int, destination_id: int) -> void:
