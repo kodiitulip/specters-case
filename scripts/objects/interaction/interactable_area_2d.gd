@@ -10,8 +10,8 @@ var _interact_started: bool = false
 func _ready() -> void:
 	input_pickable = true
 	input_event.connect(_on_input_event)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	mouse_entered.connect(GlobalSignalBus.emit_mouse_busy.bind(true))
+	mouse_exited.connect(GlobalSignalBus.emit_mouse_busy.bind(false))
 
 ## Called the first frame that the interaction starts
 @abstract func on_interact_started() -> void
@@ -26,14 +26,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed(&"left_mouse_button") and _interact_started:
 		self.on_interacting()
-
-
-func _on_mouse_entered() -> void:
-	GlobalSignalBus.emit_mouse_busy(true)
-
-
-func _on_mouse_exited() -> void:
-	GlobalSignalBus.emit_mouse_busy(false)
 
 
 func _on_input_event(v: Viewport, event: InputEvent, _s: int) -> void:
