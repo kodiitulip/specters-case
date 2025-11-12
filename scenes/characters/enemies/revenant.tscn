@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://cuw84s7cfo74o"]
+
+[ext_resource type="Texture2D" uid="uid://nv5js7c3al2n" path="res://assets/revenant_sprite.png" id="1_5hlcw"]
+[ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="1_vyk65"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyk65"]
+radius = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68g6a"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8var"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpfsr"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktrbc"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8vsn"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atmpg"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llo30"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqcmm"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7vfh"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy65d"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74iva"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxdn2"]
+atlas = ExtResource("1_5hlcw")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyk65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68g6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8var")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpfsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktrbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8vsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atmpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llo30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqcmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7vfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy65d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74iva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxdn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Revenant" type="Area2D"]
+script = ExtResource("1_vyk65")
+metadata/_custom_type_script = "uid://d1ithttgd13on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_vyk65")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_vyk65")
+autoplay = "default"
+offset = Vector2(0, -42)

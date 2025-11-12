@@ -1,0 +1,37 @@
+[style name="battle"]
+join pam leftmost [animation="Slide From Left"]
+join errante rightmost [animation="Slide From Right" wait="true" mirrored="true"]
+Um espectro encontra-se a sua frente.
+label Start
+O que você faz?
+- Falar com o espectro
+	if {started} == false:
+		set {started} = true
+	label intrigued
+	if {intrigued} == true:
+		Você gosta de música?
+		O espectro demonstra estar curioso sobre você.
+	else:
+		pam: Quem é você?
+		O espectro parece ignorar
+	jump Start
+- Demonstrar confiança | [if {started} == true] [else="hide"]
+	pam: Você não precisa mais vagar.
+	pam: Saiba que já pode descansar.
+	errante: [wave].......... ... [/wave]
+	set {intrigued} = true
+	jump intrigued
+- Tocar uma música calma | [if {intrigued} == true] [else="hide"]
+	pam: Vamos se acalmando okay?
+	errante: [wave].....[/wave]
+	set {calm} = true
+	[wave]Revenant[/wave] parece estar mais calmo
+	jump Start
+- Exorcisar | [if {calm} and {intrigued}] [else="hide"]
+	O espectro seguiu em frente.
+	[end_timeline]
+- Fugir
+	leave pam [animation="Slide To Left" wait="true"]
+	Você foge do conflito...
+	leave errante [animation="Slide To Right" wait="true"]
+	[end_timeline]

@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://b1ahan0guskl4"]
+
+[ext_resource type="Script" uid="uid://bxlrkb4450to1" path="res://scenes/turn_battler/battlers/enemy_battler.gd" id="1_r8var"]
+[ext_resource type="Script" uid="uid://bb05a00fwahuu" path="res://scripts/components/turn_battle/battler_stats_res.gd" id="2_68g6a"]
+[ext_resource type="Texture2D" uid="uid://nv5js7c3al2n" path="res://assets/revenant_sprite.png" id="3_68g6a"]
+[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="4_r8var"]
+
+[sub_resource type="Resource" id="Resource_r8var"]
+script = ExtResource("2_68g6a")
+type = 1
+max_hp = 40
+min_damage = 1
+max_damage = 2
+metadata/_custom_type_script = "uid://bb05a00fwahuu"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68g6a"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8var"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpfsr"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktrbc"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8vsn"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atmpg"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llo30"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqcmm"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7vfh"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy65d"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74iva"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxdn2"]
+atlas = ExtResource("3_68g6a")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xh1c4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68g6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8var")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpfsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktrbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8vsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atmpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llo30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqcmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7vfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy65d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74iva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxdn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh1c4"]
+atlas = ExtResource("4_r8var")
+region = Rect2(90, 171, 106, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbree"]
+atlas = ExtResource("4_r8var")
+region = Rect2(90, 159, 106, 8)
+
+[node name="EnemyBattler" type="Node2D" node_paths=PackedStringArray("sprite") groups=["enemy_battler"]]
+script = ExtResource("1_r8var")
+stats = SubResource("Resource_r8var")
+current_hp = 40
+sprite = NodePath("Sprite")
+metadata/_custom_type_script = "uid://ciqm0pyxie3wv"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_xh1c4")
+autoplay = "default"
+frame_progress = 0.38619426
+offset = Vector2(0, -42)
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -44.0
+offset_right = 53.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 40.0
+value = 40.0
+texture_under = SubResource("AtlasTexture_xh1c4")
+texture_progress = SubResource("AtlasTexture_nbree")

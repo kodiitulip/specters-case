@@ -16,8 +16,8 @@ script = ExtResource("1_4udya")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.19375
-anchor_right = 0.80625
+anchor_left = 0.25
+anchor_right = 0.75
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -26,19 +26,22 @@ metadata/_edit_use_anchors_ = true
 [node name="Newspaper" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_kmnmp")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.75900006
-anchor_right = 0.80600005
-anchor_bottom = 0.086
-offset_left = 0.23995972
-offset_top = 1.0
-offset_right = 0.15997314
-offset_bottom = 0.03999901
+anchor_left = 0.68700004
+anchor_top = 0.022000002
+anchor_right = 0.734
+anchor_bottom = 0.106000006
+offset_left = 0.3199768
+offset_top = 0.07999945
+offset_right = 0.23999023
+offset_bottom = -0.16000366
+grow_horizontal = 0
 mouse_default_cursor_shape = 2
 icon = ExtResource("3_kmnmp")
 icon_alignment = 1

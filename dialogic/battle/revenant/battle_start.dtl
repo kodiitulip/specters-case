@@ -1,0 +1,8 @@
+join pam leftmost
+join errante rightmost [mirrored="true"]
+Um fantasma [wave]Revenant[/wave] encontra-se a sua frente.
+- Exorcisar
+	do SceneTransitionManager.transition_to("uid://c2fhrlxr43suj")
+- Deixar em Paz
+	leave --All--
+	[end_timeline]
