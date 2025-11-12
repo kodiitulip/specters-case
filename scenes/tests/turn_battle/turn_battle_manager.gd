@@ -50,7 +50,7 @@ func _player_attack() -> void:
 
 
 func _player_heal() -> void:
-	_set_flavor_text(player_heal_flavor_text)
+	await _set_flavor_text(player_heal_flavor_text)
 	player_battler.heal_self()
 
 

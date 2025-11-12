@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 func _get_path_to(point: Vector2) -> Array[Vector2]:
 	var from: Vector2i = map.local_to_map(global_position)
-	var path: Array[Vector2i] = grid.get_id_path(from, point)
+	var path: Array[Vector2i] = grid.get_id_path(from, point, true)
 	path.pop_front()
 	var res: Array[Vector2] = []
 	res.assign(
