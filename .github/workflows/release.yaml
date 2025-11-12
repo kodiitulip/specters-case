@@ -33,7 +33,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  godot_version: 4.5.0
+  godot_version: 4.5.1
   app_binary_name: specters-case
   itch_page: ""
 
