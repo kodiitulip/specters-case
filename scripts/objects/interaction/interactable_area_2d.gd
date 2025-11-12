@@ -14,13 +14,13 @@ func _ready() -> void:
 	mouse_exited.connect(GlobalSignalBus.emit_mouse_busy.bind(false))
 
 ## Called the first frame that the interaction starts
-@abstract func on_interact_started() -> void
+@abstract func on_interact_started() -> void;
 
 ## Called for every frame that the interaction is happening
-@abstract func on_interacting() -> void
+@abstract func on_interacting() -> void;
 
 ## Called on the last frame that the interaction happens
-@abstract func on_interact_ended() -> void
+@abstract func on_interact_ended() -> void;
 
 
 func _process(_delta: float) -> void:

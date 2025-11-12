@@ -43,8 +43,13 @@ gdscript/warnings/unsafe_call_argument=1
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"errante": "res://dialogic/characters/ghost/errante.dch",
+"pam": "res://dialogic/characters/ghost/pam.dch"
+}
+directories/dtl_directory={
+"errante": "res://dialogic/ghost/errante.dtl"
+}
 layout/style_directory={}
 
 [display]

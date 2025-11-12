@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuw84s7cfo74o"]
+
+[ext_resource type="Texture2D" uid="uid://nv5js7c3al2n" path="res://assets/revenant_sprite.png" id="1_5hlcw"]
+[ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="1_vyk65"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyk65"]
+radius = 16.0
+
+[node name="Revenant" type="Area2D"]
+script = ExtResource("1_vyk65")
+metadata/_custom_type_script = "uid://d1ithttgd13on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vyk65")
+
+[node name="RevenantSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.22070313, 0.19433594)
+texture = ExtResource("1_5hlcw")
+hframes = 12
+frame = 1
