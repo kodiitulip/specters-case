@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://0d6t1cxsqes1"]
+[gd_scene load_steps=18 format=4 uid="uid://0d6t1cxsqes1"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="2_vlt61"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_pf0pg"]
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="9_4qhr7"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_yeygg"]
+[ext_resource type="Resource" uid="uid://r4isn8v0etv2" path="res://dialogic/battle/revenant/battle1.dtl" id="10_ofq5j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_vmb2j"]
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="12_qlfdu"]
 [ext_resource type="Script" uid="uid://c35magy4ubem" path="res://scripts/components/world_tile_map/world_tile_map.gd" id="13_t4fkg"]
@@ -26,7 +27,6 @@ script = ExtResource("10_vmb2j")
 [node name="InventoryInterface" parent="InterfaceLayer" instance=ExtResource("1_r2bnu")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
 position = Vector2(320, 188)
 limit_left = 0
 limit_top = 0
@@ -82,25 +82,22 @@ tile_map_data = PackedByteArray("AAAMABQAAAAAAAUAAAANABQAAAABAAUAAAAOABQAAAABAAU
 tile_set = ExtResource("14_t4fkg")
 metadata/_edit_lock_ = true
 
-[node name="TileMovingCharacter" parent="WorldTiles" instance=ExtResource("14_4qhr7")]
-position = Vector2(336, 246)
+[node name="Revenant" parent="World" instance=ExtResource("9_4qhr7")]
+position = Vector2(232, 280)
+dialog = ExtResource("10_ofq5j")
 
-[node name="Revenant" parent="WorldTiles" instance=ExtResource("9_4qhr7")]
-position = Vector2(235, 274)
-
-[node name="OverlayInteractableArea" type="Area2D" parent="WorldTiles"]
+[node name="OverlayInteractableArea" type="Area2D" parent="World"]
 position = Vector2(390, 220)
 script = ExtResource("2_vlt61")
 overlay_scene = ExtResource("3_hd3tn")
 metadata/_custom_type_script = "uid://cheqal1ea658b"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/OverlayInteractableArea"]
-position = Vector2(0, 6.091674)
+position = Vector2(0, 6)
 scale = Vector2(0.23048902, 0.23048902)
 polygon = PackedVector2Array(-69.417725, -104.126465, 69.4176, -104.126465, 69.4176, 52.06317, -69.417725, 52.06317)
 
 [node name="Sprite2D" type="Sprite2D" parent="World/OverlayInteractableArea"]
-position = Vector2(0, -7.6293945e-06)
 scale = Vector2(0.23048902, 0.23048902)
 texture = ExtResource("5_yeygg")
 

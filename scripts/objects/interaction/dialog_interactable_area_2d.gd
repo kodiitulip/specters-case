@@ -1,11 +1,11 @@
 class_name DialogInteractableArea2D
 extends InteractableArea2D
 
-@export var dialog: String
+@export var dialog: DialogicTimeline
 
 
 func on_interact_started() -> void:
-	Dialogic.start("res://dialogic/ghost/errante.dtl")
+	Dialogic.start(dialog)
 
 
 func on_interacting() -> void:

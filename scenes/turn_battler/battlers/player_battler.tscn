@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://dk0148ks3ybjv"]
+
+[ext_resource type="Script" uid="uid://ciqm0pyxie3wv" path="res://scenes/turn_battler/battlers/player_battler.gd" id="1_88vec"]
+[ext_resource type="Resource" uid="uid://02uh6v8eglh" path="res://resources/turn_battle/battlers/pam.tres" id="2_pq6a6"]
+[ext_resource type="Texture2D" uid="uid://ccx02xs620aus" path="res://assets/tilemap_assets/modern_interiors/characters_free/amelia_idle_anim_16x16.png" id="3_pq6a6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2pil"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clxjq"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqcgt"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixxeq"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc70i"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1k3a"]
+atlas = ExtResource("3_pq6a6")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvux1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2pil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clxjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqcgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixxeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc70i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1k3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerBattler" type="Node2D" groups=["player_battler"]]
+script = ExtResource("1_88vec")
+stats = ExtResource("2_pq6a6")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pvux1")
+autoplay = "default"
+frame_progress = 0.84876007
+offset = Vector2(0, -14)
