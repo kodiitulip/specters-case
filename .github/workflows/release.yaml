@@ -115,7 +115,7 @@ jobs:
 
       - name: Setup Godot
         if: ${{ env.is_platform_enabled == 'true' }}
-        uses: chickensoft-games/action-setup-godot@v2
+        uses: chickensoft-games/setup-godot@v2
         with:
           version: ${{ env.godot_version }}
           use-dotnet: false
