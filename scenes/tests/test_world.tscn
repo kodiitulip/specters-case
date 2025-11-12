@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_pf0pg"]
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="9_4qhr7"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_yeygg"]
-[ext_resource type="Resource" uid="uid://r4isn8v0etv2" path="res://dialogic/battle/revenant/battle1.dtl" id="10_ofq5j"]
+[ext_resource type="Resource" uid="uid://baawekrmlgboj" path="res://dialogic/battle/revenant/battle_start.dtl" id="10_ofq5j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_vmb2j"]
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="12_qlfdu"]
 [ext_resource type="Script" uid="uid://c35magy4ubem" path="res://scripts/components/world_tile_map/world_tile_map.gd" id="13_t4fkg"]

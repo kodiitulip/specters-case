@@ -49,6 +49,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "battle1": "res://dialogic/battle/revenant/battle1.dtl",
+"battle_start": "res://dialogic/battle/revenant/battle_start.dtl",
 "errante": "res://dialogic/ghost/errante.dtl"
 }
 layout/style_directory={

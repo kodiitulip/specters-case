@@ -113,19 +113,21 @@ region = Rect2(90, 171, 106, 8)
 atlas = ExtResource("4_r8var")
 region = Rect2(90, 159, 106, 8)
 
-[node name="EnemyBattler" type="Node2D" groups=["enemy_battler"]]
+[node name="EnemyBattler" type="Node2D" node_paths=PackedStringArray("sprite") groups=["enemy_battler"]]
 script = ExtResource("1_r8var")
 stats = SubResource("Resource_r8var")
+current_hp = 40
+sprite = NodePath("Sprite")
 metadata/_custom_type_script = "uid://ciqm0pyxie3wv"
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_xh1c4")
 autoplay = "default"
 frame_progress = 0.38619426
 offset = Vector2(0, -42)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -138,5 +140,6 @@ offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 max_value = 40.0
+value = 40.0
 texture_under = SubResource("AtlasTexture_xh1c4")
 texture_progress = SubResource("AtlasTexture_nbree")

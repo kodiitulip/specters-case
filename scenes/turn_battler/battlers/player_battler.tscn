@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dk0148ks3ybjv"]
+[gd_scene load_steps=14 format=3 uid="uid://dk0148ks3ybjv"]
 
-[ext_resource type="Script" uid="uid://ciqm0pyxie3wv" path="res://scenes/turn_battler/battlers/player_battler.gd" id="1_88vec"]
+[ext_resource type="Script" uid="uid://dru5ajrm7jqa0" path="res://scenes/turn_battler/battlers/player_battler.gd" id="1_88vec"]
 [ext_resource type="Resource" uid="uid://02uh6v8eglh" path="res://resources/turn_battle/battlers/pam.tres" id="2_pq6a6"]
 [ext_resource type="Texture2D" uid="uid://ccx02xs620aus" path="res://assets/tilemap_assets/modern_interiors/characters_free/amelia_idle_anim_16x16.png" id="3_pq6a6"]
+[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="4_b2pil"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2pil"]
 atlas = ExtResource("3_pq6a6")
@@ -54,12 +55,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerBattler" type="Node2D" groups=["player_battler"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvux1"]
+atlas = ExtResource("4_b2pil")
+region = Rect2(90, 171, 106, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sopp"]
+atlas = ExtResource("4_b2pil")
+region = Rect2(90, 159, 106, 8)
+
+[node name="PlayerBattler" type="Node2D" node_paths=PackedStringArray("sprite") groups=["player_battler"]]
 script = ExtResource("1_88vec")
 stats = ExtResource("2_pq6a6")
+current_hp = 10
+sprite = NodePath("Sprite")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pvux1")
 autoplay = "default"
 frame_progress = 0.84876007
 offset = Vector2(0, -14)
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -44.0
+offset_right = 53.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 40.0
+value = 40.0
+texture_under = SubResource("AtlasTexture_pvux1")
+texture_progress = SubResource("AtlasTexture_2sopp")
