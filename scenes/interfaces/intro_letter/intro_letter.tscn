@@ -1,0 +1,176 @@
+[gd_scene load_steps=9 format=3 uid="uid://bndyubb6g6qr6"]
+
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_qw8fh"]
+[ext_resource type="Texture2D" uid="uid://cv18u3b0r1sm8" path="res://assets/ui/paper.png" id="2_f8tvr"]
+[ext_resource type="Script" uid="uid://3c5atpo2tw01" path="res://scenes/interfaces/intro_letter/intro_letter.gd" id="3_f8tvr"]
+[ext_resource type="Texture2D" uid="uid://djig3khrb3b2v" path="res://assets/ui/button_icons.png" id="3_s78nw"]
+
+[sub_resource type="Animation" id="Animation_f8tvr"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(225, 66), Vector2(225, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.10511237),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s78nw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(225, 66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Page1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s78nw"]
+_data = {
+&"RESET": SubResource("Animation_s78nw"),
+&"fade": SubResource("Animation_f8tvr")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wly1"]
+atlas = ExtResource("3_s78nw")
+region = Rect2(0, 0, 16, 16)
+
+[node name="IntroLetter" type="NinePatchRect"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -114.0
+offset_right = 95.0
+offset_bottom = 114.000336
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qw8fh")
+texture = ExtResource("2_f8tvr")
+patch_margin_left = 6
+patch_margin_top = 3
+patch_margin_right = 6
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+script = ExtResource("3_f8tvr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s78nw")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 24
+
+[node name="Page1" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.0970032, 0.11992783, 0.27043632, 1)
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Cara Pamela Maren,
+
+Você está sendo convocada em seu primeiro trabalho como [color=blue]Investigadora Paranormal[/color] na cidade de Quillbrook.
+
+Muitos moradores tem reportado aparições e presenças de fantasmas. Então o sherife local chamou nossa organização para lidar-mos com essas aparições.
+
+Espero que esteja disposta a dar seu melhor [color=blue]Investigadora Maren[/color]
+
+[p align=right]- W.A       [/p]"
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -22.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 20.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_7wly1")
+stretch_mode = 3
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

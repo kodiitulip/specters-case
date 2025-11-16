@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://txydcsuw1bx2"]
+[gd_scene load_steps=15 format=3 uid="uid://txydcsuw1bx2"]
 
 [ext_resource type="Script" uid="uid://mplyjta2u5pk" path="res://scenes/managers/scene_transition/scene_transition.gd" id="1_3y8qk"]
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="2_3fkr7"]
 
 [sub_resource type="Animation" id="Animation_3y8qk"]
 length = 0.001
@@ -252,6 +253,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_3fkr7")
 color = Color(0.12941177, 0.047058824, 0.13725491, 0)
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect"]

@@ -1,7 +1,8 @@
+[style name="battle"]
 errante: .....
 pam: Oi...?
 label choices
-- Perguntar sobre
+- Perguntar sobre | [if {calm} == false]
 	pam: Meu nome é Pam e sou a nova investigadora sobre os casos de desaparecimento de Quillbrook.
 	pam: Poderia me contar um pouco mais sobre você e o que faz aqui?
 	errante: As vozes chamam… mas não sei quem sou...

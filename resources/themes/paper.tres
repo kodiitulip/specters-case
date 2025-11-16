@@ -1,0 +1,51 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://deumsw3rtheqj"]
+
+[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="1_3q08o"]
+[ext_resource type="FontFile" uid="uid://6qb1tlevtqgf" path="res://assets/kenney_kenney-fonts/Fonts/Kenney Mini.ttf" id="1_kal18"]
+[ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/dialogic/fancy_style_box_texture.tres" id="2_neqo8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us5fq"]
+texture = ExtResource("1_3q08o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(96, 83, 39, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2m5t"]
+texture = ExtResource("1_3q08o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(96, 83, 39, 14)
+modulate_color = Color(0.82012546, 0.7930422, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_neqo8"]
+texture = ExtResource("1_3q08o")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(90, 171, 106, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q08o"]
+texture = ExtResource("1_3q08o")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(90, 159, 106, 8)
+
+[resource]
+default_font = ExtResource("1_kal18")
+default_font_size = 16
+Button/styles/normal = SubResource("StyleBoxTexture_us5fq")
+Button/styles/pressed = SubResource("StyleBoxTexture_l2m5t")
+PanelContainer/styles/panel = ExtResource("2_neqo8")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 2
+ProgressBar/font_sizes/font_size = 8
+ProgressBar/styles/background = SubResource("StyleBoxTexture_neqo8")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_3q08o")
