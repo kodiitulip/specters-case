@@ -1,48 +1,165 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck2xg28ndep6c"]
+[gd_scene load_steps=10 format=3 uid="uid://ck2xg28ndep6c"]
 
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_3t1um"]
 [ext_resource type="Script" uid="uid://b63p6x4q7j7jh" path="res://scenes/interfaces/inventory/inventory_interface.gd" id="1_nt5kk"]
 [ext_resource type="PackedScene" uid="uid://chwlamrudke74" path="res://scenes/interfaces/inventory/slots/inventory_slot.tscn" id="1_qq0pn"]
-[ext_resource type="Texture2D" uid="uid://cuuevkwd00wky" path="res://assets/player.png" id="2_o5khu"]
 [ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="3_irs6v"]
+[ext_resource type="Resource" uid="uid://bgc6sj5v44j1g" path="res://resources/items/test_item.tres" id="3_scruo"]
+[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="4_irs6v"]
+[ext_resource type="Texture2D" uid="uid://baplpran10s6p" path="res://assets/items/music_player.png" id="4_scruo"]
 
 [sub_resource type="Resource" id="Resource_scruo"]
+resource_name = "Music Player"
 script = ExtResource("3_irs6v")
-item_name = "TESTING"
-item_icon = ExtResource("2_o5khu")
+item_name = "Music Player"
+item_description = null
+item_icon = ExtResource("4_scruo")
 metadata/_custom_type_script = "uid://dbs75u1g8tvpi"
 
-[node name="InventoryInterface" type="MarginContainer"]
-anchors_preset = -1
-anchor_left = 0.90625
-anchor_right = 0.984375
+[sub_resource type="AtlasTexture" id="AtlasTexture_scruo"]
+atlas = ExtResource("4_irs6v")
+region = Rect2(368, 9, 20, 20)
+
+[node name="InventoryInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+mouse_filter = 2
+theme = ExtResource("1_3t1um")
 script = ExtResource("1_nt5kk")
-temp_item_data = SubResource("Resource_scruo")
+items = Dictionary[int, ExtResource("3_irs6v")]({
+0: ExtResource("3_scruo"),
+10: SubResource("Resource_scruo")
+})
+
+[node name="OpenInventoryButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9125
+anchor_top = 0.06666667
+anchor_right = 0.9625
+anchor_bottom = 0.15555556
+grow_horizontal = 0
+toggle_mode = true
+icon = SubResource("AtlasTexture_scruo")
+flat = true
+icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SlotsContainer" type="VBoxContainer" parent="."]
+[node name="Inventory" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotsContainer" type="GridContainer" parent="Inventory"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.175
+anchor_top = -1.475
+anchor_right = 5.175
+anchor_bottom = 2.475
+grow_horizontal = 2
+grow_vertical = 2
+columns = 7
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotContainer" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer2" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer3" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer4" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer5" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer6" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer7" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer8" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer9" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer10" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer11" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer12" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer13" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer14" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer15" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer16" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer17" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer18" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer19" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer20" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="SlotContainer21" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.175
+anchor_top = 2.6
+anchor_right = 5.175
+anchor_bottom = 2.6000001
+offset_bottom = 39.999992
+grow_horizontal = 2
+theme_type_variation = &"InventoryTooltip"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextTooltip" type="RichTextLabel" parent="Inventory/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-alignment = 1
+size_flags_vertical = 0
+bbcode_enabled = true
+fit_content = true
 
-[node name="SlotContainer" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
-
-[node name="SlotContainer2" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
-
-[node name="SlotContainer3" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
-
-[node name="SlotContainer4" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
-
-[node name="SlotContainer5" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
-
-[node name="SlotContainer6" parent="SlotsContainer" instance=ExtResource("1_qq0pn")]
-layout_mode = 2
+[connection signal="toggled" from="OpenInventoryButton" to="." method="_on_open_inventory_button_toggled"]
