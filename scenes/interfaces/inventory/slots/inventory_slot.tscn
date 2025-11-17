@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chwlamrudke74"]
+[gd_scene load_steps=3 format=3 uid="uid://chwlamrudke74"]
 
 [ext_resource type="Script" uid="uid://clj8linavwdb1" path="res://scenes/interfaces/inventory/slots/inventory_slot.gd" id="1_lh1jn"]
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_s2sum"]
 
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(50, 50)
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_s2sum")
+theme_type_variation = &"InventorySlot"
 script = ExtResource("1_lh1jn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

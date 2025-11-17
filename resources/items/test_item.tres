@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="1_psov8"]
 
 [resource]
+resource_name = "Test Item"
 script = ExtResource("1_psov8")
 item_name = "Test Item"
+item_description = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
 item_icon = ExtResource("1_bppqf")
 metadata/_custom_type_script = "uid://dbs75u1g8tvpi"

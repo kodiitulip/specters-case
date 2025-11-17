@@ -2,6 +2,7 @@ class_name InventorySlot
 extends PanelContainer
 
 signal on_item_dropped_on(origin_id: int, destination_id: int)
+signal slot_hover_started(item: ItemData)
 
 @export var slot_item: ItemData:
 	set = fill_slot
@@ -9,6 +10,11 @@ signal on_item_dropped_on(origin_id: int, destination_id: int)
 var slot_id: int = -1
 
 @onready var _texture_rect: TextureRect = $MarginContainer/TextureRect
+
+func _ready() -> void:
+	mouse_entered.connect(func() -> void: slot_hover_started.emit(
+		slot_item
+	))
 
 
 func is_full() -> bool:
