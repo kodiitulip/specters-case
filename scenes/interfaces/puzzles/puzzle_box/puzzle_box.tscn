@@ -1,0 +1,248 @@
+[gd_scene load_steps=18 format=3 uid="uid://deotowhojwkwo"]
+
+[ext_resource type="Script" uid="uid://cq0yjt5lh3jn2" path="res://scenes/interfaces/puzzles/puzzle_box/puzzle_box_overlay.gd" id="1_7s0hg"]
+[ext_resource type="Resource" uid="uid://c1so8164c4851" path="res://resources/items/music_player.tres" id="2_m0nbx"]
+[ext_resource type="Texture2D" uid="uid://bv87hmy2wv84k" path="res://assets/items/box.png" id="2_pcq2n"]
+[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="3_cugxw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65sc3"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t14xd"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obt7x"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fujvq"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8bh1"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5isw"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yrrh"]
+atlas = ExtResource("2_pcq2n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcq2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65sc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t14xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obt7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fujvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8bh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5isw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yrrh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0nbx"]
+atlas = ExtResource("3_cugxw")
+region = Rect2(110, 206, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85b0a"]
+atlas = ExtResource("3_cugxw")
+region = Rect2(92, 206, 14, 14)
+
+[sub_resource type="Animation" id="Animation_m0nbx"]
+resource_name = "win"
+length = 2.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_85b0a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GridContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85b0a"]
+_data = {
+&"RESET": SubResource("Animation_85b0a"),
+&"win": SubResource("Animation_m0nbx")
+}
+
+[node name="PuzzleBox" type="Control" node_paths=PackedStringArray("answer_order")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7s0hg")
+answer_order = [NodePath("GridContainer/B1"), NodePath("GridContainer/B2"), NodePath("GridContainer/B3"), NodePath("GridContainer/B4"), NodePath("GridContainer/B5"), NodePath("GridContainer/B6")]
+item_to_give = ExtResource("2_m0nbx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(320.00003, 182.00002)
+scale = Vector2(9.550543, 9.550543)
+sprite_frames = SubResource("SpriteFrames_pcq2n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -94.0
+offset_right = 96.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 16.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="B1" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="B2" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="B3" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="B4" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="B5" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="B6" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_m0nbx")
+texture_pressed = SubResource("AtlasTexture_85b0a")
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_85b0a")
+}
+
+[connection signal="toggled" from="GridContainer/B1" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="GridContainer/B2" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="GridContainer/B3" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="GridContainer/B4" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="GridContainer/B5" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="GridContainer/B6" to="." method="_on_b_1_toggled" flags=18]

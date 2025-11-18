@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://doo76dl4rk7ln"]
+
+[ext_resource type="Script" uid="uid://3d0gugq48n8b" path="res://scenes/items/box/puzzle_box.gd" id="1_65sc3"]
+[ext_resource type="PackedScene" uid="uid://deotowhojwkwo" path="res://scenes/interfaces/puzzles/puzzle_box/puzzle_box.tscn" id="2_65sc3"]
+[ext_resource type="Texture2D" uid="uid://bv87hmy2wv84k" path="res://assets/items/box.png" id="2_qxpaa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxpaa"]
+radius = 12.369317
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65sc3"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t14xd"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obt7x"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fujvq"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8bh1"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5isw"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yrrh"]
+atlas = ExtResource("2_qxpaa")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8diye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65sc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t14xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obt7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fujvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8bh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5isw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yrrh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PuzzleBox" type="Area2D"]
+script = ExtResource("1_65sc3")
+overlay_scene = ExtResource("2_65sc3")
+metadata/_custom_type_script = "uid://cheqal1ea658b"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qxpaa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8diye")

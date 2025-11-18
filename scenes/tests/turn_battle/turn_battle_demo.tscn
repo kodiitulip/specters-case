@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://4sk2xumjhaoj"
 [node name="TurnBattleDemo" type="Node"]
 script = ExtResource("1_frio6")
 death_scene = "uid://0d6t1cxsqes1"
-victory_scene = "uid://0d6t1cxsqes1"
+victory_scene = "uid://buhftm8e6bct0"
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(320, 180)
