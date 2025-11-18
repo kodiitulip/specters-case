@@ -57,6 +57,7 @@ func pickup_item(item: ItemData, id: int = -1) -> Error:
 		printerr("Inventory Full")
 		return Error.FAILED
 	items.set(slot.slot_id, item)
+	GlobalInventory.add_item(item)
 	slot.fill_slot(item)
 	return Error.OK
 

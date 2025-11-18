@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://gmfv21d5j7nw"]
+
+[ext_resource type="Script" uid="uid://4sk2xumjhaoj" path="res://scripts/resources/battle_action.gd" id="1_6nkfr"]
+
+[resource]
+resource_name = "Holy Water"
+script = ExtResource("1_6nkfr")
+item_requirements_enable = null
+attack_action_enable = true
+attack_action_damage = 2
+attack_action_flavor_text = Array[String](["Você esguicha um pouco de [color=yellow]Água benta[/color] no seu inimigo."])
+metadata/_custom_type_script = "uid://4sk2xumjhaoj"

@@ -2,13 +2,7 @@
 class_name EnemyBattler extends Battler
 
 @onready var health_bar: TextureProgressBar = $HealthBar
-
-func attack(enemy_target: Battler) -> void:
-	await get_tree().create_timer(0.6).timeout
-	enemy_target.be_damaged(_get_attack_damage())
-	await get_tree().create_timer(0.6).timeout
-	turn_ended.emit()
-
+@export var actions: Array[BattleAction] = []
 
 func _ready() -> void:
 	super._ready()

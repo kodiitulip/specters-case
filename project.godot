@@ -31,6 +31,7 @@ OverlayLayer="*res://scripts/managers/overlay_layer.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://scripts/managers/signal_bus.gd"
+GlobalInventory="*res://scripts/managers/global_inventory.gd"
 
 [debug]
 
@@ -48,8 +49,6 @@ directories/dch_directory={
 "pam": "res://dialogic/characters/ghost/pam.dch"
 }
 directories/dtl_directory={
-"battle1": "res://dialogic/battle/revenant/battle1.dtl",
-"battle_start": "res://dialogic/battle/revenant/battle_start.dtl",
 "errante": "res://dialogic/ghost/errante.dtl"
 }
 layout/style_directory={

@@ -1,17 +1,23 @@
-[gd_scene load_steps=7 format=4 uid="uid://c2fhrlxr43suj"]
+[gd_scene load_steps=11 format=4 uid="uid://c2fhrlxr43suj"]
 
 [ext_resource type="TileSet" uid="uid://ncjy0eicsiet" path="res://resources/tileset/exterior_tile_set.tres" id="1_f4y3a"]
 [ext_resource type="Script" uid="uid://daff452ghs2ub" path="res://scenes/tests/turn_battle/turn_battle_manager.gd" id="1_frio6"]
 [ext_resource type="PackedScene" uid="uid://dk0148ks3ybjv" path="res://scenes/turn_battler/battlers/player_battler.tscn" id="2_7ugl8"]
 [ext_resource type="Texture2D" uid="uid://bk3tuixlure04" path="res://assets/ui/grid.png" id="2_frio6"]
 [ext_resource type="PackedScene" uid="uid://b1ahan0guskl4" path="res://scenes/turn_battler/battlers/enemy_battler.tscn" id="3_7x5hm"]
+[ext_resource type="Script" uid="uid://4sk2xumjhaoj" path="res://scripts/resources/battle_action.gd" id="6_0tg4g"]
+[ext_resource type="Script" uid="uid://14tdaqd26tph" path="res://scripts/components/turn_battle/attack_button.gd" id="7_6mky7"]
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="7_frio6"]
+[ext_resource type="Resource" uid="uid://gmfv21d5j7nw" path="res://resources/turn_battle/actions/holy_water.tres" id="8_6mky7"]
+
+[sub_resource type="Resource" id="Resource_qe51g"]
+script = ExtResource("6_0tg4g")
+attack_action_enable = true
+attack_action_flavor_text = Array[String](["O ar ao se redor esfria e você sente uma dor no peito."])
+metadata/_custom_type_script = "uid://4sk2xumjhaoj"
 
 [node name="TurnBattleDemo" type="Node"]
 script = ExtResource("1_frio6")
-enemy_flavor_text = Array[String](["[wave]Revenant[/wave] parece inquieto", "[wave]Revenant[/wave] reage de volta"])
-player_flavor_text = Array[String](["Você interage com [wave]Revenant[/wave]", "Você tenta explicar que [wave]Revenant[/wave] já morreu"])
-player_heal_flavor_text = Array[String](["Você aplica bandagens as suas feridas"])
 death_scene = "uid://0d6t1cxsqes1"
 victory_scene = "uid://0d6t1cxsqes1"
 
@@ -74,12 +80,15 @@ position = Vector2(441.00003, 224.00002)
 scale = Vector2(1.5, 1.5)
 
 [node name="EnemyBattler" parent="EnemyMarker" instance=ExtResource("3_7x5hm")]
+actions = Array[ExtResource("6_0tg4g")]([SubResource("Resource_qe51g")])
 mirrored = true
+current_hp = 10
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Action Buttons" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = -1
+[node name="ActionButtons" type="VBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
@@ -89,21 +98,26 @@ offset_bottom = -19.0
 theme = ExtResource("7_frio6")
 alignment = 1
 
-[node name="HolyWater" type="Button" parent="CanvasLayer/Action Buttons"]
+[node name="HolyWater" type="Button" parent="CanvasLayer/ActionButtons"]
 layout_mode = 2
 text = "Agua Benta"
+script = ExtResource("7_6mky7")
+action = ExtResource("8_6mky7")
 
-[node name="SpiritBox" type="Button" parent="CanvasLayer/Action Buttons"]
+[node name="SpiritBox" type="Button" parent="CanvasLayer/ActionButtons"]
 layout_mode = 2
 text = "Spirit Box"
+script = ExtResource("7_6mky7")
 
-[node name="MusicBox" type="Button" parent="CanvasLayer/Action Buttons"]
+[node name="MusicBox" type="Button" parent="CanvasLayer/ActionButtons"]
 layout_mode = 2
 text = "Caixa de Música"
+script = ExtResource("7_6mky7")
 
-[node name="Bandages" type="Button" parent="CanvasLayer/Action Buttons"]
+[node name="Bandages" type="Button" parent="CanvasLayer/ActionButtons"]
 layout_mode = 2
 text = "Bandagem"
+script = ExtResource("7_6mky7")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = -1
@@ -116,7 +130,8 @@ grow_vertical = 0
 theme = ExtResource("7_frio6")
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+[node name="FlavorTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
