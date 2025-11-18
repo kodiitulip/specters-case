@@ -22,9 +22,7 @@ func _ready() -> void:
 func on_interact_started() -> void:
 	GlobalSignalBus.send_new_position_to_player(global_position)
 	await GlobalSignalBus.player_path_goal_reached
-	var err: Error = InventoryInterface.instance.pickup_item(item_data)
-	if err != OK:
-		return
+	GlobalInventory.add_item(item_data, -1)
 	if infinite:
 		return
 	if free_target:

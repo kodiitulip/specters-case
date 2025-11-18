@@ -5,6 +5,8 @@ extends InteractableArea2D
 
 
 func on_interact_started() -> void:
+	GlobalSignalBus.send_new_position_to_player(global_position)
+	await GlobalSignalBus.player_path_goal_reached
 	Dialogic.start(dialog)
 
 

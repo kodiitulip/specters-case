@@ -49,7 +49,8 @@ directories/dch_directory={
 "pam": "res://dialogic/characters/ghost/pam.dch"
 }
 directories/dtl_directory={
-"errante": "res://dialogic/ghost/errante.dtl"
+"errante": "res://dialogic/ghost/errante.dtl",
+"you_got_item": "res://dialogic/loot/you_got_item.dtl"
 }
 layout/style_directory={
 "battle": "res://dialogic/themes/battle.tres"
@@ -59,6 +60,9 @@ variables={
 "calm": false,
 "exorcised": false,
 "intrigued": false,
+"puzzles": {
+"item_name": ""
+},
 "started": false
 }
 layout/default_style="Default"
