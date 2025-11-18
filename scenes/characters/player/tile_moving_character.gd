@@ -15,10 +15,23 @@ var _mouse_busy: bool = false
 
 func _ready() -> void:
 	GlobalSignalBus.mouse_busy.connect(func(v: bool) -> void: _mouse_busy = v)
+	GlobalSignalBus.new_player_path_goal_sent.connect(_on_new_player_path_goal_sent)
 	assert(WorldTileMapLayer.instance and WorldTileMapLayer.astar_grid,
 		"No WorldTileMapLayer found")
 	map = WorldTileMapLayer.instance
 	grid = WorldTileMapLayer.astar_grid
+
+
+func _on_new_player_path_goal_sent(pos: Vector2) -> void:
+	target_path = _get_path_to(map.local_to_map(pos))
+	_set_direction_blending()
+	_mouse_busy = true
+	GlobalSignalBus.player_path_goal_reached.connect(_on_player_path_goal_reached)
+
+
+func _on_player_path_goal_reached() -> void:
+	GlobalSignalBus.player_path_goal_reached.disconnect(_on_player_path_goal_reached)
+	_mouse_busy = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,6 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if target_path.size() == 0:
+		GlobalSignalBus.emit_player_path_goal_reached()
 		return
 	global_position = global_position.move_toward(target_path[0], delta * speed)
 	

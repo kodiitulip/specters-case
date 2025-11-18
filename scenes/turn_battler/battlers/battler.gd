@@ -20,7 +20,8 @@ func _ready() -> void:
 	current_hp = stats.max_hp
 
 
-@abstract func attack(enemy_target: Battler) -> void;
+func end_turn() -> void:
+	turn_ended.emit()
 
 
 func be_damaged(damage: int) -> void:
@@ -30,8 +31,8 @@ func be_damaged(damage: int) -> void:
 		dead.emit()
 
 
-func _get_attack_damage() -> int:
-	return randi_range(stats.min_damage, stats.max_damage)
+func heal_self(amount: int) -> void:
+	current_hp += amount
 
 
 func _set_current_hp(value: int) -> void:

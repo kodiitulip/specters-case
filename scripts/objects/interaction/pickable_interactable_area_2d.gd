@@ -8,10 +8,10 @@ extends InteractableArea2D
 ## The data of this item
 @export var item_data: ItemData
 ## Tell if the item should desapear after being picked up
-@export var finite: bool = true
+@export var infinite: bool = false
 ## The Node this area should [code]queue_free()[/code] in case of being finite.
 ## If [code]null[/code], deafults to [code]queue_free()[/code] the area itself
-@export var free_target: Node = null
+@export var free_target: Node = self
 
 func _ready() -> void:
 	super._ready()
@@ -20,8 +20,12 @@ func _ready() -> void:
 
 ## Called the first frame that the interaction starts
 func on_interact_started() -> void:
-	InventoryInterface.instance.pickup_item(item_data)
-	if not finite:
+	GlobalSignalBus.send_new_position_to_player(global_position)
+	await GlobalSignalBus.player_path_goal_reached
+	var err: Error = InventoryInterface.instance.pickup_item(item_data)
+	if err != OK:
+		return
+	if infinite:
 		return
 	if free_target:
 		return _remove(free_target)

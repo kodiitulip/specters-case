@@ -11,6 +11,8 @@ extends InteractableArea2D
 ## Called the first frame that the interaction starts
 func on_interact_started() -> void:
 	assert(overlay_scene != null, "[code]overlay_scene[/code] must not be null")
+	GlobalSignalBus.send_new_position_to_player(global_position)
+	await GlobalSignalBus.player_path_goal_reached
 	var overlay: Node = overlay_scene.instantiate()
 	OverlayLayer.change_overlay_to(overlay)
 
