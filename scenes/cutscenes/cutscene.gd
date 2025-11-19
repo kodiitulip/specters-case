@@ -3,6 +3,7 @@ class_name CutSceneManager extends Node
 @export_file("*.tscn") var scene_after: String
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var quit: Button = $Quit
 
 var next_shot: bool = false:
 	set(v):
@@ -23,8 +24,11 @@ func change_to_world() -> void:
 
 func _on_button_pressed(source: BaseButton) -> void:
 	source.hide()
+	quit.hide()
 	animation_tree.active = true
 
 
 func _on_quit_pressed() -> void:
+	if OS.has_feature("web"):
+		return JavaScriptBridge.eval("window.location.reload()", true)
 	get_tree().quit()

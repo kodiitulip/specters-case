@@ -27,10 +27,6 @@ on:
         description: "Upload to itch.io"
         default: true
         type: boolean
-      allow_debug_builds:
-        description: "Upload to itch.io"
-        default: false
-        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
@@ -133,17 +129,9 @@ jobs:
         if: ${{ env.is_platform_enabled == 'true' && matrix.platform != 'web' }}
         run: godot ./project.godot --headless --export-release ${{ matrix.platform }} ${{ env.app }}/${{ env.package }}
 
-      - name: Build Project (debug)
-        if: ${{ env.is_platform_enabled == 'true' && matrix.platform != 'web' && inputs.allow_debug_builds }}
-        run: godot ./project.godot --headless --export-debug ${{ matrix.platform }} ${{ env.app }}/debug-${{ env.package }}
-
       - name: Build Project (web)
         if: ${{ env.is_platform_enabled == 'true' && matrix.platform == 'web' }}
         run: godot ./project.godot --headless --export-release ${{ matrix.platform }} ${{ env.app }}/${{ env.webfolder }}/index.html
-
-      - name: Build Project (web-debug)
-        if: ${{ env.is_platform_enabled == 'true' && matrix.platform == 'web' && inputs.allow_debug_builds }}
-        run: godot ./project.godot --headless --export-release ${{ matrix.platform }} ${{ env.app }}/debug-${{ env.webfolder }}/index.html
 
       - name: Zip Project (web)
         if: ${{ env.is_platform_enabled == 'true' && matrix.platform == 'web' }}
@@ -151,13 +139,6 @@ jobs:
         with:
           files: ${{ env.app }}/${{ env.webfolder }}
           dest: ${{ env.app }}/${{ env.package }}
-
-      - name: Zip Project (web-debug)
-        if: ${{ env.is_platform_enabled == 'true' && matrix.platform == 'web' && inputs.allow_debug_builds }}
-        uses: vimtor/action-zip@v1.2
-        with:
-          files: ${{ env.app }}/debug-${{ env.webfolder }}
-          dest: ${{ env.app }}/debug${{ env.package }}
 
       - name: Upload package to workflow artifacts
         if: ${{ env.is_platform_enabled == 'true' }}
@@ -173,17 +154,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.app }}/${{ env.package }}
-          asset_name: ${{ env.package }}
-          release_name: ${{ env.version }}
-          tag: ${{ env.version }}
-          overwrite: true
-
-      - name: Upload package to GitHub release (debug)
-        if: ${{ env.is_platform_enabled == 'true' && inputs.upload_to_github && inputs.allow_debug_builds }}
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.app }}/debug-${{ env.package }}
           asset_name: ${{ env.package }}
           release_name: ${{ env.version }}
           tag: ${{ env.version }}
