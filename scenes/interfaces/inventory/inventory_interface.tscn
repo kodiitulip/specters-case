@@ -32,6 +32,7 @@ anchor_top = 0.8666667
 anchor_right = 0.975
 anchor_bottom = 0.95555556
 grow_horizontal = 0
+tooltip_text = "Inventário"
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_irs6v")

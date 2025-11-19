@@ -41,6 +41,9 @@ scene = ExtResource("7_hpg6b")
 script = ExtResource("2_054ur")
 scene = ExtResource("8_mch6q")
 overrides = {
+"boxes_stylebox_focused": "\"res://dialogic/themes/button_hover_focus_texture.tres\"",
+"boxes_stylebox_hovered": "\"res://dialogic/themes/button_pressed_texture.tres\"",
+"boxes_stylebox_normal": "\"res://dialogic/themes/button_normal_texture.tres\"",
 "font_size_custom": "8.0"
 }
 

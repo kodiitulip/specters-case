@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkgxu8gt30b2n"]
+
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_ikike"]
+
+[node name="TutorialPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 134.0
+offset_bottom = 39.0
+theme = ExtResource("1_ikike")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
+[node name="Mouse" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.25
+anchor_top = 10.32
+anchor_right = 5.133333
+anchor_bottom = 11.6
+offset_top = -1.5258789e-05
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"InventoryTooltip"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mouse"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Use o [color=yellow]Mouse[/color] para se mover e interagir"
+
+[node name="Inventory" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.7833333
+anchor_top = 12.28
+anchor_right = 4.7083335
+anchor_bottom = 13.08
+offset_top = -1.5258789e-05
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"InventoryTooltip"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Inventory"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Esse é seu [color=yellow]Inventário[/color] ->"
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
