@@ -78,7 +78,7 @@ jobs:
           - platform: windows
             binary_ext: .exe
             package_ext: .zip
-            runner: windows-latest
+            runner: ubuntu-latest
     runs-on: ${{ matrix.runner }}
     permissions:
       # Required to create a GitHub release: <https://docs.github.com/en/rest/releases/releases#create-a-release>.
