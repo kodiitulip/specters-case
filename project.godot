@@ -49,6 +49,8 @@ directories/dch_directory={
 "pam": "res://dialogic/characters/ghost/pam.dch"
 }
 directories/dtl_directory={
+"blocking": "res://dialogic/ghost/blocking.dtl",
+"ending_demo": "res://dialogic/ending_demo.dtl",
 "errante": "res://dialogic/ghost/errante.dtl",
 "intro": "res://dialogic/loot/intro.dtl",
 "you_got_item": "res://dialogic/loot/you_got_item.dtl"
@@ -58,13 +60,11 @@ layout/style_directory={
 }
 layout/style_list=["res://dialogic/themes/battle.tres"]
 variables={
+"battle_scene_uuid": "uid://c2fhrlxr43suj",
 "calm": false,
-"exorcised": false,
-"intrigued": false,
 "puzzles": {
 "item_name": ""
-},
-"started": false
+}
 }
 layout/default_style="Default"
 extensions_folder="res://addons/dialogic_additions"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b7glbwlwtqvmi"]
+[gd_scene load_steps=20 format=4 uid="uid://b7glbwlwtqvmi"]
 
 [ext_resource type="Script" uid="uid://dopcg73nstiit" path="res://scenes/cutscenes/cutscene.gd" id="1_nexf8"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="1_wf4y2"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://ncjy0eicsiet" path="res://resources/tileset/exterior_tile_set.tres" id="3_nexf8"]
 [ext_resource type="Texture2D" uid="uid://cnyvjeay5f0o7" path="res://assets/red_car/red_suv_clean_west_000_sheet.png" id="4_ohvq1"]
 [ext_resource type="PackedScene" uid="uid://bndyubb6g6qr6" path="res://scenes/interfaces/intro_letter/intro_letter.tscn" id="6_hx84n"]
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="7_yu1x5"]
 
 [sub_resource type="Animation" id="Animation_yu1x5"]
 length = 0.001
@@ -159,6 +160,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_ohvq1")
 advance_expression_base_node = NodePath("..")
@@ -217,4 +219,39 @@ autoplay = "r"
 [node name="IntroLetter" parent="." instance=ExtResource("6_hx84n")]
 z_index = 1
 
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -24.0
+offset_right = 89.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_yu1x5")
+theme_override_font_sizes/font_size = 32
+text = "Começar"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 28.0
+offset_right = 89.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_yu1x5")
+theme_override_font_sizes/font_size = 32
+text = "Sair"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="closed" from="IntroLetter" to="." method="_on_intro_letter_closed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

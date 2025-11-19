@@ -3,10 +3,7 @@ extends Node
 signal mouse_busy(busy: bool)
 signal new_player_path_goal_sent(pos: Vector2)
 signal player_path_goal_reached()
-#
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action(&"escape"):
-		#get_tree().quit()
+signal battle_dialog_ended()
 
 
 func emit_mouse_busy(busy: bool) -> void:
@@ -20,3 +17,7 @@ func emit_player_path_goal_reached() -> void:
 func send_new_position_to_player(global_pos: Vector2) -> void:
 	mouse_busy.emit(true)
 	new_player_path_goal_sent.emit(global_pos)
+
+
+func emit_battle_dialog_ended() -> void:
+	battle_dialog_ended.emit()

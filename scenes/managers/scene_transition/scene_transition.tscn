@@ -208,13 +208,13 @@ advance_expression = "transition_state == TransitionState.IN"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hlq7p"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "_transitioning"
+advance_expression = "transition_state != TransitionState.IN"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3y8qk"]
 break_loop_at_end = true
 switch_mode = 2
 advance_mode = 2
-advance_expression = "not _transitioning and transition_state == TransitionState.OUT"
+advance_expression = "transition_state == TransitionState.OUT"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1tpv"]
 switch_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://0d6t1cxsqes1"]
+[gd_scene load_steps=21 format=4 uid="uid://0d6t1cxsqes1"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="2_klvsj"]
@@ -17,9 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://bf4n3ivsbhuc2" path="res://scenes/characters/player/tile_moving_character.tscn" id="14_4qhr7"]
 [ext_resource type="TileSet" uid="uid://brgocqdf4uti0" path="res://resources/tileset/interior_tile_set.tres" id="14_t4fkg"]
 [ext_resource type="Texture2D" uid="uid://mx5mu4iimg8y" path="res://assets/red_car/red_suv_clean_north_000_sheet.png" id="17_sj5dk"]
+[ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="18_7pf0w"]
 
 [sub_resource type="Resource" id="Resource_qlfdu"]
 script = ExtResource("10_vmb2j")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klvsj"]
+size = Vector2(69, 84)
 
 [node name="TestWorld" type="Node2D"]
 
@@ -112,8 +116,18 @@ texture = ExtResource("17_sj5dk")
 hframes = 4
 vframes = 3
 
+[node name="DialogInteractableArea2D" type="Area2D" parent="World"]
+position = Vector2(232, 209)
+script = ExtResource("18_7pf0w")
+dialog = "uid://dwf5c6248mpaw"
+metadata/_custom_type_script = "uid://d1ithttgd13on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DialogInteractableArea2D"]
+position = Vector2(-1, -73)
+shape = SubResource("RectangleShape2D_klvsj")
+
 [node name="Revenant" parent="World" instance=ExtResource("9_4qhr7")]
-position = Vector2(296, 192)
+position = Vector2(232, 192)
 
 [node name="OverlayInteractableArea" type="Area2D" parent="World"]
 position = Vector2(416, 208)

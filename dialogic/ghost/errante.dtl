@@ -15,6 +15,6 @@ label choices
 	jump choices
 - Exorcisar | [if {calm} == true]
 	pam: Vem cá amigão. Vamo te ajudar a atravessar.
-	do SceneTransitionManager.transition_to("uid://c2fhrlxr43suj")
+	do GlobalSignalBus.emit_battle_dialog_ended()
 - Deixar em paz
 	[end_timeline]

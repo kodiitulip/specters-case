@@ -2,6 +2,8 @@ class_name CutSceneManager extends Node
 
 @export_file("*.tscn") var scene_after: String
 
+@onready var animation_tree: AnimationTree = $AnimationTree
+
 var next_shot: bool = false:
 	set(v):
 		next_shot = v
@@ -17,3 +19,12 @@ func _on_intro_letter_closed() -> void:
 
 func change_to_world() -> void:
 	SceneTransitionManager.transition_to(scene_after)
+
+
+func _on_button_pressed(source: BaseButton) -> void:
+	source.hide()
+	animation_tree.active = true
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
