@@ -33,7 +33,7 @@ func _on_b_1_toggled(toggled_on: bool, source: BaseButton) -> void:
 		_reset_buttons()
 	if order_to_check.size() == 0 and _buttons_pressed.size() == answer_order.size():
 		animation_player.play(&"win")
-		Dialogic.start("uid://b1pbe2gt4cvw")
+		Dialogic.start("you_got_item")
 		GlobalInventory.add_item(item_to_give)
 		await Dialogic.timeline_ended
 		close_overlay()

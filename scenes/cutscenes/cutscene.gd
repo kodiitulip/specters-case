@@ -10,6 +10,8 @@ var next_shot: bool = false:
 
 
 func _on_intro_letter_closed() -> void:
+	Dialogic.start("intro")
+	await Dialogic.timeline_ended
 	next_shot = true
 
 

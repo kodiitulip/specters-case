@@ -28,10 +28,10 @@ boot_splash/image.editor_hint=""
 
 SceneTransitionManager="*res://scenes/managers/scene_transition/scene_transition.tscn"
 OverlayLayer="*res://scripts/managers/overlay_layer.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://scripts/managers/signal_bus.gd"
 GlobalInventory="*res://scripts/managers/global_inventory.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [debug]
 
@@ -50,6 +50,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "errante": "res://dialogic/ghost/errante.dtl",
+"intro": "res://dialogic/loot/intro.dtl",
 "you_got_item": "res://dialogic/loot/you_got_item.dtl"
 }
 layout/style_directory={

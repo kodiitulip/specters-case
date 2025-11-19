@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="2_klvsj"]
+[ext_resource type="PackedScene" uid="uid://bkgxu8gt30b2n" path="res://scenes/interfaces/tutorial_panel.tscn" id="2_sj5dk"]
 [ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="2_vlt61"]
 [ext_resource type="PackedScene" uid="uid://dojjb4xkewl1n" path="res://scenes/tests/overlays/overlay_test.tscn" id="3_hd3tn"]
 [ext_resource type="Texture2D" uid="uid://ewrexstg2m8d" path="res://assets/BG2.png" id="3_qvjvq"]
@@ -10,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_pf0pg"]
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="9_4qhr7"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_yeygg"]
-[ext_resource type="Resource" uid="uid://ohm4430qbbs7" path="res://dialogic/ghost/errante.dtl" id="10_ofq5j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_vmb2j"]
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="12_qlfdu"]
 [ext_resource type="Script" uid="uid://c35magy4ubem" path="res://scripts/components/world_tile_map/world_tile_map.gd" id="13_t4fkg"]
@@ -26,6 +26,8 @@ script = ExtResource("10_vmb2j")
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" parent="InterfaceLayer" instance=ExtResource("1_r2bnu")]
+
+[node name="TutorialPanel" parent="InterfaceLayer" instance=ExtResource("2_sj5dk")]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.2, 0.7)
@@ -112,7 +114,6 @@ vframes = 3
 
 [node name="Revenant" parent="World" instance=ExtResource("9_4qhr7")]
 position = Vector2(296, 192)
-dialog = ExtResource("10_ofq5j")
 
 [node name="OverlayInteractableArea" type="Area2D" parent="World"]
 position = Vector2(416, 208)

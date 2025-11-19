@@ -89,7 +89,7 @@ func _on_enemy_turn_ended() -> void:
 func _set_flavor_text(text: Array[String]) -> void:
 	flavor_text_label.clear()
 	var t: Tween = get_tree().create_tween()
-	var flavor: String = text.pick_random()
+	var flavor: String = text.pick_random() if not text.is_empty() else ""
 	flavor_text_label.append_text(flavor)
 	t.tween_property(flavor_text_label, ^"visible_ratio", 1.0,
 		0.01 * flavor.length()).from(0.0)
@@ -99,13 +99,13 @@ func _set_flavor_text(text: Array[String]) -> void:
 
 func _on_player_dead() -> void:
 	finished = true
-	await _set_flavor_text(["You died"])
+	await _set_flavor_text(die_flavor_text)
 	await get_tree().create_timer(1.2).timeout
 	SceneTransitionManager.transition_to(death_scene)
 
 
 func _player_wins() -> void:
 	finished = true
-	await _set_flavor_text(["Parece que [wave]Revenant[/wave] encontrou descanso"])
+	await _set_flavor_text(win_flavor_text)
 	await get_tree().create_timer(1.2).timeout
 	SceneTransitionManager.transition_to(victory_scene)

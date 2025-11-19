@@ -1,18 +1,22 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://deumsw3rtheqj"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://deumsw3rtheqj"]
 
 [ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="1_3q08o"]
 [ext_resource type="FontFile" uid="uid://6qb1tlevtqgf" path="res://assets/kenney_kenney-fonts/Fonts/Kenney Mini.ttf" id="1_kal18"]
+[ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://dialogic/themes/button_hover_focus_texture.tres" id="2_m7a03"]
 [ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/dialogic/fancy_style_box_texture.tres" id="2_neqo8"]
+[ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://dialogic/themes/button_normal_texture.tres" id="3_e1p1n"]
+[ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://dialogic/themes/button_pressed_texture.tres" id="4_w00jl"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us5fq"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ryj"]
 texture = ExtResource("1_3q08o")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(96, 83, 39, 14)
+modulate_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2m5t"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fs110"]
 texture = ExtResource("1_3q08o")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
@@ -65,8 +69,11 @@ modulate_color = Color(0.8627451, 1, 0.7411765, 1)
 [resource]
 default_font = ExtResource("1_kal18")
 default_font_size = 8
-Button/styles/normal = SubResource("StyleBoxTexture_us5fq")
-Button/styles/pressed = SubResource("StyleBoxTexture_l2m5t")
+Button/styles/disabled = SubResource("StyleBoxTexture_48ryj")
+Button/styles/focus = SubResource("StyleBoxTexture_fs110")
+Button/styles/hover = ExtResource("2_m7a03")
+Button/styles/normal = ExtResource("3_e1p1n")
+Button/styles/pressed = ExtResource("4_w00jl")
 InventorySlot/base_type = &"PanelContainer"
 InventorySlot/styles/panel = SubResource("StyleBoxTexture_e1p1n")
 InventoryTooltip/base_type = &"PanelContainer"
