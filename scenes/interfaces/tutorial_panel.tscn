@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkgxu8gt30b2n"]
+[gd_scene load_steps=3 format=3 uid="uid://bkgxu8gt30b2n"]
 
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_ikike"]
+[ext_resource type="Script" uid="uid://k0i8wiia5ss7" path="res://scenes/interfaces/tutorial_panel.gd" id="2_pxrbq"]
 
 [node name="TutorialPanel" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 14.0
-offset_right = 134.0
-offset_bottom = 39.0
+anchor_left = 0.7
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
 theme = ExtResource("1_ikike")
+script = ExtResource("2_pxrbq")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -20,11 +25,10 @@ ignore_time_scale = true
 [node name="Mouse" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 4.25
-anchor_top = 10.32
-anchor_right = 5.133333
-anchor_bottom = 11.6
-offset_top = -1.5258789e-05
+anchor_left = 0.041666668
+anchor_top = 0.11111111
+anchor_right = 0.9583333
+anchor_bottom = 0.44444445
 grow_horizontal = 0
 grow_vertical = 0
 theme_type_variation = &"InventoryTooltip"
@@ -34,15 +38,15 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 bbcode_enabled = true
 text = "Use o [color=yellow]Mouse[/color] para se mover e interagir"
+fit_content = true
 
 [node name="Inventory" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 3.7833333
-anchor_top = 12.28
-anchor_right = 4.7083335
-anchor_bottom = 13.08
-offset_top = -1.5258789e-05
+anchor_left = 0.16666667
+anchor_top = 0.5555556
+anchor_right = 0.75
+anchor_bottom = 0.8888889
 grow_horizontal = 0
 grow_vertical = 0
 theme_type_variation = &"InventoryTooltip"
@@ -51,6 +55,7 @@ metadata/_edit_use_anchors_ = true
 [node name="RichTextLabel" type="RichTextLabel" parent="Inventory"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Esse é seu [color=yellow]Inventário[/color] ->"
+text = "Esse é seu [color=yellow]Inventário[/color] [img]uid://ipf2he12h6vo[/img]"
+fit_content = true
 
 [connection signal="timeout" from="Timer" to="." method="queue_free"]

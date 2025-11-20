@@ -2,6 +2,8 @@
 class_name InventoryInterface
 extends Control
 
+signal inventory_opened()
+
 const INVENTORY_SLOT_SCENE: PackedScene = preload("uid://chwlamrudke74")
 
 @export var item_slot_count: int = 21:
@@ -14,7 +16,7 @@ static var instance: InventoryInterface
 @onready var inventory: Control = $Inventory
 @onready var slots_container: GridContainer = %SlotsContainer
 @onready var tooltip: RichTextLabel = %RichTextTooltip
-@onready var open_button: TextureButton = $OpenInventoryButton
+@onready var open_button: TextureButton = %OpenInventoryButton
 
 func _enter_tree() -> void:
 	if instance and instance != self:
@@ -26,6 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"escape") and open_button.button_pressed:
 		open_button.button_pressed = false
 		get_viewport().set_input_as_handled()
+	if event.is_action_pressed(&"inventory"):
+		open_button.button_pressed = !open_button.button_pressed
 
 
 func _ready() -> void:
@@ -75,6 +79,8 @@ func set_item_on_slot(item: ItemData, id: int = -1) -> void:
 func _on_open_inventory_button_toggled(toggled_on: bool) -> void:
 	inventory.visible = toggled_on
 	mouse_filter = Control.MOUSE_FILTER_STOP if toggled_on else Control.MOUSE_FILTER_IGNORE
+	if toggled_on:
+		inventory_opened.emit()
 
 
 func find_empty_slot() -> InventorySlot:

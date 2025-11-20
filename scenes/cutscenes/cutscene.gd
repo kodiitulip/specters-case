@@ -3,7 +3,7 @@ class_name CutSceneManager extends Node
 @export_file("*.tscn") var scene_after: String
 
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var quit: Button = $Quit
+@onready var quit: Button = %Quit
 
 var next_shot: bool = false:
 	set(v):

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bmxq1i77s0rut"
-path="res://.godot/imported/Kenney Pixel Square.ttf-48b244852904c3aad173239cd916e8be.fontdata"
+uid="uid://ckesk5xfdw3sr"
+path="res://.godot/imported/8bitOperatorPlusSC-Bold.ttf-abece7eb81bd8e01629bc0743edeebd0.fontdata"
 
 [deps]
 
-source_file="res://assets/kenney_kenney-fonts/Fonts/Kenney Pixel Square.ttf"
-dest_files=["res://.godot/imported/Kenney Pixel Square.ttf-48b244852904c3aad173239cd916e8be.fontdata"]
+source_file="res://assets/ui/fonts/8bit_operator/8bitOperatorPlusSC-Bold.ttf"
+dest_files=["res://.godot/imported/8bitOperatorPlusSC-Bold.ttf-abece7eb81bd8e01629bc0743edeebd0.fontdata"]
 
 [params]
 
