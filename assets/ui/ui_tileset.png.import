@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b031px7t66i6d"
-path="res://.godot/imported/characters_mv.png-03db407d609f34581433d751a196ecc6.ctex"
+uid="uid://cgn465ujy1v8s"
+path="res://.godot/imported/ui_tileset.png-cba7b7b88362f514f7753a579400552b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap_assets/modern_interiors/characters_free/rpgmakermv/characters_mv.png"
-dest_files=["res://.godot/imported/characters_mv.png-03db407d609f34581433d751a196ecc6.ctex"]
+source_file="res://assets/ui/ui_tileset.png"
+dest_files=["res://.godot/imported/ui_tileset.png-cba7b7b88362f514f7753a579400552b.ctex"]
 
 [params]
 

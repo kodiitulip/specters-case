@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck2xg28ndep6c"]
+[gd_scene load_steps=9 format=3 uid="uid://ck2xg28ndep6c"]
 
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_3t1um"]
 [ext_resource type="Script" uid="uid://b63p6x4q7j7jh" path="res://scenes/interfaces/inventory/inventory_interface.gd" id="1_nt5kk"]
 [ext_resource type="PackedScene" uid="uid://chwlamrudke74" path="res://scenes/interfaces/inventory/slots/inventory_slot.tscn" id="1_qq0pn"]
 [ext_resource type="Texture2D" uid="uid://c4lm25dnnib7a" path="res://assets/items/bag.png" id="3_o5khu"]
+[ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="5_irs6v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irs6v"]
 atlas = ExtResource("3_o5khu")
@@ -12,6 +13,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5khu"]
 atlas = ExtResource("3_o5khu")
 region = Rect2(48, 15, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scruo"]
+atlas = ExtResource("5_irs6v")
+region = Rect2(0, 42, 11, 11)
 
 [node name="InventoryInterface" type="Control"]
 layout_mode = 3
@@ -24,15 +29,24 @@ mouse_filter = 2
 theme = ExtResource("1_3t1um")
 script = ExtResource("1_nt5kk")
 
-[node name="OpenInventoryButton" type="TextureButton" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.925
-anchor_top = 0.8666667
-anchor_right = 0.975
-anchor_bottom = 0.95555556
+anchor_left = 0.9503751
+anchor_top = 0.9107778
+anchor_right = 0.9875
+anchor_bottom = 0.9777778
+offset_left = -0.24005127
+offset_top = 0.11999512
 grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="OpenInventoryButton" type="TextureButton" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 tooltip_text = "Inventário"
+focus_mode = 0
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_irs6v")
@@ -40,108 +54,98 @@ texture_pressed = SubResource("AtlasTexture_o5khu")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" type="Control" parent="."]
+[node name="Inventory" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SlotsContainer" type="GridContainer" parent="Inventory"]
-unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = -1
-anchor_left = -4.175
-anchor_top = -1.475
-anchor_right = 5.175
-anchor_bottom = 2.475
+anchor_left = 0.1890625
+anchor_top = 0.22361112
+anchor_right = 0.8109375
+anchor_bottom = 0.81805557
+offset_left = 9.0
+offset_right = -9.0
+offset_bottom = -15.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_type_variation = &"InventoryPanelContainer"
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryContainer" type="PanelContainer" parent="Inventory"]
+layout_mode = 2
+theme_type_variation = &"InventoryPanelContainer"
+
+[node name="SlotsContainer" type="GridContainer" parent="Inventory/InventoryContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 columns = 7
 metadata/_edit_use_anchors_ = true
 
-[node name="SlotContainer" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer2" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer2" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer3" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer3" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer4" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer4" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer5" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer5" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer6" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer6" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer7" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer7" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer8" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer8" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer9" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer9" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer10" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer10" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer11" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer11" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer12" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer12" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer13" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer13" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer14" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer14" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer15" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer15" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer16" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer16" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer17" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer17" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer18" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer18" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer19" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer19" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer20" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer20" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
-[node name="SlotContainer21" parent="Inventory/SlotsContainer" instance=ExtResource("1_qq0pn")]
+[node name="SlotContainer21" parent="Inventory/InventoryContainer/SlotsContainer" instance=ExtResource("1_qq0pn")]
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Inventory"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -4.175
-anchor_top = 2.6
-anchor_right = 5.175
-anchor_bottom = 2.6000001
-offset_bottom = 39.999992
-grow_horizontal = 2
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
 theme_type_variation = &"InventoryTooltip"
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Inventory/PanelContainer"]
 layout_mode = 2
@@ -153,4 +157,17 @@ size_flags_vertical = 0
 bbcode_enabled = true
 fit_content = true
 
-[connection signal="toggled" from="OpenInventoryButton" to="." method="_on_open_inventory_button_toggled"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9578125
+anchor_top = 0.875
+anchor_right = 0.9796875
+anchor_bottom = 0.9138889
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_scruo")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="PanelContainer/OpenInventoryButton" to="." method="_on_open_inventory_button_toggled"]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b6lac5gsjaksu"
-path="res://.godot/imported/Kenney Rocket Square.ttf-625ed1c7bd19bb5e2605387da0a41a18.fontdata"
+uid="uid://c71ck7f400una"
+path="res://.godot/imported/8bitOperatorPlus8-Bold.ttf-2e40f1df0b365d99fa942e80dc7d7ee0.fontdata"
 
 [deps]
 
-source_file="res://assets/kenney_kenney-fonts/Fonts/Kenney Rocket Square.ttf"
-dest_files=["res://.godot/imported/Kenney Rocket Square.ttf-625ed1c7bd19bb5e2605387da0a41a18.fontdata"]
+source_file="res://assets/ui/fonts/8bit_operator/8bitOperatorPlus8-Bold.ttf"
+dest_files=["res://.godot/imported/8bitOperatorPlus8-Bold.ttf-2e40f1df0b365d99fa942e80dc7d7ee0.fontdata"]
 
 [params]
 

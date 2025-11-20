@@ -148,3 +148,5 @@ texture = ExtResource("5_yeygg")
 z_index = 1
 tile_set = ExtResource("14_t4fkg")
 metadata/_edit_lock_ = true
+
+[connection signal="inventory_opened" from="InterfaceLayer/InventoryInterface" to="InterfaceLayer/TutorialPanel" method="queue_free" flags=6]
