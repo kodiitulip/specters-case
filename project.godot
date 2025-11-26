@@ -45,20 +45,20 @@ gdscript/warnings/unsafe_call_argument=1
 [dialogic]
 
 directories/dch_directory={
-"errante": "res://dialogic/characters/ghost/errante.dch",
-"pam": "res://dialogic/characters/ghost/pam.dch"
+"errante": "res://resources/dialogic/characters/errante.dch",
+"pam": "res://resources/dialogic/characters/pam.dch"
 }
 directories/dtl_directory={
-"blocking": "res://dialogic/ghost/blocking.dtl",
-"ending_demo": "res://dialogic/ending_demo.dtl",
-"errante": "res://dialogic/ghost/errante.dtl",
-"intro": "res://dialogic/loot/intro.dtl",
-"you_got_item": "res://dialogic/loot/you_got_item.dtl"
+"blocking": "res://resources/dialogic/dialogs/ghost/blocking.dtl",
+"ending_demo": "res://resources/dialogic/dialogs/ending_demo.dtl",
+"errante": "res://resources/dialogic/dialogs/ghost/errante.dtl",
+"intro": "res://resources/dialogic/dialogs/intro.dtl",
+"you_got_item": "res://resources/dialogic/dialogs/loot/you_got_item.dtl"
 }
 layout/style_directory={
-"battle": "res://dialogic/themes/battle.tres"
+"battle": "res://resources/dialogic/themes/battle.tres"
 }
-layout/style_list=["res://dialogic/themes/battle.tres"]
+layout/style_list=["res://resources/dialogic/themes/battle.tres"]
 variables={
 "battle_scene_uuid": "uid://c2fhrlxr43suj",
 "calm": false,
@@ -158,4 +158,5 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

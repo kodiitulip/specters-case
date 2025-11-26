@@ -32,8 +32,8 @@ script = ExtResource("1_nt5kk")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9503751
-anchor_top = 0.9107778
+anchor_left = 0.9378751
+anchor_top = 0.8885556
 anchor_right = 0.9875
 anchor_bottom = 0.9777778
 offset_left = -0.24005127
@@ -53,6 +53,27 @@ texture_normal = SubResource("AtlasTexture_irs6v")
 texture_pressed = SubResource("AtlasTexture_o5khu")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="KeybindIcon" type="TextureRect" parent="PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_scruo")
+stretch_mode = 3
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 visible = false
@@ -156,18 +177,5 @@ layout_mode = 2
 size_flags_vertical = 0
 bbcode_enabled = true
 fit_content = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.9578125
-anchor_top = 0.875
-anchor_right = 0.9796875
-anchor_bottom = 0.9138889
-grow_horizontal = 0
-grow_vertical = 0
-texture = SubResource("AtlasTexture_scruo")
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [connection signal="toggled" from="PanelContainer/OpenInventoryButton" to="." method="_on_open_inventory_button_toggled"]

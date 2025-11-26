@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=17 format=3 uid="uid://deumsw3rtheqj"]
 
 [ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="1_3q08o"]
-[ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://dialogic/themes/button_hover_focus_texture.tres" id="2_m7a03"]
-[ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/dialogic/fancy_style_box_texture.tres" id="2_neqo8"]
-[ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://dialogic/themes/button_normal_texture.tres" id="3_e1p1n"]
-[ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://dialogic/themes/button_pressed_texture.tres" id="4_w00jl"]
+[ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://resources/themes/style_boxes/button_hover_focus_texture.tres" id="2_m7a03"]
+[ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/style_boxes/fancy_style_box_texture.tres" id="2_neqo8"]
+[ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://resources/themes/style_boxes/button_normal_texture.tres" id="3_e1p1n"]
+[ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://resources/themes/style_boxes/button_pressed_texture.tres" id="4_w00jl"]
 [ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="6_e1p1n"]
 [ext_resource type="FontFile" uid="uid://vo4766bjujjr" path="res://assets/ui/fonts/8bit_operator/8bitOperatorPlus-Regular.ttf" id="7_e1p1n"]
 
