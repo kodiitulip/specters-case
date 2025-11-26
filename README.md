@@ -64,3 +64,69 @@ jogo, acessível a dispositivos fracos devido a sua estética mais simples.
 ## StoryBoard
 
 ![storyboard para o jogo demonstrando exemplos de possíveis telas que existam no jogo](./.github/attachments/storyboard.png)
+
+## Proto-Personas
+
+### Proto-Persona 1: Clara - Complecionista Curiosa
+
+#### Motivações
+
+- Clara é motivada a completar tudo o que o jogo oferece. Ela quer desbloquear 
+  todas as áreas, resolver todos os puzzles e, principalmente, obter todas as 
+  conquistas. Para ela, a jornada completa do jogo é mais importante do que apenas
+  a história principal.
+
+- Ela valoriza uma progressão clara, onde o jogo recompensa sua dedicação com
+  reconhecimento visível de suas conquistas.
+
+- Ela gosta de puzzles desafiadores que exigem raciocínio lógico e atenção aos detalhes.
+
+#### Comportamento em Jogo
+
+- Clara vai explorar meticulosamente cada canto do jogo, procurando itens e
+  pistas escondidos. Ela adora analisar todos os detalhes visuais e interagir
+  com o mundo.
+
+- Ela sente uma grande satisfação em completar quests secundárias e em
+  desbloquear elementos extras do jogo.
+
+#### Frustrações
+
+- Clara não gosta de mecânicas de jogo que não recompensam seu esforço ou que a forçam a seguir um caminho linear sem espaço para exploração.
+
+- Ela fica frustrada se não houver um sistema claro de feedback sobre seu progresso, como uma barra de progresso, metas ou recompensas tangíveis por completar tarefas.
+
+#### Expectativas
+
+- Quer um jogo com uma narrativa envolvente e um mundo rico em detalhes, onde ela possa se perder enquanto busca resolver mistérios.
+
+- A presença de puzzles de dificuldade progressiva, com uma curva de aprendizado que ofereça desafios sem ser frustrante.
+
+- Um sistema de conquistas ou recompensas que valide seu esforço em completar todos os aspectos do jogo.
+
+### Proto-Persona 2: Rafaela - Investigadora Competitiva
+
+#### Motivações
+- Rafaela é uma Killer que se interessa por desafios e confrontos. Ela busca vencer de maneira estratégica, dominando os desafios impostos pelo jogo e se destacando através de sua habilidade.
+
+- Ela gosta de se sentir desafiada não apenas por puzzles, mas principalmente por confrontos diretos, que exigem tanto estratégia quanto habilidade.
+
+- Ela valoriza a sensação de controle sobre a situação e a oportunidade de usar sua inteligência e habilidades para superar os desafios, especialmente quando em confronto contra inimigos poderosos ou que exigem um planejamento cuidadoso.
+
+#### Comportamento em Jogo
+
+- Rafaela foca em resolver os mistérios, com a intenção de enfrentar os espíritos de maneira estratégica e eficiente.
+
+- Ela se dedica a aprender as melhores formas de enfrentar os inimigos com o sistema de combate, seja melhorando suas habilidades, ou entendendo os pontos fracos dos espíritos ou entidades.
+
+#### Frustrações
+
+- Rafaela se frustra se o sistema de batalha com NPCs for simplista ou fácil demais.
+
+- Ela pode perder o interesse se as batalhas não forem impactantes ou se o jogo não oferecer variedade de confrontos.
+
+#### Expectativas
+
+- Rafaela espera que o sistema de combate com NPCs seja desafiador e permita uma abordagem estratégica.
+
+- Ela gostaria de ver variedade nos tipos de espíritos ou inimigos, cada um com mecânicas próprias.
