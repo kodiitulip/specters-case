@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://cqyl8w6qtlpat"]
+
+[ext_resource type="Script" uid="uid://bb05a00fwahuu" path="res://scripts/components/turn_battle/battler_stats_res.gd" id="1_rl2sq"]
+
+[resource]
+resource_name = "Revenant"
+script = ExtResource("1_rl2sq")
+type = 1
+max_hp = 10
+min_damage = 1
+max_damage = 2
+metadata/_custom_type_script = "uid://bb05a00fwahuu"

@@ -12,6 +12,12 @@ const INVENTORY_SLOT_SCENE: PackedScene = preload("uid://chwlamrudke74")
 
 var inventory_slots: Array[InventorySlot] = []
 static var instance: InventoryInterface
+var _busy: bool = false:
+	set(v):
+		_busy = v
+		open_button.disabled = _busy
+		open_button.mouse_filter = Control.MOUSE_FILTER_IGNORE \
+				if _busy else Control.MOUSE_FILTER_PASS
 
 @onready var inventory: Control = $Inventory
 @onready var slots_container: GridContainer = %SlotsContainer
@@ -28,11 +34,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"escape") and open_button.button_pressed:
 		open_button.button_pressed = false
 		get_viewport().set_input_as_handled()
-	if event.is_action_pressed(&"inventory"):
+	if event.is_action_pressed(&"inventory") and not _busy:
 		open_button.button_pressed = !open_button.button_pressed
 
 
 func _ready() -> void:
+	Dialogic.timeline_started.connect(func() -> void: _busy = true)
+	Dialogic.timeline_ended.connect(func() -> void: _busy = false)
 	if slots_container.get_child_count() > 0:
 		for child: Control in slots_container.get_children():
 			child.queue_free()
