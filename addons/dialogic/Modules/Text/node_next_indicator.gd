@@ -48,6 +48,7 @@ func _ready() -> void:
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.size = texture_size
 		icon.position = -icon.size
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(icon)
 		texture_rect = icon
 
