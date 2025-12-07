@@ -133,4 +133,5 @@ jogo, acessível a dispositivos fracos devido a sua estética mais simples.
 
 ## Playtests
 
-[Playtests](./PLAYTESTS.md)
+[Roteiro de Playtests](./PLAYTEST_SCRIPT.md)
+[Sessões de Playtests](./PLAYTESTS.md)

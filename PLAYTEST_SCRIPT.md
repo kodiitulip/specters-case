@@ -1,5 +1,7 @@
 # Specter’s Case Script de Teste
 
+[Sessão Piloto Playtest](./PLAYTESTS.md)
+
 Número de voluntários: 4 a 5
 
 ## Introdução
@@ -23,8 +25,8 @@ Perguntas para identificar se o entrevistado faz parte do público-alvo
 
 - [ ] Explicar que o jogo ainda está em desenvolvimento
 - [ ] Explicar que estamos testando o jogo
-      - Não há respostas erradas
-      - Suas dificuldades nos ajudam
+- Não há respostas erradas
+- Suas dificuldades nos ajudam
 - [ ] Pedir que pense em voz alta
 - Queremos saber os motivos de suas escolhas e suas dúvidas
 
@@ -44,13 +46,13 @@ Perguntas para identificar se o entrevistado faz parte do público-alvo
 - [ ] Alguma parte foi confusa pra você? Por que?
 - [ ] Teve algo que você não entendeu?
 - [ ] Você entendeu a temática do jogo?
-      - [ ] Pelo o que você entendeu do que se trata a história?
+- [ ] Pelo o que você entendeu do que se trata a história?
 - [ ] Achou a mecânica de batalha interessante?
 - [ ] Achou a mecânica de puzzle interessante?
 - [ ] Achou os diálogos interessantes?
 - [ ] Na sua opinião, qual o objetivo do jogo?
 - [ ] O que achou da estética do jogo?
-      - [ ] A estética do jogo lhe lembra algo?
+- [ ] A estética do jogo lhe lembra algo?
 
 Feedbacks de melhoria
 
