@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=17 format=3 uid="uid://deumsw3rtheqj"]
 
 [ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="1_3q08o"]
-[ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://resources/themes/style_boxes/button_hover_focus_texture.tres" id="2_m7a03"]
-[ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/style_boxes/fancy_style_box_texture.tres" id="2_neqo8"]
-[ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://resources/themes/style_boxes/button_normal_texture.tres" id="3_e1p1n"]
-[ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://resources/themes/style_boxes/button_pressed_texture.tres" id="4_w00jl"]
+[ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://resources/themes/style_boxes/button_hover_focus_texture.tres" id="2_us5fq"]
+[ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://resources/themes/style_boxes/button_normal_texture.tres" id="3_m7a03"]
+[ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://resources/themes/style_boxes/button_pressed_texture.tres" id="4_e1p1n"]
+[ext_resource type="StyleBox" uid="uid://b7b068f3rqfy7" path="res://resources/themes/style_boxes/fancy_style_box_texture.tres" id="5_e1p1n"]
 [ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="6_e1p1n"]
 [ext_resource type="FontFile" uid="uid://vo4766bjujjr" path="res://assets/ui/fonts/8bit_operator/8bitOperatorPlus-Regular.ttf" id="7_e1p1n"]
 
@@ -95,10 +95,10 @@ Button/colors/font_hover_color = Color(0.38039216, 0.18039216, 0.1764706, 1)
 Button/colors/font_hover_pressed_color = Color(0.38039216, 0.18039216, 0.1764706, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/styles/disabled = SubResource("StyleBoxTexture_48ryj")
-Button/styles/focus = ExtResource("2_m7a03")
-Button/styles/hover = ExtResource("2_m7a03")
-Button/styles/normal = ExtResource("3_e1p1n")
-Button/styles/pressed = ExtResource("4_w00jl")
+Button/styles/focus = ExtResource("2_us5fq")
+Button/styles/hover = ExtResource("2_us5fq")
+Button/styles/normal = ExtResource("3_m7a03")
+Button/styles/pressed = ExtResource("4_e1p1n")
 InventoryPanelContainer/base_type = &"PanelContainer"
 InventoryPanelContainer/styles/panel = SubResource("StyleBoxTexture_fs110")
 InventorySlot/base_type = &"PanelContainer"
@@ -108,7 +108,7 @@ InventoryTooltip/styles/panel = SubResource("StyleBoxTexture_m7a03")
 KeyPanel/base_type = &"PanelContainer"
 KeyPanel/styles/panel = SubResource("StyleBoxTexture_ojkw3")
 Label/colors/font_color = Color(0, 0, 0, 1)
-PanelContainer/styles/panel = ExtResource("2_neqo8")
+PanelContainer/styles/panel = ExtResource("5_e1p1n")
 PaperPanelContainer/base_type = &"PanelContainer"
 PaperPanelContainer/styles/panel = SubResource("StyleBoxTexture_rdac0")
 ProgressBar/colors/font_color = Color(0, 0, 0, 1)
