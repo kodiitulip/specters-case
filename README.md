@@ -30,15 +30,15 @@ e exorcizá-lo.
 ### História
 
 A protagonista Pam, recém se formou como uma Investigadora Paranormal e recebeu
-seu primeiro caso. A vizinhança de _Frost Hollow_ recentemente têm reportado um
+seu primeiro caso. A cidade de _Quillbrook_ recentemente têm reportado um
 número grande de ocorrências paranormais e precisa da sua ajuda. Investigue a
-vizinhança e interrogue seus habitantes para descobrir a origem das atividades
+cidade e interrogue seus habitantes para descobrir a origem das atividades
 anormais e libertar essa comunidade dos espíritos que a assombra.
 
 ### Mecânica
 
 Utilizando o mouse para explorar os ambientes e interagir com os objetos à sua
-volta, você encontrará nos arredores de _Frost Hollow_, pistas e puzzles a
+volta, você encontrará nos arredores de _Quillbrook_, pistas e puzzles a
 resolver. Para entender o mistério dessa vizinhança e exorcizar o mal que a
 assombra, utilize as pistas que tem e os depoimentos dos moradores que
 interrogar.
@@ -130,3 +130,7 @@ jogo, acessível a dispositivos fracos devido a sua estética mais simples.
 - Rafaela espera que o sistema de combate com NPCs seja desafiador e permita uma abordagem estratégica.
 
 - Ela gostaria de ver variedade nos tipos de espíritos ou inimigos, cada um com mecânicas próprias.
+
+## Playtests
+
+[Playtests](./PLAYTESTS.md)
