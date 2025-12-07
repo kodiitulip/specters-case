@@ -6,6 +6,8 @@
 
 Um protótipo por: Kodie Sales e Davi Iury
 
+[GoogleDocs Link](https://docs.google.com/document/d/1D3t2FXQiwBb-_wGEeap6scMKGZAQR0tXZRMaeLh41sc/edit?usp=sharing)
+
 ## Essência
 
 Um jogo Point & Click voltado a uma narrativa de mistério e puzzles.
