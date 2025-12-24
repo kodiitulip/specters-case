@@ -75,7 +75,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/path = NodePath("PuzzleBoxLayer/TextureRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -87,7 +87,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GridContainer:visible")
+tracks/1/path = NodePath("PuzzleBoxLayer/GridContainer:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -104,7 +104,7 @@ step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/path = NodePath("PuzzleBoxLayer/AnimatedSprite2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/path = NodePath("PuzzleBoxLayer/TextureRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -130,7 +130,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GridContainer:visible")
+tracks/2/path = NodePath("PuzzleBoxLayer/GridContainer:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -154,17 +154,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7s0hg")
-answer_order = [NodePath("GridContainer/B1"), NodePath("GridContainer/B2"), NodePath("GridContainer/B3"), NodePath("GridContainer/B4"), NodePath("GridContainer/B5"), NodePath("GridContainer/B6")]
+answer_order = [NodePath("PuzzleBoxLayer/GridContainer/B1"), NodePath("PuzzleBoxLayer/GridContainer/B2"), NodePath("PuzzleBoxLayer/GridContainer/B3"), NodePath("PuzzleBoxLayer/GridContainer/B4"), NodePath("PuzzleBoxLayer/GridContainer/B5"), NodePath("PuzzleBoxLayer/GridContainer/B6")]
 item_to_give = ExtResource("2_m0nbx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PuzzleBoxLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PuzzleBoxLayer"]
 position = Vector2(320.00003, 182.00002)
 scale = Vector2(9.550543, 9.550543)
 sprite_frames = SubResource("SpriteFrames_pcq2n")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="PuzzleBoxLayer"]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -178,8 +179,7 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
+[node name="GridContainer" type="GridContainer" parent="PuzzleBoxLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -193,56 +193,57 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="B1" type="TextureButton" parent="GridContainer"]
+[node name="B1" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="B2" type="TextureButton" parent="GridContainer"]
+[node name="B2" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="B3" type="TextureButton" parent="GridContainer"]
+[node name="B3" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="B4" type="TextureButton" parent="GridContainer"]
+[node name="B4" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="B5" type="TextureButton" parent="GridContainer"]
+[node name="B5" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="B6" type="TextureButton" parent="GridContainer"]
+[node name="B6" type="TextureButton" parent="PuzzleBoxLayer/GridContainer"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_m0nbx")
 texture_pressed = SubResource("AtlasTexture_85b0a")
 stretch_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleBoxLayer"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_85b0a")
 }
 
-[connection signal="toggled" from="GridContainer/B1" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B2" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B3" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B4" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B5" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B6" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B1" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B2" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B3" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B4" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B5" to="." method="_on_b_1_toggled" flags=18]
+[connection signal="toggled" from="PuzzleBoxLayer/GridContainer/B6" to="." method="_on_b_1_toggled" flags=18]

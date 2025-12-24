@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b7glbwlwtqvmi"]
+[gd_scene load_steps=22 format=4 uid="uid://b7glbwlwtqvmi"]
 
 [ext_resource type="Script" uid="uid://dopcg73nstiit" path="res://scenes/cutscenes/cutscene.gd" id="1_nexf8"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="1_wf4y2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cnyvjeay5f0o7" path="res://assets/red_car/red_suv_clean_west_000_sheet.png" id="4_ohvq1"]
 [ext_resource type="PackedScene" uid="uid://bndyubb6g6qr6" path="res://scenes/interfaces/intro_letter/intro_letter.tscn" id="6_hx84n"]
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="7_yu1x5"]
+[ext_resource type="Shader" uid="uid://c63iujfr4aokb" path="res://scenes/cutscenes/introduction.gdshader" id="8_d7182"]
 
 [sub_resource type="Animation" id="Animation_yu1x5"]
 length = 0.001
@@ -53,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../IntroLetter")
+tracks/1/path = NodePath("../LetterLayer/IntroLetter")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -173,6 +174,13 @@ _data = {
 &"r": SubResource("Animation_nexf8")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wly1"]
+shader = ExtResource("8_d7182")
+shader_parameter/filtro_strength = 0.8
+shader_parameter/darkness = 0.95
+shader_parameter/contrast = 1.15
+shader_parameter/saturation = 0.0
+
 [node name="Introduction" type="Node"]
 script = ExtResource("1_nexf8")
 scene_after = "uid://0d6t1cxsqes1"
@@ -240,36 +248,53 @@ libraries = {
 }
 autoplay = "r"
 
-[node name="IntroLetter" parent="." instance=ExtResource("6_hx84n")]
+[node name="LetterLayer" type="CanvasLayer" parent="."]
+
+[node name="IntroLetter" parent="LetterLayer" instance=ExtResource("6_hx84n")]
 z_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -84.0
-offset_top = -19.0
+offset_top = -28.0
 offset_right = 84.0
-offset_bottom = 19.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_yu1x5")
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="MenuLayer/VBoxContainer"]
 z_index = 1
 layout_mode = 2
 text = "Começar"
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="MenuLayer/VBoxContainer"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
 text = "Sair"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="closed" from="IntroLetter" to="." method="_on_intro_letter_closed"]
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed" flags=18]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Filtro" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="FiltroCor" type="ColorRect" parent="Filtro"]
+material = SubResource("ShaderMaterial_7wly1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="closed" from="LetterLayer/IntroLetter" to="." method="_on_intro_letter_closed"]
+[connection signal="pressed" from="MenuLayer/VBoxContainer/Start" to="." method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="MenuLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

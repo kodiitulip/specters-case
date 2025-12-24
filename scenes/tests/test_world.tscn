@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://0d6t1cxsqes1"]
+[gd_scene load_steps=23 format=4 uid="uid://0d6t1cxsqes1"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_r2bnu"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="2_klvsj"]
@@ -18,12 +18,20 @@
 [ext_resource type="TileSet" uid="uid://brgocqdf4uti0" path="res://resources/tileset/interior_tile_set.tres" id="14_t4fkg"]
 [ext_resource type="Texture2D" uid="uid://mx5mu4iimg8y" path="res://assets/red_car/red_suv_clean_north_000_sheet.png" id="17_sj5dk"]
 [ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="18_7pf0w"]
+[ext_resource type="Shader" uid="uid://c63iujfr4aokb" path="res://scenes/cutscenes/introduction.gdshader" id="19_klvsj"]
 
 [sub_resource type="Resource" id="Resource_qlfdu"]
 script = ExtResource("10_vmb2j")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klvsj"]
 size = Vector2(69, 84)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvjvq"]
+shader = ExtResource("19_klvsj")
+shader_parameter/filtro_strength = 0.8
+shader_parameter/darkness = 0.95
+shader_parameter/contrast = 1.15
+shader_parameter/saturation = 0.0
 
 [node name="TestWorld" type="Node2D"]
 
@@ -148,5 +156,18 @@ texture = ExtResource("5_yeygg")
 z_index = 1
 tile_set = ExtResource("14_t4fkg")
 metadata/_edit_lock_ = true
+
+[node name="Filtro" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="FiltroCor" type="ColorRect" parent="Filtro"]
+material = SubResource("ShaderMaterial_qvjvq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="inventory_opened" from="InterfaceLayer/InventoryInterface" to="InterfaceLayer/TutorialPanel" method="queue_free" flags=6]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://buhftm8e6bct0"]
+[gd_scene load_steps=22 format=4 uid="uid://buhftm8e6bct0"]
 
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_altxo"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="2_7j38d"]
@@ -17,12 +17,20 @@
 [ext_resource type="Texture2D" uid="uid://cv0l0oc3mijm5" path="res://assets/newspaper_icon.png" id="16_36kbo"]
 [ext_resource type="TileSet" uid="uid://brgocqdf4uti0" path="res://resources/tileset/interior_tile_set.tres" id="17_0erjh"]
 [ext_resource type="Script" uid="uid://cddi0ewxwl2ki" path="res://scripts/objects/interaction/portal_interactable_area_2d.gd" id="17_altxo"]
+[ext_resource type="Shader" uid="uid://c63iujfr4aokb" path="res://scenes/cutscenes/introduction.gdshader" id="18_7j38d"]
 
 [sub_resource type="Resource" id="Resource_qlfdu"]
 script = ExtResource("6_q5klu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j38d"]
 size = Vector2(70, 84)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rw7ov"]
+shader = ExtResource("18_7j38d")
+shader_parameter/filtro_strength = 0.8
+shader_parameter/darkness = 0.95
+shader_parameter/contrast = 1.15
+shader_parameter/saturation = 0.0
 
 [node name="TestWorld" type="Node2D"]
 
@@ -147,3 +155,16 @@ metadata/_custom_type_script = "uid://cddi0ewxwl2ki"
 position = Vector2(0, -34)
 shape = SubResource("RectangleShape2D_7j38d")
 debug_color = Color(0.9241447, 0.1808281, 0.52396065, 0.41960785)
+
+[node name="Filtro" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="FiltroCor" type="ColorRect" parent="Filtro"]
+material = SubResource("ShaderMaterial_rw7ov")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
