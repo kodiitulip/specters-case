@@ -7,6 +7,8 @@ const SELECTOR: AtlasTexture = preload("uid://cmb6cnhyqd6oj")
 
 var target_path: Array[Vector2]
 
+var wasd_direction: Vector2
+
 var map: WorldTileMapLayer
 var grid: AStarGrid2D
 
@@ -35,6 +37,8 @@ func _ready() -> void:
 
 
 func _on_new_player_path_goal_sent(pos: Vector2, set_busy: bool = true) -> void:
+	if not _is_pos_inbounds(pos):
+		return
 	target_path = _get_path_to(map.local_to_map(pos))
 	_line.points = target_path
 	#_marker.global_position = map.map_to_local(map.local_to_map(pos))
@@ -53,21 +57,38 @@ func _on_player_path_goal_reached() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _mouse_busy or not event.is_action_pressed(&"left_mouse_button"):
+	wasd_direction = Input.get_vector(
+		&"move_left", &"move_right", &"move_up", &"move_down"
+	).normalized()
+	if not _mouse_busy and event.is_action_pressed(&"left_mouse_button"):
+		_on_new_player_path_goal_sent(get_global_mouse_position(), false)
+
+
+func _process(delta: float) -> void:
+	_handle_tile_movement(delta)
+	_handle_wasd_movement(delta)
+	_handle_mouse_marker()
+
+
+func _handle_wasd_movement(delta: float) -> void:
+	if wasd_direction.is_zero_approx():
 		return
-	_on_new_player_path_goal_sent(get_global_mouse_position(), false)
+	var tile_size: int = map.tile_set.tile_size.x
+	var next_pos: Vector2 = global_position + wasd_direction * tile_size / 2
+	var next_pos_is_solid: bool = _is_pos_solid(next_pos)
+	next_pos = global_position if next_pos_is_solid else\
+		global_position + wasd_direction * tile_size
+	global_position = global_position.move_toward(next_pos, delta * speed)
+	_set_manual_direction_blending()
 
 
-func _process(_delta: float) -> void:
+func _handle_mouse_marker() -> void:
 	var mouse: Vector2 = get_global_mouse_position()
-	if _is_pos_solid(mouse):
-		_marker.hide()
-	else:
-		_marker.show()
+	_marker.set_visible(not _is_pos_solid(mouse))
 	_marker.global_position = map.map_to_local(map.local_to_map(mouse))
 
 
-func _physics_process(delta: float) -> void:
+func _handle_tile_movement(delta: float) -> void:
 	if target_path.size() == 0:
 		GlobalSignalBus.emit_player_path_goal_reached()
 		return
@@ -90,8 +111,15 @@ func _get_path_to(point: Vector2) -> Array[Vector2]:
 
 
 func _is_pos_solid(pos: Vector2) -> bool:
+	if not _is_pos_inbounds(pos):
+		return true
 	var m: Vector2 = map.local_to_map(pos)
-	return grid.is_in_boundsv(m) and grid.is_point_solid(m)
+	return grid.is_point_solid(m)
+
+
+func _is_pos_inbounds(pos: Vector2) -> bool:
+	var m: Vector2 = map.local_to_map(pos)
+	return grid.is_in_boundsv(m)
 
 
 func _set_direction_blending() -> void:
@@ -101,3 +129,8 @@ func _set_direction_blending() -> void:
 		global_position.direction_to(target_path[0]))
 	animation_tree.set(&"parameters/Idle/blend_position",
 		global_position.direction_to(target_path[0]))
+
+
+func _set_manual_direction_blending() -> void:
+	animation_tree.set(&"parameters/Walk/blend_position", wasd_direction)
+	animation_tree.set(&"parameters/Idle/blend_position", wasd_direction)

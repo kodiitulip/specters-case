@@ -6,12 +6,16 @@ extends Area2D
 
 var _interact_started: bool = false
 
+@export var is_ghost_interaction: bool
 
 func _ready() -> void:
-	input_pickable = true
+	input_pickable = not is_ghost_interaction
 	input_event.connect(_on_input_event)
 	mouse_entered.connect(GlobalSignalBus.emit_mouse_busy.bind(true))
 	mouse_exited.connect(GlobalSignalBus.emit_mouse_busy.bind(false))
+	if is_ghost_interaction:
+		GlobalSignalBus.specter_light_toggled.connect(
+			func(toggle: bool) -> void: input_pickable = toggle)
 
 ## Called the first frame that the interaction starts
 @abstract func on_interact_started() -> void;
