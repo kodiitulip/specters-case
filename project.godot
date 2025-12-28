@@ -109,7 +109,6 @@ window/size/viewport_height=360
 window/size/mode=2
 window/size/borderless=true
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 window/handheld/orientation=4
 window/size/mode.editor_hint=0
 window/size/borderless.editor_hint=false
