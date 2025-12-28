@@ -7,7 +7,7 @@ var _specter_light_toggle: bool = false:
 
 func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
-	if event.is_action_pressed(&"space"):
+	if event.is_action_pressed(&"space") and Dialogic.current_timeline == null:
 		_specter_light_toggle = not _specter_light_toggle
 
 
