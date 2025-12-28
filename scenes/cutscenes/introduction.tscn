@@ -175,7 +175,7 @@ _data = {
 
 [node name="Introduction" type="Node"]
 script = ExtResource("1_nexf8")
-scene_after = "uid://0d6t1cxsqes1"
+scene_after = "uid://dgyptjrv8oit3"
 
 [node name="MasterAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationTree")
