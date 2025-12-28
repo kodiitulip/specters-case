@@ -4,6 +4,7 @@ signal mouse_busy(busy: bool)
 signal new_player_path_goal_sent(pos: Vector2)
 signal player_path_goal_reached()
 signal battle_dialog_ended()
+signal specter_light_toggled(toggle: bool)
 
 
 func emit_mouse_busy(busy: bool) -> void:
@@ -21,3 +22,7 @@ func send_new_position_to_player(global_pos: Vector2) -> void:
 
 func emit_battle_dialog_ended() -> void:
 	battle_dialog_ended.emit()
+
+
+func emit_specter_light_toggled(toggle: bool) -> void:
+	specter_light_toggled.emit(toggle)
