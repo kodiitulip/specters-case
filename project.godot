@@ -20,9 +20,16 @@ run/main_scene="uid://b7glbwlwtqvmi"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FlowerGarden/Specter's Case"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.10022258, 0.13610247, 0.23731115, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://7d83fqjtscx6"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2500
 boot_splash/bg_color.editor_hint=Color(0.14, 0.14, 0.14, 1)
 boot_splash/image.editor_hint=""
+boot_splash/fullsize.editor_hint=true
+boot_splash/use_filter.editor_hint=false
 
 [autoload]
 

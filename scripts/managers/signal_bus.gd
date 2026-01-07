@@ -13,9 +13,12 @@ func emit_player_path_goal_reached() -> void:
 	player_path_goal_reached.emit()
 
 
-func send_new_position_to_player(global_pos: Vector2, set_busy: bool = false) -> void:
+func send_new_position_to_player(global_pos: Vector2, set_busy: bool = false,
+		save_position: bool = true) -> void:
 	mouse_busy.emit(set_busy)
 	new_player_path_goal_sent.emit(global_pos)
+	if save_position:
+		GlobalVariables.player_last_position = global_pos
 
 
 func emit_battle_dialog_ended() -> void:

@@ -4,13 +4,15 @@ extends Area2D
 ##
 ## This abstract class has the basic code to have a mouse interactable area 2D
 
+@export var update_busy: bool = true
+
 var _interact_started: bool = false
 
 func _ready() -> void:
 	input_pickable = true
 	input_event.connect(_on_input_event)
-	mouse_entered.connect(GlobalSignalBus.emit_mouse_busy.bind(true))
-	mouse_exited.connect(GlobalSignalBus.emit_mouse_busy.bind(false))
+	mouse_entered.connect(_update_mouse_busy.bind(true))
+	mouse_exited.connect(_update_mouse_busy.bind(false))
 
 ## Called the first frame that the interaction starts
 @abstract func on_interact_started() -> void;
@@ -20,6 +22,12 @@ func _ready() -> void:
 
 ## Called on the last frame that the interaction happens
 @abstract func on_interact_ended() -> void;
+
+
+func _update_mouse_busy(busy: bool) -> void:
+	if not update_busy:
+		return
+	GlobalSignalBus.emit_mouse_busy.bind(busy)
 
 
 func _process(_delta: float) -> void:
