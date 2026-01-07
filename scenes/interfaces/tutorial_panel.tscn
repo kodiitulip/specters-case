@@ -1,61 +1,174 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgxu8gt30b2n"]
+[gd_scene load_steps=5 format=3 uid="uid://bkgxu8gt30b2n"]
 
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_ikike"]
 [ext_resource type="Script" uid="uid://k0i8wiia5ss7" path="res://scenes/interfaces/tutorial_panel.gd" id="2_pxrbq"]
+[ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="3_ljqek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljqek"]
+atlas = ExtResource("3_ljqek")
+region = Rect2(16, 38, 10, 14)
 
 [node name="TutorialPanel" type="Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchor_left = 0.7
-anchor_top = 0.75555557
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_ikike")
 script = ExtResource("2_pxrbq")
-metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-autostart = true
 ignore_time_scale = true
 
-[node name="Mouse" type="PanelContainer" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.041666668
-anchor_top = 0.11111111
-anchor_right = 0.9583333
-anchor_bottom = 0.36363646
-grow_horizontal = 0
-grow_vertical = 0
-theme_type_variation = &"InventoryTooltip"
+anchor_left = 0.090625
+anchor_top = 0.6944444
+anchor_right = 0.140625
+anchor_bottom = 0.78333336
+texture = ExtResource("3_ljqek")
+region_rect = Rect2(10, 28, 9, 9)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Mouse"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Use o [color=yellow]Mouse[/color] para se mover e interagir"
-fit_content = true
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Inventory" type="PanelContainer" parent="."]
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.16666667
-anchor_top = 0.63636374
-anchor_right = 0.75
-anchor_bottom = 0.8888889
-grow_horizontal = 0
-grow_vertical = 0
-theme_type_variation = &"InventoryTooltip"
+anchor_left = 0.0390625
+anchor_top = 0.7888889
+anchor_right = 0.0890625
+anchor_bottom = 0.87777776
+texture = ExtResource("3_ljqek")
+region_rect = Rect2(10, 28, 9, 9)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Inventory"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Esse é seu [color=yellow]Inventário[/color] [img]uid://ipf2he12h6vo[/img]"
-fit_content = true
+[node name="Label" type="Label" parent="NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="timeout" from="Timer" to="." method="queue_free"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.090625
+anchor_top = 0.7888889
+anchor_right = 0.140625
+anchor_bottom = 0.87777776
+texture = ExtResource("3_ljqek")
+region_rect = Rect2(10, 28, 9, 9)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NinePatchRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1421875
+anchor_top = 0.7888889
+anchor_right = 0.1921875
+anchor_bottom = 0.87777776
+texture = ExtResource("3_ljqek")
+region_rect = Rect2(10, 28, 9, 9)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NinePatchRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 209.0
+offset_right = 184.0
+offset_bottom = 233.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "Movimentação"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 209.0
+offset_right = 590.0
+offset_bottom = 233.0
+
+[node name="Label" type="Label" parent="PanelContainer2"]
+layout_mode = 2
+text = "Interação"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 260.0
+offset_right = 197.0
+offset_bottom = 300.0
+texture = SubResource("AtlasTexture_ljqek")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 260.0
+offset_right = 552.0
+offset_bottom = 300.0
+texture = SubResource("AtlasTexture_ljqek")
+stretch_mode = 5

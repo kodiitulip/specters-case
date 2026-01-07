@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://vmtnfxgf6hiu"]
+
+[ext_resource type="Script" uid="uid://4sk2xumjhaoj" path="res://scripts/resources/battle_action.gd" id="1_wk0fb"]
+
+[resource]
+resource_name = "Curativo"
+script = ExtResource("1_wk0fb")
+heal_action_enable = true
+heal_action_amount = 2
+heal_action_flavor_text = Array[String](["Você aplica um curativo em si"])
+metadata/_custom_type_script = "uid://4sk2xumjhaoj"

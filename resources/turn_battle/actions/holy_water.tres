@@ -7,6 +7,6 @@ resource_name = "Holy Water"
 script = ExtResource("1_6nkfr")
 item_requirements_enable = null
 attack_action_enable = true
-attack_action_damage = 2
+attack_action_damage = 4
 attack_action_flavor_text = Array[String](["Você esguicha um pouco de [color=yellow]Água benta[/color] no seu inimigo.", "Você joga [color=yellow]Água benta[/color] na direção do seu inimigo.", "[color=yellow]Água benta[/color] escorre do se frasco em direção ao rosto do seu inimigo."])
 metadata/_custom_type_script = "uid://4sk2xumjhaoj"

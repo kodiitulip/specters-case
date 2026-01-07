@@ -32,6 +32,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 GlobalSignalBus="*res://scripts/managers/signal_bus.gd"
 GlobalInventory="*res://scripts/managers/global_inventory.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+GlobalVariables="*res://scripts/managers/global_variables.gd"
 
 [debug]
 

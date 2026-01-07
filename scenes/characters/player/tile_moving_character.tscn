@@ -1,52 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bf4n3ivsbhuc2"]
+[gd_scene load_steps=28 format=3 uid="uid://bf4n3ivsbhuc2"]
 
 [ext_resource type="Script" uid="uid://di74acwar6r0e" path="res://scenes/characters/player/player_tile_moving_character.gd" id="1_kv6mx"]
+[ext_resource type="Texture2D" uid="uid://br8d0j0tksl50" path="res://tile_moving_character.tres" id="2_a1q0b"]
 [ext_resource type="Texture2D" uid="uid://cuv1ep33xi8ht" path="res://assets/tilemap_assets/modern_interiors/characters_free/amelia_16x16.png" id="2_v56n4"]
-
-[sub_resource type="Gradient" id="Gradient_kv6mx"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.14903846, 0.35576922, 0.7307692)
-colors = PackedColorArray(1, 1, 1, 1, 0.5168811, 0.5168811, 0.5168811, 0.90000004, 0.27619392, 0.27619392, 0.27619392, 0.70000005, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a1q0b"]
-gradient = SubResource("Gradient_kv6mx")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Animation" id="Animation_5apm1"]
-resource_name = "light_swap"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashLight:texture_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [1.0, 0.01]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpecterLight:texture_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [0.01, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wg83n"]
-_data = {
-&"light_swap": SubResource("Animation_5apm1")
-}
 
 [sub_resource type="Animation" id="Animation_a1q0b"]
 resource_name = "RESET"
@@ -289,28 +245,14 @@ texture_filter = 1
 position = Vector2(0, -9)
 color = Color(0.8066401, 0.6831282, 0.6235109, 1)
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_a1q0b")
-
-[node name="SpecterLight" type="PointLight2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -9)
-color = Color(0.17352915, 0.5499275, 0.6706337, 1)
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_a1q0b")
-texture_scale = 0.01
-
-[node name="LightAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"Light": SubResource("AnimationLibrary_wg83n")
-}
+texture = ExtResource("2_a1q0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_v56n4")
 offset = Vector2(0, -10)
 hframes = 24
 vframes = 2
-frame = 19
+frame = 22
 region_enabled = true
 region_rect = Rect2(0, 32, 384, 64)
 
