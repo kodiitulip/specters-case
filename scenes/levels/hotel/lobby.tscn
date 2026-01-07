@@ -101,5 +101,9 @@ follow_damping_value = Vector2(0.2, 0.2)
 draw_limits = true
 limit_target = NodePath("../World/WorldTileMapLayer")
 
-[node name="Revenant" parent="." instance=ExtResource("8_cjk06")]
+[node name="Revenant" parent="." node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("8_cjk06")]
 position = Vector2(259, 177)
+interact_position_marker = NodePath("InteractMarker")
+
+[node name="InteractMarker" type="Marker2D" parent="Revenant"]
+position = Vector2(4, 20)

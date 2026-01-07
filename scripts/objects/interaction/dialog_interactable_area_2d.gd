@@ -2,6 +2,7 @@ class_name DialogInteractableArea2D
 extends InteractableArea2D
 
 @export_file("*.dtl") var dialog: String
+@export var interact_position_marker: Marker2D
 
 @export_group("Battle Scene", "battle_scene_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var battle_scene_enable: bool = false
@@ -16,7 +17,9 @@ func _ready() -> void:
 
 
 func on_interact_started() -> void:
-	GlobalSignalBus.send_new_position_to_player(global_position)
+	var pos: Vector2 = (interact_position_marker.global_position
+		if interact_position_marker else global_position)
+	GlobalSignalBus.send_new_position_to_player(pos)
 	await GlobalSignalBus.player_path_goal_reached
 	Dialogic.start(dialog)
 
