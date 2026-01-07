@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://bbxfl81s1dg25"]
+
+[ext_resource type="Script" uid="uid://4sk2xumjhaoj" path="res://scripts/resources/battle_action.gd" id="1_x037b"]
+
+[resource]
+resource_name = "Basic Attack"
+script = ExtResource("1_x037b")
+attack_action_enable = true
+attack_action_damage = 2
+attack_action_flavor_text = Array[String](["Você joga sal na direção do fantasma"])
+metadata/_custom_type_script = "uid://4sk2xumjhaoj"

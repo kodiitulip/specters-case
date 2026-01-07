@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://deumsw3rtheqj"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://deumsw3rtheqj"]
 
-[ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="1_3q08o"]
 [ext_resource type="StyleBox" uid="uid://bjt5cg75haj7l" path="res://resources/themes/style_boxes/button_hover_focus_texture.tres" id="2_us5fq"]
 [ext_resource type="StyleBox" uid="uid://cpokenh1qaj0a" path="res://resources/themes/style_boxes/button_normal_texture.tres" id="3_m7a03"]
 [ext_resource type="StyleBox" uid="uid://blkritqenyt15" path="res://resources/themes/style_boxes/button_pressed_texture.tres" id="4_e1p1n"]
@@ -62,21 +61,21 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(16, 2, 14, 12)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_neqo8"]
-texture = ExtResource("1_3q08o")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-region_rect = Rect2(90, 171, 106, 8)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17ruc"]
+texture = ExtResource("6_e1p1n")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(10, 18, 9, 9)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q08o"]
-texture = ExtResource("1_3q08o")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-region_rect = Rect2(90, 159, 106, 8)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htrdw"]
+texture = ExtResource("6_e1p1n")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(10, 28, 9, 9)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w00jl"]
 texture = ExtResource("6_e1p1n")
@@ -112,11 +111,9 @@ PanelContainer/styles/panel = ExtResource("5_e1p1n")
 PaperPanelContainer/base_type = &"PanelContainer"
 PaperPanelContainer/styles/panel = SubResource("StyleBoxTexture_rdac0")
 ProgressBar/colors/font_color = Color(0, 0, 0, 1)
-ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
-ProgressBar/constants/outline_size = 2
 ProgressBar/font_sizes/font_size = 8
-ProgressBar/styles/background = SubResource("StyleBoxTexture_neqo8")
-ProgressBar/styles/fill = SubResource("StyleBoxTexture_3q08o")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_17ruc")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_htrdw")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 8
 TooltipPanel/styles/panel = SubResource("StyleBoxTexture_w00jl")

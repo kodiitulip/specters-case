@@ -4,14 +4,16 @@ class_name TurnBattleManager extends Node
 @export_multiline var die_flavor_text: Array[String]
 @export_file("*.tscn") var death_scene: String
 @export_file("*.tscn") var victory_scene: String
+@export_file("*.tscn") var flee_scene: String
 
-var player_battler: PlayerBattler
+var player_battler: Battler
 var enemy_battler: EnemyBattler
 var buttons: Array[BattleActionButton] = []
 var finished: bool = false
 
-@onready var action_buttons: VBoxContainer = %ActionButtons
+@onready var action_buttons: GridContainer = %ActionButtons
 @onready var flavor_text_label: RichTextLabel = %FlavorTextLabel
+@onready var flee: Button = %Flee
 
 func _ready() -> void:
 	_set_flavor_text(["Uma batalha começa"])
@@ -24,10 +26,15 @@ func _ready() -> void:
 	enemy_battler.turn_ended.connect(_on_enemy_turn_ended)
 	enemy_battler.dead.connect(_player_wins)
 	
-	buttons.assign(action_buttons.get_children())
+	buttons.assign(action_buttons.get_children().filter(func(c: Node) -> bool:
+		return c is BattleActionButton))
 	
 	for button: BattleActionButton in buttons:
 		button.action_pressed.connect(_on_any_action_pressed)
+	
+	if flee:
+		flee.pressed.connect(func() -> void:
+			SceneTransitionManager.transition_to(flee_scene))
 
 
 func _on_any_action_pressed(action: BattleAction) -> void:

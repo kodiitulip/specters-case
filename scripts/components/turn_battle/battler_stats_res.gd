@@ -8,6 +8,16 @@ enum BattlerType {
 
 @export var type: BattlerType
 @export var max_hp: int
-@export var min_damage: int
-@export var max_damage: int
-@export var turn_speed: int
+
+var current_hp: int:
+	set(value):
+		current_hp = value
+		emit_changed()
+
+
+func _init() -> void:
+	_setup.call_deferred()
+
+
+func _setup() -> void:
+	current_hp = max_hp

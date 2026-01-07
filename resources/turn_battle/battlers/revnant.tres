@@ -7,6 +7,4 @@ resource_name = "Revenant"
 script = ExtResource("1_rl2sq")
 type = 1
 max_hp = 10
-min_damage = 1
-max_damage = 2
 metadata/_custom_type_script = "uid://bb05a00fwahuu"

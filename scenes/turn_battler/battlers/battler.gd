@@ -1,5 +1,5 @@
 @tool
-@abstract class_name Battler
+class_name Battler
 extends Node2D
 
 signal dead()
@@ -12,12 +12,9 @@ signal turn_ended()
 		await ready
 		sprite.flip_h = mirrored
 @export var stats: BattlerStats
-@export var current_hp: int: set = _set_current_hp
 
 @export var sprite: AnimatedSprite2D
-
-func _ready() -> void:
-	current_hp = stats.max_hp
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func end_turn() -> void:
@@ -25,15 +22,13 @@ func end_turn() -> void:
 
 
 func be_damaged(damage: int) -> void:
-	current_hp -= damage
-	if current_hp <= 0:
-		current_hp = 0
+	stats.current_hp -= damage
+	animation_player.play(&"battle/hit_flipped" if mirrored else &"battle/hit")
+	if stats.current_hp <= 0:
+		stats.current_hp = 0
 		dead.emit()
 
 
 func heal_self(amount: int) -> void:
-	current_hp += amount
-
-
-func _set_current_hp(value: int) -> void:
-	current_hp = value
+	stats.current_hp += amount
+	animation_player.play(&"battle/heal")

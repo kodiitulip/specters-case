@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dugudfu485ekh"]
+
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="1_1t727"]
+[ext_resource type="Script" uid="uid://drr00u3uxp3u8" path="res://scenes/interfaces/battle/stats_bar/left_stats_bar.gd" id="2_y7fmy"]
+
+[node name="LeftStatsBar" type="PanelContainer" node_paths=PackedStringArray("name_label", "progress_bar", "hp_label")]
+anchors_preset = -1
+anchor_right = 0.374875
+anchor_bottom = 0.08322223
+offset_right = 0.07998657
+offset_bottom = 0.0399971
+grow_horizontal = 2
+theme = ExtResource("1_1t727")
+script = ExtResource("2_y7fmy")
+name_label = NodePath("HBoxContainer/NameLabel")
+progress_bar = NodePath("HBoxContainer/ProgressBar")
+hp_label = NodePath("HBoxContainer/HPLabel")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Battler"
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "10 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1

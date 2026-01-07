@@ -4,6 +4,7 @@ extends Node2D
 const SELECTOR: AtlasTexture = preload("uid://cmb6cnhyqd6oj")
 
 @export var speed: float = 150.0
+@export var busy: bool = false
 
 var target_path: Array[Vector2]
 
@@ -12,14 +13,13 @@ var wasd_direction: Vector2
 var map: WorldTileMapLayer
 var grid: AStarGrid2D
 
-var _mouse_busy: bool = false
 var _line: Line2D
 var _marker: Sprite2D
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 func _ready() -> void:
-	GlobalSignalBus.mouse_busy.connect(func(v: bool) -> void: _mouse_busy = v)
+	GlobalSignalBus.mouse_busy.connect(func(v: bool) -> void: busy = v)
 	GlobalSignalBus.new_player_path_goal_sent.connect(_on_new_player_path_goal_sent)
 	assert(WorldTileMapLayer.instance and WorldTileMapLayer.astar_grid,
 		"No WorldTileMapLayer found")
@@ -32,18 +32,19 @@ func _ready() -> void:
 	add_child(_line)
 	_marker = Sprite2D.new()
 	_marker.texture = SELECTOR
+	_marker.material = CanvasItemMaterial.new()
+	(_marker.material as CanvasItemMaterial).light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 	_marker.top_level = true
 	add_child(_marker)
 
 
-func _on_new_player_path_goal_sent(pos: Vector2, set_busy: bool = true) -> void:
+func _on_new_player_path_goal_sent(pos: Vector2) -> void:
 	if not _is_pos_inbounds(pos):
 		return
 	target_path = _get_path_to(map.local_to_map(pos))
 	_line.points = target_path
 	#_marker.global_position = map.map_to_local(map.local_to_map(pos))
 	_set_direction_blending()
-	_mouse_busy = set_busy
 	if GlobalSignalBus.player_path_goal_reached.is_connected(
 			_on_player_path_goal_reached):
 		return
@@ -53,15 +54,15 @@ func _on_new_player_path_goal_sent(pos: Vector2, set_busy: bool = true) -> void:
 
 func _on_player_path_goal_reached() -> void:
 	_line.clear_points()
-	_mouse_busy = false
+	busy = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	wasd_direction = Input.get_vector(
 		&"move_left", &"move_right", &"move_up", &"move_down"
 	).normalized()
-	if not _mouse_busy and event.is_action_pressed(&"left_mouse_button"):
-		_on_new_player_path_goal_sent(get_global_mouse_position(), false)
+	if not busy and event.is_action_pressed(&"left_mouse_button"):
+		GlobalSignalBus.send_new_position_to_player(get_global_mouse_position())
 
 
 func _process(delta: float) -> void:
@@ -71,7 +72,7 @@ func _process(delta: float) -> void:
 
 
 func _handle_wasd_movement(delta: float) -> void:
-	if wasd_direction.is_zero_approx():
+	if busy or wasd_direction.is_zero_approx():
 		return
 	var tile_size: int = map.tile_set.tile_size.x
 	var next_pos: Vector2 = global_position + wasd_direction * tile_size / 2
@@ -83,12 +84,16 @@ func _handle_wasd_movement(delta: float) -> void:
 
 
 func _handle_mouse_marker() -> void:
+	if busy:
+		return
 	var mouse: Vector2 = get_global_mouse_position()
 	_marker.set_visible(not _is_pos_solid(mouse))
 	_marker.global_position = map.map_to_local(map.local_to_map(mouse))
 
 
 func _handle_tile_movement(delta: float) -> void:
+	if busy:
+		return
 	if target_path.size() == 0:
 		GlobalSignalBus.emit_player_path_goal_reached()
 		return
