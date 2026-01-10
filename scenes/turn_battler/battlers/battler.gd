@@ -3,7 +3,6 @@ class_name Battler
 extends Node2D
 
 signal dead()
-@warning_ignore("unused_signal")
 signal turn_ended()
 
 @export var mirrored: bool = false:

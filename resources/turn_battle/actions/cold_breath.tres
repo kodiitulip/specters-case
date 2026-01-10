@@ -7,5 +7,5 @@ resource_name = "Cold Breath"
 script = ExtResource("1_1mhsf")
 attack_action_enable = true
 attack_action_damage = 2
-attack_action_flavor_text = Array[String](["O ar ao se redor esfria e você sente uma dor no peito.", "Você sente o ar cada vez mais frio"])
+attack_action_flavor_text = Array[String](["O ar ao seu redor esfria e você sente uma dor no peito.", "Você sente o ar cada vez mais frio"])
 metadata/_custom_type_script = "uid://4sk2xumjhaoj"

@@ -8,12 +8,14 @@
 [ext_resource type="FontFile" uid="uid://vo4766bjujjr" path="res://assets/ui/fonts/8bit_operator/8bitOperatorPlus-Regular.ttf" id="7_e1p1n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ryj"]
+content_margin_left = 8.0
+content_margin_right = 8.0
 texture = ExtResource("6_e1p1n")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(0, 28, 9, 9)
+region_rect = Rect2(10, 18, 9, 9)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fs110"]
 content_margin_left = 12.0
@@ -89,10 +91,11 @@ region_rect = Rect2(37, 0, 5, 5)
 default_font = ExtResource("7_e1p1n")
 default_font_size = 12
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.0627451, 0.0627451, 0.0627451, 0.8)
 Button/colors/font_focus_color = Color(0.38039216, 0.18039216, 0.1764706, 1)
 Button/colors/font_hover_color = Color(0.38039216, 0.18039216, 0.1764706, 1)
 Button/colors/font_hover_pressed_color = Color(0.38039216, 0.18039216, 0.1764706, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 0.8)
 Button/styles/disabled = SubResource("StyleBoxTexture_48ryj")
 Button/styles/focus = ExtResource("2_us5fq")
 Button/styles/hover = ExtResource("2_us5fq")
@@ -115,5 +118,9 @@ ProgressBar/font_sizes/font_size = 8
 ProgressBar/styles/background = SubResource("StyleBoxTexture_17ruc")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_htrdw")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/bold_italics_font_size = 8
+RichTextLabel/font_sizes/italics_font_size = 8
+RichTextLabel/font_sizes/mono_font_size = 8
 RichTextLabel/font_sizes/normal_font_size = 8
 TooltipPanel/styles/panel = SubResource("StyleBoxTexture_w00jl")

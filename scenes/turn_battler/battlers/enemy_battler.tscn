@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b1ahan0guskl4"]
+[gd_scene load_steps=28 format=3 uid="uid://b1ahan0guskl4"]
 
 [ext_resource type="Script" uid="uid://bxlrkb4450to1" path="res://scenes/turn_battler/battlers/enemy_battler.gd" id="1_r8var"]
 [ext_resource type="Resource" uid="uid://cqyl8w6qtlpat" path="res://resources/turn_battle/battlers/revnant.tres" id="2_r8var"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bkumc4wdn3bhv" path="res://resources/turn_battle/actions/cold_breath.tres" id="3_atmpg"]
 [ext_resource type="Resource" uid="uid://cyjntvxeiobk2" path="res://resources/turn_battle/actions/breathe_in.tres" id="4_llo30"]
 [ext_resource type="Material" uid="uid://8ymdbc0wlyx1" path="res://resources/shaders/battler_hit_flash_shader.tres" id="6_w8vsn"]
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="8_atmpg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68g6a"]
 atlas = ExtResource("3_68g6a")
@@ -144,6 +145,34 @@ _data = {
 &"RESET": SubResource("Animation_pq6a6")
 }
 
+[sub_resource type="Animation" id="Animation_b2pil"]
+resource_name = "heal"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:material:shader_parameter/get_hit")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(5.198121e-06, 0.7304947, 0.49186343, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_clxjq"]
 step = 0.15
 tracks/0/type = "value"
@@ -181,34 +210,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -14), Vector2(-3, -14), Vector2(0, -14)]
-}
-
-[sub_resource type="Animation" id="Animation_b2pil"]
-resource_name = "heal"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:material:shader_parameter/get_hit")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:material:shader_parameter/flash_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(5.198121e-06, 0.7304947, 0.49186343, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gqcgt"]
@@ -278,3 +279,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_b2pil"),
 &"battle": SubResource("AnimationLibrary_gqcgt")
 }
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 23.0
+offset_bottom = 24.0
+theme = ExtResource("8_atmpg")
+max_value = 10.0
+step = 1.0
+rounded = true
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
+metadata/_edit_use_anchors_ = true

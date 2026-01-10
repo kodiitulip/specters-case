@@ -6,5 +6,5 @@
 resource_name = "Breathe In"
 script = ExtResource("1_7nppk")
 heal_action_enable = true
-heal_action_flavor_text = Array[String](["[wave][color=red]Revenant[/color][/wave] parece ter recperado o ar", "[wave][color=red]Revenant[/color][/wave] absorve o calor ao seu redor"])
+heal_action_flavor_text = Array[String](["[wave][color=red]Revenant[/color][/wave] parece ter recuperado o ar", "[wave][color=red]Revenant[/color][/wave] absorve o calor ao seu redor"])
 metadata/_custom_type_script = "uid://4sk2xumjhaoj"

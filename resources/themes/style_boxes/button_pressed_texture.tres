@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="1_2u38r"]
 
 [resource]
+content_margin_left = 8.0
+content_margin_right = 8.0
 texture = ExtResource("1_2u38r")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
