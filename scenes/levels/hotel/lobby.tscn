@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b8vn6g2j7nsua"]
+[gd_scene load_steps=26 format=4 uid="uid://b8vn6g2j7nsua"]
 
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="1_by3pn"]
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_ogn51"]
@@ -15,7 +15,6 @@
 [ext_resource type="Resource" uid="uid://cmwik5mujkglt" path="res://resources/dialogic/dialogs/fireplace_success.dtl" id="8_flchh"]
 [ext_resource type="Script" uid="uid://gnrrvg7yfjx7" path="res://scenes/levels/hotel/water_pipe.gd" id="9_bw70e"]
 [ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="9_hx5c0"]
-[ext_resource type="PackedScene" uid="uid://bngnnh8t3orrh" path="res://scenes/items/loose_item/loose_item.tscn" id="10_mp8d6"]
 [ext_resource type="Resource" uid="uid://bvppokquppuor" path="res://resources/items/unlit_candle.tres" id="16_6ttjb"]
 [ext_resource type="Resource" uid="uid://bmoqhvdy5phdb" path="res://resources/dialogic/dialogs/water_pipe/water_candle.dtl" id="17_5p4n3"]
 
@@ -166,10 +165,6 @@ metadata/_edit_lock_ = true
 
 [node name="TileMovingCharacter" parent="World" instance=ExtResource("5_ogn51")]
 position = Vector2(241, 338)
-
-[node name="LooseItem" parent="World" instance=ExtResource("10_mp8d6")]
-position = Vector2(246, 198)
-item_data = ExtResource("16_6ttjb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(241, 294)
