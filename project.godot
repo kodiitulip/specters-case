@@ -60,8 +60,12 @@ directories/dtl_directory={
 "blocking": "res://resources/dialogic/dialogs/ghost/blocking.dtl",
 "ending_demo": "res://resources/dialogic/dialogs/ending_demo.dtl",
 "errante": "res://resources/dialogic/dialogs/ghost/errante.dtl",
+"fireplace": "res://resources/dialogic/dialogs/fireplace.dtl",
+"fireplace_success": "res://resources/dialogic/dialogs/fireplace_success.dtl",
 "intro": "res://resources/dialogic/dialogs/intro.dtl",
 "player_lost": "res://resources/dialogic/dialogs/ghost/player_lost.dtl",
+"straw_doll_fail": "res://resources/dialogic/dialogs/loot/straw_doll_fail.dtl",
+"water_candle": "res://resources/dialogic/dialogs/water_pipe/water_candle.dtl",
 "you_got_item": "res://resources/dialogic/dialogs/loot/you_got_item.dtl"
 }
 layout/style_directory={
@@ -71,7 +75,9 @@ layout/style_list=["res://resources/dialogic/themes/battle.tres"]
 variables={
 "battle_scene_uuid": "uid://c2fhrlxr43suj",
 "calm": false,
+"debug": false,
 "puzzles": {
+"item_icon": "",
 "item_name": ""
 }
 }

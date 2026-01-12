@@ -1,4 +1,5 @@
 [style name="battle"]
+set {GlobalVariables.started_front_desk_battle} = true
 errante: .....
 pam: Oi...?
 label choices
@@ -18,3 +19,5 @@ label choices
 	do GlobalSignalBus.emit_battle_dialog_ended()
 - Deixar em paz
 	[end_timeline]
+- DEBUG | [if {debug} == true] [else="hide"]
+	do GlobalSignalBus.emit_battle_dialog_ended()

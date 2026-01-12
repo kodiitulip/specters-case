@@ -1,2 +1,2 @@
 [style name="battle"]
-O item\: [color=yellow]{puzzles.item_name}[/color] foi adicionado ao seu inventário!
+[color=yellow][img]{puzzles.item_icon}[/img]{puzzles.item_name}[/color] foi adicionado ao seu inventário!

@@ -41,9 +41,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	Dialogic.timeline_started.connect(func() -> void: _busy = true)
 	Dialogic.timeline_ended.connect(func() -> void: _busy = false)
-	if slots_container.get_child_count() > 0:
-		for child: Control in slots_container.get_children():
-			child.queue_free()
+	_setup_slots()
+	GlobalInventory.inventory_changed.connect(_on_inventory_changed)
+	_on_inventory_changed()
+
+
+func _setup_slots() -> void:
+	_clear_slots()
 	for i: int in item_slot_count:
 		var slot: InventorySlot = INVENTORY_SLOT_SCENE.instantiate() as InventorySlot
 		slots_container.add_child(slot)
@@ -51,11 +55,19 @@ func _ready() -> void:
 		slot.on_item_dropped_on.connect(_on_item_droped_on_slot)
 		slot.slot_hover_started.connect(_update_tooltip)
 		inventory_slots.append(slot)
-	GlobalInventory.inventory_changed.connect(_on_inventory_changed)
-	_on_inventory_changed()
+
+
+func _clear_slots() -> void:
+	for slot: InventorySlot in inventory_slots:
+		slot.queue_free()
+	inventory_slots.clear()
+	if slots_container.get_child_count() > 0:
+		for child: Node in slots_container.get_children():
+			child.queue_free()
 
 
 func _on_inventory_changed() -> void:
+	_setup_slots()
 	for item: ItemData in GlobalInventory.items:
 		var id: int = GlobalInventory.items.get(item, -1)
 		set_item_on_slot(item, id)

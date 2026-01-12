@@ -12,7 +12,7 @@ extends InteractableArea2D
 
 func _ready() -> void:
 	super._ready()
-	assert(item_data != null, "[code]ItemData[/code] must not be null")
+	assert(item_data != null, "ItemData must not be null")
 
 
 ## Called the first frame that the interaction starts

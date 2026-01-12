@@ -245,7 +245,7 @@ metadata/_custom_type_script = "uid://cn2k2sidaad76"
 [node name="FlashLight" type="PointLight2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -9)
-color = Color(0.8066401, 0.6831282, 0.6235109, 1)
+color = Color(0.700685, 0.5451261, 0.43070382, 1)
 shadow_enabled = true
 texture = ExtResource("2_a1q0b")
 
@@ -254,7 +254,7 @@ texture = ExtResource("2_v56n4")
 offset = Vector2(0, -10)
 hframes = 24
 vframes = 2
-frame = 21
+frame = 19
 region_enabled = true
 region_rect = Rect2(0, 32, 384, 64)
 
@@ -271,7 +271,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="Area2D" type="Area2D" parent="." groups=["player_area"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_v56n4")

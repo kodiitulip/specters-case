@@ -1,7 +1,7 @@
 class_name DialogInteractableArea2D
 extends InteractableArea2D
 
-@export_file("*.dtl") var dialog: String
+@export var dialog: DialogicTimeline
 @export var interact_position_marker: Marker2D
 
 @export_group("Battle Scene", "battle_scene_")

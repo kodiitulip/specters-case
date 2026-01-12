@@ -79,6 +79,8 @@ script = ExtResource("2_5ablv")
 scene = ExtResource("10_h1glt")
 overrides = {
 "bold_font": "\"res://assets/ui/fonts/8bit_operator/8bitOperatorPlus-Bold.ttf\"",
+"box_animation_in": "0",
+"box_animation_out": "0",
 "box_color_custom": "Color(1, 1, 1, 1)",
 "box_panel": "\"res://resources/themes/style_boxes/fancy_style_box_texture.tres\"",
 "box_size": "Vector2(550, 80)",
@@ -103,4 +105,4 @@ layer_info = {
 "17": SubResource("Resource_qekyb"),
 "18": SubResource("Resource_yb2d3")
 }
-metadata/_latest_layer = "12"
+metadata/_latest_layer = "18"
