@@ -2,6 +2,7 @@ class_name TurnBattleManager extends Node
 
 signal interacted()
 signal enemy_chosen()
+signal battle_ended(player_won: bool)
 
 @export_group("Flovor Text", "flavor_text_")
 @export_multiline var flavor_text_on_win: Array[String]
@@ -26,7 +27,7 @@ var finished: bool = false
 @export var ui_interact_indicator: TextureRect
 
 func _ready() -> void:
-	_set_flavor_text(["Uma batalha começa. O que você faz?"])
+	_set_flavor_text(["Uma batalha começa. O que você faz?"], false)
 	
 	player_battler = get_tree().get_first_node_in_group("player_battler")
 	player_battler.turn_ended.connect(_on_player_turn_ended)
@@ -90,9 +91,6 @@ func _actor_action(actor: Battler, action: BattleAction) -> void:
 		await _actor_attack(actor, action)
 	if action.heal_action_enable:
 		await _actor_heal(actor, action)
-	if ui_interact_indicator:
-		ui_interact_indicator.show()
-	await interacted
 	actor.end_turn()
 
 
@@ -102,6 +100,7 @@ func _actor_attack(actor: Battler, action: BattleAction) -> void:
 		ui_enemy_choose_buttons.show()
 		await enemy_chosen
 	await _set_flavor_text(action.attack_action_flavor_text)
+	await interacted
 	match [actor, action.attack_action_target]:
 		[player_battler, BattleAction.OTHER]:
 			chosen_enemy.be_damaged(action.attack_action_damage)
@@ -113,6 +112,7 @@ func _actor_attack(actor: Battler, action: BattleAction) -> void:
 
 func _actor_heal(actor: Battler, action: BattleAction) -> void:
 	await _set_flavor_text(action.heal_action_flavor_text)
+	await interacted
 	match [actor, action.heal_action_target]:
 		[player_battler, BattleAction.OTHER]:
 			chosen_enemy.heal_self(action.heal_action_amount)
@@ -125,9 +125,11 @@ func _actor_heal(actor: Battler, action: BattleAction) -> void:
 func _on_player_turn_ended() -> void:
 	if finished:
 		return
-	var action: BattleAction = chosen_enemy.actions.pick_random()
+	var enemy: EnemyBattler = (chosen_enemy 
+		if chosen_enemy else enemy_battlers.pick_random())
+	var action: BattleAction = enemy.actions.pick_random()
 	assert(action != null, "No enemy action found")
-	_actor_action(chosen_enemy, action)
+	_actor_action(enemy, action)
 
 
 func _on_enemy_turn_ended() -> void:
@@ -139,10 +141,10 @@ func _on_enemy_turn_ended() -> void:
 		# NOTE: remove this check when items are availlable
 		elif button.name != "Items":
 			button.set_disabled(false)
-	_set_flavor_text(["O que você faz?"])
+	_set_flavor_text(["O que você faz?"], false)
 
 
-func _set_flavor_text(text: Array[String]) -> void:
+func _set_flavor_text(text: Array[String], indicator: bool = true) -> void:
 	if not ui_flavor_text_label:
 		printerr("No [code]ui_flavor_text[/code] Label selected"); return
 	ui_flavor_text_label.clear()
@@ -152,20 +154,24 @@ func _set_flavor_text(text: Array[String]) -> void:
 	t.tween_property(ui_flavor_text_label, ^"visible_ratio", 1.0,
 		0.01 * flavor.length()).from(0.0)
 	await t.finished
-	await get_tree().create_timer(0.6).timeout
+	if ui_interact_indicator and indicator:
+		ui_interact_indicator.show()
 
 
 func _on_player_dead() -> void:
+	await interacted
 	finished = true
+	battle_ended.emit(false)
 	await _set_flavor_text(flavor_text_on_death)
-	await get_tree().create_timer(1.2).timeout
+	await interacted
 	SceneTransitionManager.transition_to(scene_on_death)
 
 
 func _player_wins() -> void:
 	finished = true
+	battle_ended.emit(true)
 	await _set_flavor_text(flavor_text_on_win)
-	await get_tree().create_timer(1.2).timeout
+	await interacted
 	SceneTransitionManager.transition_to(scene_on_victory)
 
 

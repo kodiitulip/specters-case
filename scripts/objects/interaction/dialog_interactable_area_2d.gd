@@ -21,6 +21,7 @@ func on_interact_started() -> void:
 		if interact_position_marker else global_position)
 	GlobalSignalBus.send_new_position_to_player(pos)
 	await GlobalSignalBus.player_path_goal_reached
+	if not dialog: return
 	Dialogic.start(dialog)
 
 

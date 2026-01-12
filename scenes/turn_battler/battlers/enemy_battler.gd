@@ -7,11 +7,14 @@ class_name EnemyBattler extends Battler
 
 
 func _ready() -> void:
+	super._ready()
 	assert(self.stats != null)
 	health_bar.set_indeterminate(false)
-	self.stats.changed.connect(_on_stats_changed)
+	current_hp_changed.connect(_on_stats_changed)
+	stats.changed.connect(_on_stats_changed)
+	_on_stats_changed.call_deferred()
 
 
 func _on_stats_changed() -> void:
 	health_bar.set_max(self.stats.max_hp)
-	health_bar.set_value(self.stats.current_hp)
+	health_bar.set_value(current_hp)

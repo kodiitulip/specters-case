@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bf4n3ivsbhuc2"]
+[gd_scene load_steps=29 format=3 uid="uid://bf4n3ivsbhuc2"]
 
 [ext_resource type="Script" uid="uid://di74acwar6r0e" path="res://scenes/characters/player/player_tile_moving_character.gd" id="1_kv6mx"]
 [ext_resource type="Texture2D" uid="uid://br8d0j0tksl50" path="res://tile_moving_character.tres" id="2_a1q0b"]
@@ -236,6 +236,8 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_vvkqi")
 states/Walk/position = Vector2(714, 100)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_a1q0b"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_vjes7"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_v56n4")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v56n4"]
+
 [node name="TileMovingCharacter" type="Node2D"]
 script = ExtResource("1_kv6mx")
 metadata/_custom_type_script = "uid://cn2k2sidaad76"
@@ -252,7 +254,7 @@ texture = ExtResource("2_v56n4")
 offset = Vector2(0, -10)
 hframes = 24
 vframes = 2
-frame = 22
+frame = 21
 region_enabled = true
 region_rect = Rect2(0, 32, 384, 64)
 
@@ -268,3 +270,8 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_v56n4")

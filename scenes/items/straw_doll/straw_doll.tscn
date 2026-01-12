@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp4fjjn7xbwpd"]
+
+[ext_resource type="Script" uid="uid://cuh6nirbkf7hp" path="res://scenes/items/straw_doll/straw_doll.gd" id="1_2j18b"]
+[ext_resource type="Texture2D" uid="uid://ttbedx3o74x6" path="res://assets/straw_doll.png" id="2_e6a4f"]
+[ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="2_rknlv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bw70e"]
+
+[node name="StrawDoll" type="Area2D"]
+script = ExtResource("1_2j18b")
+item_to_check_for = ExtResource("2_rknlv")
+metadata/_custom_type_script = "uid://d1ithttgd13on"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e6a4f")
+offset = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bw70e")
