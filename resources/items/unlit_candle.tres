@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bvppokquppuor"]
+
+[ext_resource type="Texture2D" uid="uid://cgsf0xc261jqo" path="res://assets/unlit_candle.png" id="1_3grbu"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="2_exouw"]
+
+[resource]
+resource_name = "Vela"
+script = ExtResource("2_exouw")
+item_name = "Vela"
+item_description = "Uma vela"
+item_icon = ExtResource("1_3grbu")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"

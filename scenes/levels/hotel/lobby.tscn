@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b8vn6g2j7nsua"]
+[gd_scene load_steps=27 format=4 uid="uid://b8vn6g2j7nsua"]
 
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="1_by3pn"]
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_ogn51"]
@@ -10,7 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dp4fjjn7xbwpd" path="res://scenes/items/straw_doll/straw_doll.tscn" id="6_3bn6e"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_x7u1i"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_cjk06"]
+[ext_resource type="PackedScene" uid="uid://dnvcrq074u4st" path="res://scenes/items/fireplace.tscn" id="7_iqcbx"]
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="8_cjk06"]
+[ext_resource type="Resource" uid="uid://cmwik5mujkglt" path="res://resources/dialogic/dialogs/fireplace_success.dtl" id="8_flchh"]
+[ext_resource type="Script" uid="uid://gnrrvg7yfjx7" path="res://scenes/levels/hotel/water_pipe.gd" id="9_bw70e"]
+[ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="9_hx5c0"]
+[ext_resource type="PackedScene" uid="uid://bngnnh8t3orrh" path="res://scenes/items/loose_item/loose_item.tscn" id="10_mp8d6"]
+[ext_resource type="Resource" uid="uid://bvppokquppuor" path="res://resources/items/unlit_candle.tres" id="16_6ttjb"]
+[ext_resource type="Resource" uid="uid://bmoqhvdy5phdb" path="res://resources/dialogic/dialogs/water_pipe/water_candle.dtl" id="17_5p4n3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cjk06"]
 light_mode = 2
@@ -40,6 +47,10 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 8, 1)
 gravity = Vector3(0, 98, 0)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bw70e"]
+a = Vector2(0, -22)
+b = Vector2(0, 37)
+
 [node name="Lobby" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -59,6 +70,7 @@ y_sort_enabled = true
 material = SubResource("CanvasItemMaterial_cjk06")
 
 [node name="WorldTileMapLayer" type="TileMapLayer" parent="World"]
+visible = false
 z_index = 1
 tile_map_data = PackedByteArray("AAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAATAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAoAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAKAA0AAAAAAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAAMAAwAAAAAAAAAAAAMAA0AAAAAAAAAAAANAAwAAAAAAAAAAAANAA0AAAAAAAAAAAAOAAwAAAAAAAAAAAAOAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAAPAA0AAAAAAAAAAAAQAAwAAAAAAAAAAAAQAA0AAAAAAAAAAAARAAwAAAAAAAAAAAARAA0AAAAAAAAAAAASAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAKAAoAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAoAAAAAAAAAAAALAAsAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAAAAAAAAAJAAsAAAAAAAAAAAAJAAwAAAAAAAAAAAAJAA0AAAAAAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAAAAAAAAAAUAAkAAAAAAAAAAAAUAAoAAAAAAAAAAAAUAAsAAAAAAAAAAAAUAAwAAAAAAAAAAAAUAA0AAAAAAAAAAAANAA4AAAAAAAAAAAANAA8AAAAAAAAAAAANABAAAAAAAAAAAAANABEAAAAAAAAAAAANABIAAAAAAAAAAAANABMAAAAAAAAAAAANABQAAAAAAAAAAAANABUAAAAAAAAAAAAOAA4AAAAAAAAAAAAOAA8AAAAAAAAAAAAOABAAAAAAAAAAAAAOABEAAAAAAAAAAAAOABIAAAAAAAAAAAAOABMAAAAAAAAAAAAOABQAAAAAAAAAAAAOABUAAAAAAAAAAAAPAA4AAAAAAAAAAAAPAA8AAAAAAAAAAAAPABAAAAAAAAAAAAAPABEAAAAAAAAAAAAPABIAAAAAAAAAAAAPABMAAAAAAAAAAAAPABQAAAAAAAAAAAAPABUAAAAAAAAAAAAQAA4AAAAAAAAAAAAQAA8AAAAAAAAAAAAQABAAAAAAAAAAAAAQABEAAAAAAAAAAAAQABIAAAAAAAAAAAAQABMAAAAAAAAAAAAQABQAAAAAAAAAAAAQABUAAAAAAAAAAAAKAA4AAAAAAAAAAAAKAA8AAAAAAAAAAAAKABAAAAAAAAAAAAAKABEAAAAAAAAAAAAKABIAAAAAAAAAAAAKABMAAAAAAAAAAAAKABQAAAAAAAAAAAAKABUAAAAAAAAAAAALAA4AAAAAAAAAAAALAA8AAAAAAAAAAAALABAAAAAAAAAAAAALABEAAAAAAAAAAAALABIAAAAAAAAAAAALABMAAAAAAAAAAAALABQAAAAAAAAAAAALABUAAAAAAAAAAAAMAA4AAAAAAAAAAAAMAA8AAAAAAAAAAAAMABAAAAAAAAAAAAAMABEAAAAAAAAAAAAMABIAAAAAAAAAAAAMABMAAAAAAAAAAAAMABQAAAAAAAAAAAAMABUAAAAAAAAAAAARAA4AAAAAAAAAAAARAA8AAAAAAAAAAAARABAAAAAAAAAAAAARABEAAAAAAAAAAAARABIAAAAAAAAAAAARABMAAAAAAAAAAAARABQAAAAAAAAAAAARABUAAAAAAAAAAAASAA4AAAAAAAAAAAASAA8AAAAAAAAAAAASABAAAAAAAAAAAAASABEAAAAAAAAAAAASABIAAAAAAAAAAAASABMAAAAAAAAAAAASABQAAAAAAAAAAAASABUAAAAAAAAAAAATAA4AAAAAAAAAAAATAA8AAAAAAAAAAAATABAAAAAAAAAAAAATABEAAAAAAAAAAAATABIAAAAAAAAAAAATABMAAAAAAAAAAAATABQAAAAAAAAAAAATABUAAAAAAAAAAAAUABMAAAAAAAAAAAAUABQAAAAAAAAAAAAVABMAAAAAAAAAAAAVABQAAAAAAAAAAAAIABMAAAAAAAAAAAAIABQAAAAAAAAAAAAJABQAAAAAAAAAAAAJABMAAAAAAAAAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAHAA8AAAABAAAAAAAGAA8AAAABAAAAAAADABMAAAAAAAAAAAADABQAAAAAAAAAAAAEABMAAAAAAAAAAAAEABQAAAAAAAAAAAAFABMAAAAAAAAAAAAFABQAAAAAAAAAAAAGABMAAAAAAAAAAAAGABQAAAAAAAAAAAAHABMAAAAAAAAAAAAHABQAAAAAAAAAAAAEABEAAAAAAAAAAAAEABIAAAAAAAAAAAACABAAAAAAAAAAAAADABAAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAA4AAAAAAAAAAAADAA0AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA0AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA0AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAAWABMAAAAAAAAAAAAWABQAAAAAAAAAAAAXABMAAAAAAAAAAAAXABQAAAAAAAAAAAAYABMAAAAAAAAAAAAYABQAAAAAAAAAAAAZABMAAAAAAAAAAAAZABQAAAAAAAAAAAAZAAsAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAZAA4AAAAAAAAAAAAZAA8AAAAAAAAAAAAZABAAAAAAAAAAAAAZABEAAAAAAAAAAAAZABIAAAAAAAAAAAAXAAsAAAAAAAAAAAAXAAwAAAAAAAAAAAAXAA0AAAAAAAAAAAAYAAsAAAAAAAAAAAAYAAwAAAAAAAAAAAAYAA0AAAAAAAAAAAAWAAsAAAAAAAAAAAAWAAwAAAAAAAAAAAAWAA0AAAAAAAAAAAAWAA4AAAAAAAAAAAAWAA8AAAAAAAAAAAAWABAAAAAAAAAAAAAWABEAAAAAAAAAAAAWABIAAAAAAAAAAAAbAAgAAAABAAAAAAAbAAkAAAABAAAAAAAbAAoAAAABAAAAAAAbAAsAAAABAAAAAAAbAAwAAAABAAAAAAAbAA0AAAABAAAAAAAbAA4AAAABAAAAAAAbAA8AAAABAAAAAAAbABAAAAABAAAAAAAbABEAAAABAAAAAAAbABIAAAABAAAAAAAbABMAAAABAAAAAAAbABQAAAABAAAAAAAbABUAAAABAAAAAAAbABYAAAABAAAAAAAbABcAAAABAAAAAAD5/xcAAAABAAAAAAAVAPz/AAABAAAAAAD7/xMAAAABAAAAAAD7/xQAAAABAAAAAAD8/xMAAAABAAAAAAD8/xQAAAABAAAAAAD9/xMAAAABAAAAAAD9/xQAAAABAAAAAAD+/xMAAAABAAAAAAD+/xQAAAABAAAAAAD//xMAAAABAAAAAAD//xQAAAABAAAAAAAAABMAAAABAAAAAAAAABQAAAABAAAAAAABABMAAAABAAAAAAABABQAAAABAAAAAAACABMAAAABAAAAAAACABQAAAABAAAAAAD7/xIAAAABAAAAAAD8/xIAAAABAAAAAAD9/xIAAAABAAAAAAD+/xIAAAABAAAAAAD//xIAAAABAAAAAAAAABIAAAABAAAAAAABABIAAAABAAAAAAACABIAAAABAAAAAAADABIAAAABAAAAAAAFABIAAAABAAAAAAAGABIAAAABAAAAAAAHABIAAAABAAAAAAA=")
 tile_set = ExtResource("1_by3pn")
@@ -92,40 +104,59 @@ tile_map_data = PackedByteArray("AAAOAAEAAQAAABoAAAARAAsAAQACAAgAAAAMAAsAAQAAAAg
 tile_set = ExtResource("3_x7u1i")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Decor"]
+[node name="Blockage" type="Node2D" parent="World/Decor"]
+y_sort_enabled = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Decor/Blockage"]
 position = Vector2(29.000002, 313)
 rotation = -0.086140856
 texture = SubResource("AtlasTexture_3bn6e")
 offset = Vector2(0, -21)
 
-[node name="Sprite2D2" type="Sprite2D" parent="World/Decor"]
+[node name="Sprite2D2" type="Sprite2D" parent="World/Decor/Blockage"]
 position = Vector2(36.000004, 318.99997)
 rotation = 0.07531104
+scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("AtlasTexture_iqcbx")
 offset = Vector2(0, -14)
 
-[node name="Sprite2D4" type="Sprite2D" parent="World/Decor"]
+[node name="Sprite2D4" type="Sprite2D" parent="World/Decor/Blockage"]
 position = Vector2(15.000002, 326.99997)
 rotation = 0.07531104
+scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("AtlasTexture_iqcbx")
 offset = Vector2(0, -14)
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="World/Decor"]
+[node name="Sprite2D5" type="Sprite2D" parent="World/Decor/Blockage"]
 position = Vector2(44, 331)
 rotation = -1.6778383
 texture = SubResource("AtlasTexture_flchh")
 offset = Vector2(7, -20)
 flip_h = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="World/Decor"]
+[node name="Sprite2D3" type="Sprite2D" parent="World/Decor/Blockage"]
 position = Vector2(19.999996, 322)
 rotation = -0.001319617
+scale = Vector2(0.99999994, 0.99999994)
 texture = SubResource("AtlasTexture_bw70e")
 offset = Vector2(0, -12)
 
-[node name="StrawDoll" parent="World/Decor" instance=ExtResource("6_3bn6e")]
+[node name="StrawDoll" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("6_3bn6e")]
 position = Vector2(264, 32)
+interact_position_marker = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="World/Decor/StrawDoll"]
+position = Vector2(0, 16)
+
+[node name="Fireplace" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("7_iqcbx")]
+position = Vector2(384, 176)
+success_dialog = ExtResource("8_flchh")
+interact_position_marker = NodePath("Marker2D2")
+
+[node name="Marker2D2" type="Marker2D" parent="World/Decor/Fireplace"]
+position = Vector2(-8, 15)
 
 [node name="Celing" type="TileMapLayer" parent="World"]
 z_index = 1
@@ -135,6 +166,10 @@ metadata/_edit_lock_ = true
 
 [node name="TileMovingCharacter" parent="World" instance=ExtResource("5_ogn51")]
 position = Vector2(241, 338)
+
+[node name="LooseItem" parent="World" instance=ExtResource("10_mp8d6")]
+position = Vector2(246, 198)
+item_data = ExtResource("16_6ttjb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(241, 294)
@@ -174,8 +209,28 @@ interact_position_marker = NodePath("InteractMarker")
 [node name="InteractMarker" type="Marker2D" parent="Revenant"]
 position = Vector2(4, 20)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-modulate = Color(0, 0.5364201, 0.9377293, 1)
+[node name="DialogInteractableItemTraderArea2D" type="Area2D" parent="." node_paths=PackedStringArray("interact_position_marker")]
 position = Vector2(353, 299)
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+script = ExtResource("9_bw70e")
+item_to_check_for = ExtResource("9_hx5c0")
+should_consume_item = true
+item_to_drop = ExtResource("16_6ttjb")
+success_dialog = ExtResource("17_5p4n3")
+activation_event = 1
+fail_dialog_expression = "false"
+interact_position_marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://csw5gguonp3x1"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="DialogInteractableItemTraderArea2D"]
+modulate = Color(0, 0.5364201, 0.9377293, 1)
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_ogn51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogInteractableItemTraderArea2D"]
+shape = SubResource("SegmentShape2D_bw70e")
+
+[node name="Marker2D" type="Marker2D" parent="DialogInteractableItemTraderArea2D"]
+position = Vector2(10, 20)

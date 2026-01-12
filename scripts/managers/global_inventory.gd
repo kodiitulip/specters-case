@@ -13,3 +13,10 @@ func add_item(item: ItemData, slot_id: int = -1) -> void:
 		return
 	items.set(item, slot_id)
 	inventory_changed.emit()
+
+
+func remove_item(item: ItemData) -> void:
+	if not has_item(item):
+		return
+	items.erase(item)
+	inventory_changed.emit()

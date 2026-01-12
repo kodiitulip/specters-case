@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp4fjjn7xbwpd"]
+[gd_scene load_steps=7 format=3 uid="uid://dp4fjjn7xbwpd"]
 
-[ext_resource type="Script" uid="uid://cuh6nirbkf7hp" path="res://scenes/items/straw_doll/straw_doll.gd" id="1_2j18b"]
+[ext_resource type="Script" uid="uid://csw5gguonp3x1" path="res://scripts/objects/interaction/dialog_interactable_item_trader_area_2d.gd" id="1_2j18b"]
 [ext_resource type="Texture2D" uid="uid://ttbedx3o74x6" path="res://assets/straw_doll.png" id="2_e6a4f"]
 [ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="2_rknlv"]
+[ext_resource type="Resource" uid="uid://c1so8164c4851" path="res://resources/items/music_player.tres" id="3_w3d78"]
+[ext_resource type="Resource" uid="uid://blkte76o6f17n" path="res://resources/dialogic/dialogs/loot/straw_doll_fail.dtl" id="4_ptcov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bw70e"]
 
 [node name="StrawDoll" type="Area2D"]
 script = ExtResource("1_2j18b")
 item_to_check_for = ExtResource("2_rknlv")
-metadata/_custom_type_script = "uid://d1ithttgd13on"
+should_consume_item = true
+item_to_drop = ExtResource("3_w3d78")
+fail_dialog = ExtResource("4_ptcov")
+activation_event = 1
+free_when_drop = true
+metadata/_custom_type_script = "uid://csw5gguonp3x1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_e6a4f")
