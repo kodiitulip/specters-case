@@ -61,6 +61,7 @@ directories/dtl_directory={
 "ending_demo": "res://resources/dialogic/dialogs/ending_demo.dtl",
 "errante": "res://resources/dialogic/dialogs/ghost/errante.dtl",
 "intro": "res://resources/dialogic/dialogs/intro.dtl",
+"player_lost": "res://resources/dialogic/dialogs/ghost/player_lost.dtl",
 "you_got_item": "res://resources/dialogic/dialogs/loot/you_got_item.dtl"
 }
 layout/style_directory={

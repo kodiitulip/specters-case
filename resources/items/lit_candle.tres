@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bfvp7rdxc0ab8"]
+
+[ext_resource type="Texture2D" uid="uid://djtbxhe2shfaf" path="res://assets/lit_candle.png" id="1_2cddo"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="2_8xokw"]
+
+[resource]
+resource_name = "Vela Acesa"
+script = ExtResource("2_8xokw")
+item_name = "Vela Acesa"
+item_description = "Uma vela e ma chama"
+item_icon = ExtResource("1_2cddo")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"

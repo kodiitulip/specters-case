@@ -6,12 +6,9 @@ extends InteractableArea2D
 ## sent to the [InventoryInterface]
 
 ## The data of this item
-@export var item_data: ItemData
+@export var item_data: ItemData: set = set_item_data, get = get_item_data
 ## Tell if the item should desapear after being picked up
 @export var infinite: bool = false
-## The Node this area should [code]queue_free()[/code] in case of being finite.
-## If [code]null[/code], deafults to [code]queue_free()[/code] the area itself
-@export var free_target: Node = self
 
 func _ready() -> void:
 	super._ready()
@@ -22,12 +19,9 @@ func _ready() -> void:
 func on_interact_started() -> void:
 	GlobalSignalBus.send_new_position_to_player(global_position)
 	await GlobalSignalBus.player_path_goal_reached
-	GlobalInventory.add_item(item_data, -1)
-	if infinite:
-		return
-	if free_target:
-		return _remove(free_target)
-	_remove(self)
+	GlobalInventory.add_item(item_data)
+	if not infinite:
+		_remove(self)
 
 
 ## Called for every frame that the interaction is happening
@@ -43,3 +37,11 @@ func on_interact_ended() -> void:
 func _remove(target: Node) -> void:
 	GlobalSignalBus.emit_mouse_busy(false)
 	target.queue_free()
+
+
+func set_item_data(value: ItemData) -> void:
+	item_data = value
+
+
+func get_item_data() -> ItemData:
+	return item_data

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://b7cv3aykl82no"]
 
-[ext_resource type="Script" uid="uid://daff452ghs2ub" path="res://scripts/managers/turn_battle_manager.gd" id="1_0ma2r"]
+[ext_resource type="Script" uid="uid://vqlt8o5bhm6n" path="res://scenes/battles/battle_counter.gd" id="1_p03p0"]
 [ext_resource type="Texture2D" uid="uid://bk3tuixlure04" path="res://assets/ui/grid.png" id="2_q8pbb"]
 [ext_resource type="PackedScene" uid="uid://dk0148ks3ybjv" path="res://scenes/turn_battler/battlers/player_battler.tscn" id="4_p03p0"]
 [ext_resource type="PackedScene" uid="uid://b1ahan0guskl4" path="res://scenes/turn_battler/battlers/enemy_battler.tscn" id="5_jf1a5"]
@@ -12,6 +12,21 @@
 [ext_resource type="Resource" uid="uid://bbxfl81s1dg25" path="res://resources/turn_battle/actions/basic_attack.tres" id="8_ltvna"]
 [ext_resource type="Resource" uid="uid://vmtnfxgf6hiu" path="res://resources/turn_battle/actions/bandaid.tres" id="10_jf1a5"]
 [ext_resource type="PackedScene" uid="uid://dugudfu485ekh" path="res://scenes/interfaces/battle/stats_bar/left_stats_bar.tscn" id="11_rq67i"]
+
+[sub_resource type="Animation" id="Animation_jf1a5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-39, -19)]
+}
 
 [sub_resource type="Animation" id="Animation_p03p0"]
 resource_name = "bob"
@@ -28,21 +43,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(-39, -19), Vector2(-39, -27), Vector2(-39, -19)]
-}
-
-[sub_resource type="Animation" id="Animation_jf1a5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-39, -19)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jf1a5"]
@@ -68,7 +68,7 @@ atlas = ExtResource("6_rq67i")
 region = Rect2(50, 66, 12, 12)
 
 [node name="BattleCounter" type="Node" node_paths=PackedStringArray("ui_action_buttons", "ui_enemy_choose_buttons", "ui_flavor_text_label", "ui_flee_button", "ui_interact_indicator")]
-script = ExtResource("1_0ma2r")
+script = ExtResource("1_p03p0")
 flavor_text_on_win = Array[String](["Parece que [wave][color=lime]Revenant[/color][/wave]  encontrou descanso."])
 flavor_text_on_death = Array[String](["O frio lhe consumiu."])
 scene_on_death = "uid://b8vn6g2j7nsua"
@@ -149,6 +149,7 @@ metadata/_edit_use_anchors_ = true
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -159,6 +160,7 @@ theme_override_constants/margin_bottom = 12
 
 [node name="FlavorTextLabel" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_font_size = 12
 theme_override_font_sizes/bold_italics_font_size = 12
@@ -171,6 +173,7 @@ fit_content = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="InteractIndicator" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer/Control"]
 layout_mode = 0
@@ -180,6 +183,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_filter = 2
 texture = ExtResource("6_p03p0")
 stretch_mode = 2
 

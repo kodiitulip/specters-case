@@ -6,18 +6,12 @@ enum BattlerType {
 	ENEMY,
 }
 
-@export var type: BattlerType
-@export var max_hp: int
-
-var current_hp: int:
+@export var name: String:
 	set(value):
-		current_hp = value
+		name = value
+		resource_name = name
+@export var type: BattlerType
+@export var max_hp: int:
+	set(value):
+		max_hp = value
 		emit_changed()
-
-
-func _init() -> void:
-	_setup.call_deferred()
-
-
-func _setup() -> void:
-	current_hp = max_hp
