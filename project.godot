@@ -116,6 +116,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+glossary/default_case_sensitive=true
 
 [display]
 
