@@ -3,21 +3,21 @@ set {GlobalVariables.started_front_desk_battle} = true
 errante: .....
 pam: Oi...?
 label choices
-- Perguntar sobre as crianças desaparecidas | [if {calm} == false]
+- Interrogar fantasma | [if {calm} == false]
 	pam: Meu nome é Pam e sou a nova investigadora sobre os casos de desaparecimento de Quillbrook.
 	pam: Poderia me contar um pouco mais sobre você e o que faz aqui?
-	errante: As vozes chamam… mas não sei quem sou...
-	errante: Sinto um frio aterrorizadamente confortante, mas não tenho um corpo para chamar de meu
-	pam: Ok...
-	pam: E o que você sabe sobre os casos de desaparecimento que têm ocorrido na cidade?
-	errante: Quillbrook? Parece… familiar...
-	errante: Ou talvez… apenas eco...
-	set {calm} = true
-	jump choices
+	errante: Olá! Seja bem-vindo ao Hotel de Quillbrook! Meu nome é...
+	errante: Oh! Quem eu quero enganar? Isso aqui é um desastre! Este hotel está caindo em ruínas! Não tem nem sequer energia e eu sou tão incompetente que não consigo nem acender essa vela!
+	pam: Bem... Não precisa se preocupar com isso, eu posso te ajudar.
+	pam: Se você me desse a vela, eu poderia tentar acende-la
+	errante: Muito obrigado! Não sei nem como agradecer...
+	errante: Espera um minuto. Por que você está fazendo isso? Eu nem sequer te conheço.
+	errante: Sua desgraçada! Você não quer me ajudar porcaria nenhuma. Você quer é se mostrar melhor que eu para o dono e me expulsar daqui.
+	pam: Que? Não, acho que você entendeu errado, eu só quero ...
+	errante: BASTA! Não vou deixar ninguém neste local se aparecer para o chefe!
+	errante: Venha cá, sua maldita!
+	do GlobalSignalBus.emit_battle_dialog_ended()
 - Exorcisar | [if {calm} == true]
 	pam: Vem cá amigão. Vamo te ajudar a atravessar.
-	do GlobalSignalBus.emit_battle_dialog_ended()
 - Deixar em paz
 	[end_timeline]
-- DEBUG | [if {debug} == true] [else="hide"]
-	do GlobalSignalBus.emit_battle_dialog_ended()
