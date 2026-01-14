@@ -1,7 +1,6 @@
 extends CenterContainer
 
-@export var answer_input: String
-
+var answer_input: String = "1234"
 var input: String = "": set = set_input
 
 @onready var exit_button: TextureButton = $TextureRect/ExitButton
@@ -19,6 +18,7 @@ func _ready() -> void:
 		num.pressed.connect(_add_input.bind(num.name))
 	if GlobalVariables.water_off:
 		input = answer_input
+	answer_input = GlobalVariables.water_code
 
 
 func _add_input(num: String) -> void:

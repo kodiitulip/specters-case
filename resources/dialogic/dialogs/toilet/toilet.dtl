@@ -1,0 +1,4 @@
+pam: Ew... parece que tá alguns anos sem dar a descarga.
+if {toilet} == false:
+	pam: Espera tem algo flutando aqui
+	set {toilet} = true

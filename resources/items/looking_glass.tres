@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://uhlf2go07knm"]
+
+[ext_resource type="Texture2D" uid="uid://bkcmhbyucp2st" path="res://assets/looking_glass.png" id="1_qh6dv"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="2_jm6so"]
+
+[resource]
+resource_name = "Lupa"
+script = ExtResource("2_jm6so")
+item_name = "Lupa"
+item_description = "Uma lupa. Poderia ser usada para encontrar segredos."
+item_icon = ExtResource("1_qh6dv")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"
