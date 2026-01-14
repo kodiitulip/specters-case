@@ -1,0 +1,250 @@
+[gd_scene load_steps=30 format=3 uid="uid://bfkue3cadv61v"]
+
+[ext_resource type="Script" uid="uid://m3mj4eyfgvi1" path="res://scenes/interfaces/overlays/digital_panel.gd" id="1_3f0sv"]
+[ext_resource type="Texture2D" uid="uid://c0hlvifbe61a0" path="res://assets/ui/digital_panel.png" id="2_i6l1r"]
+[ext_resource type="Texture2D" uid="uid://cgn465ujy1v8s" path="res://assets/ui/ui_tileset.png" id="3_y4iyw"]
+[ext_resource type="Texture2D" uid="uid://b8xgx705bqvuw" path="res://assets/ui/numpad.png" id="4_pg34u"]
+[ext_resource type="Texture2D" uid="uid://cvybbcln1qief" path="res://assets/ui/input_progress.png" id="5_plm6w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_plm6w"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg34u"]
+atlas = ExtResource("3_y4iyw")
+region = Rect2(49, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukr4b"]
+atlas = ExtResource("5_plm6w")
+region = Rect2(0, 0, 26, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkpwb"]
+atlas = ExtResource("5_plm6w")
+region = Rect2(26, 0, 26, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plm6w"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(1, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrkd6"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(27, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spibo"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(10, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0rax"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(36, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6er0o"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(19, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia271"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(45, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gphkw"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(1, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h00mp"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(27, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7rgb"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(10, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abv62"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(36, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8uwh"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(19, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr7hc"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(45, 9, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqm2c"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(1, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s38b6"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(27, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fohmo"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(10, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45c0r"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(36, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6swo"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(19, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g87ne"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(45, 17, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exhvu"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(10, 25, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss2np"]
+atlas = ExtResource("4_pg34u")
+region = Rect2(36, 25, 7, 7)
+
+[node name="DigitalPanel" type="CenterContainer"]
+material = SubResource("CanvasItemMaterial_plm6w")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3f0sv")
+answer_input = "1235"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 324)
+layout_mode = 2
+texture = ExtResource("2_i6l1r")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9351852
+anchor_right = 1.0
+anchor_bottom = 0.06481481
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_pg34u")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="InputDisplay" type="TextureProgressBar" parent="TextureRect"]
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30246913
+anchor_top = 0.19753087
+anchor_right = 0.70370376
+anchor_bottom = 0.32098767
+grow_horizontal = 2
+max_value = 4.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ukr4b")
+texture_progress = SubResource("AtlasTexture_rkpwb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Numpad" type="GridContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -54.0
+offset_right = 62.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="1" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_plm6w")
+texture_pressed = SubResource("AtlasTexture_xrkd6")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="2" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_spibo")
+texture_pressed = SubResource("AtlasTexture_g0rax")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="3" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_6er0o")
+texture_pressed = SubResource("AtlasTexture_ia271")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="4" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gphkw")
+texture_pressed = SubResource("AtlasTexture_h00mp")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="5" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_h7rgb")
+texture_pressed = SubResource("AtlasTexture_abv62")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="6" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_y8uwh")
+texture_pressed = SubResource("AtlasTexture_rr7hc")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="7" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wqm2c")
+texture_pressed = SubResource("AtlasTexture_s38b6")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="8" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_fohmo")
+texture_pressed = SubResource("AtlasTexture_45c0r")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="9" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_a6swo")
+texture_pressed = SubResource("AtlasTexture_g87ne")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Empty" type="Control" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+
+[node name="0" type="TextureButton" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_exhvu")
+texture_pressed = SubResource("AtlasTexture_ss2np")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Empty2" type="Control" parent="TextureRect/Numpad"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2

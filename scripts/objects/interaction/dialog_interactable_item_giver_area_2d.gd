@@ -23,12 +23,12 @@ enum ActivationEvent {
 ## It has access to [code]GlobalVariables[/code], [code]GlobalInventory[/code]
 ## and [code]self[/code]
 @export_custom(PROPERTY_HINT_EXPRESSION, "") var should_drop_expression: String = \
-	"GlobalInventory.has_item(item_to_check_for)"
+	"true"
 ## Boolean expression to check if the actor should call the fail dialog.
 ## It has access to [code]GlobalVariables[/code], [code]GlobalInventory[/code]
 ## and [code]self[/code]
 @export_custom(PROPERTY_HINT_EXPRESSION, "") var fail_dialog_expression: String = \
-	"not GlobalInventory.has_item(item_to_check_for)"
+	"false"
 
 func _ready() -> void:
 	super._ready()
@@ -68,7 +68,7 @@ func _handle_dropping_item() -> void:
 	var pos: Vector2 = (interact_position_marker.global_position
 		if interact_position_marker else global_position)
 	var inst: PickableInteractableArea2D = LOOSE_ITEM.instantiate()
-	inst.set_global_position.call_deferred(pos)
+	inst.global_position = pos
 	inst.set_item_data(item_to_drop)
 	get_parent().add_child.call_deferred(inst)
 	if success_dialog:

@@ -4,6 +4,7 @@ signal mouse_busy(busy: bool)
 signal new_player_path_goal_sent(pos: Vector2, set_busy: bool)
 signal player_path_goal_reached()
 signal battle_dialog_ended()
+signal water_off()
 
 func emit_mouse_busy(busy: bool) -> void:
 	mouse_busy.emit(busy)
@@ -23,3 +24,7 @@ func send_new_position_to_player(global_pos: Vector2, set_busy: bool = false,
 
 func emit_battle_dialog_ended() -> void:
 	battle_dialog_ended.emit()
+
+
+func emit_water_off() -> void:
+	water_off.emit()

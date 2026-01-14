@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxrwhcqshm38d"]
+
+[ext_resource type="Script" uid="uid://gnrrvg7yfjx7" path="res://scenes/levels/hotel/water_pipe.gd" id="1_blc8n"]
+[ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="2_6y44p"]
+[ext_resource type="Resource" uid="uid://bvppokquppuor" path="res://resources/items/unlit_candle.tres" id="3_v3xa8"]
+[ext_resource type="Resource" uid="uid://bmoqhvdy5phdb" path="res://resources/dialogic/dialogs/water_pipe/water_candle.dtl" id="4_ppnrb"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ogn51"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 8, 1)
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bw70e"]
+a = Vector2(0, -22)
+b = Vector2(0, 37)
+
+[node name="WaterPipe" type="Area2D" node_paths=PackedStringArray("particles", "interact_position_marker")]
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+script = ExtResource("1_blc8n")
+particles = NodePath("GPUParticles2D")
+item_to_check_for = ExtResource("2_6y44p")
+should_consume_item = true
+item_to_drop = ExtResource("3_v3xa8")
+success_dialog = ExtResource("4_ppnrb")
+activation_event = 1
+interact_position_marker = NodePath("Marker2D")
+update_busy = false
+metadata/_custom_type_script = "uid://csw5gguonp3x1"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0.5364201, 0.9377293, 1)
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_ogn51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_bw70e")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(18, 17)
