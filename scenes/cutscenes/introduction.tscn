@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b7glbwlwtqvmi"]
+[gd_scene load_steps=28 format=4 uid="uid://b7glbwlwtqvmi"]
 
 [ext_resource type="Script" uid="uid://dopcg73nstiit" path="res://scenes/cutscenes/cutscene.gd" id="1_nexf8"]
 [ext_resource type="Texture2D" uid="uid://cxtbof6yeyks6" path="res://assets/BG1.png" id="1_wf4y2"]
@@ -10,10 +10,14 @@
 [ext_resource type="Script" uid="uid://c35magy4ubem" path="res://scripts/components/world_tile_map/world_tile_map.gd" id="5_v5jfm"]
 [ext_resource type="Texture2D" uid="uid://dj3vqw0dhj4wn" path="res://assets/ui/flashlight_cone.png" id="6_d7182"]
 [ext_resource type="PackedScene" uid="uid://bndyubb6g6qr6" path="res://scenes/interfaces/intro_letter/intro_letter.tscn" id="6_hx84n"]
+[ext_resource type="AudioStream" uid="uid://wwip6rh38tvb" path="res://assets/sounds/chiasso-car-approaching-edit.wav" id="6_j6eh5"]
 [ext_resource type="Texture2D" uid="uid://c1hpo5na0auou" path="res://assets/red_car/red_suv_clean_east_000_sheet.png" id="7_8bhm3"]
 [ext_resource type="PackedScene" uid="uid://bf4n3ivsbhuc2" path="res://scenes/characters/player/tile_moving_character.tscn" id="7_v5jfm"]
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="7_yu1x5"]
 [ext_resource type="Script" uid="uid://cddi0ewxwl2ki" path="res://scripts/objects/interaction/portal_interactable_area_2d.gd" id="14_d8pec"]
+[ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="15_gm7pn"]
+[ext_resource type="Resource" uid="uid://c0sxtxwgg8k" path="res://resources/dialogic/dialogs/out/hotel_sign.dtl" id="16_ydwin"]
+[ext_resource type="AudioStream" uid="uid://b2wbxckb8d76x" path="res://assets/sounds/truflabart-crickets-in-pont-de-gau.wav" id="17_ifb0t"]
 
 [sub_resource type="Animation" id="Animation_yu1x5"]
 length = 0.001
@@ -113,10 +117,22 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(0, 380)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Car:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ohvq1"]
 resource_name = "car_in"
-length = 10.0
+length = 10.453
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -125,7 +141,7 @@ tracks/0/path = NodePath("World/RedSuvCleanWest000Sheet:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5.366667, 7.366667),
+"times": PackedFloat32Array(3.2, 5.2),
 "transitions": PackedFloat32Array(1.2311445, 2.0705287),
 "update": 0,
 "values": [Vector2(-150, 329), Vector2(386, 329)]
@@ -137,7 +153,7 @@ tracks/1/path = NodePath("World/RedSuvCleanWest000Sheet/PointLight2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5.366667, 7.8666673),
+"times": PackedFloat32Array(0, 9.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -149,7 +165,7 @@ tracks/2/path = NodePath("World/TileMovingCharacter:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.366667, 9.4),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -161,7 +177,7 @@ tracks/3/path = NodePath("CanvasLayer/IntroLetter")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(9.566668),
+"times": PackedFloat32Array(10.166668),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -175,7 +191,7 @@ tracks/4/path = NodePath("World/PortalInteractableArea2D:update_busy")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(5.366667, 9.6),
+"times": PackedFloat32Array(3.2, 10.200001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -187,7 +203,7 @@ tracks/5/path = NodePath("World/PortalInteractableArea2D:input_pickable")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(5.366667, 9.618168),
+"times": PackedFloat32Array(3.2, 10.218168),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -227,6 +243,33 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(0, 380), Vector2(0, 0)]
+}
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Car")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_j6eh5")
+}],
+"times": PackedFloat32Array(2)
+}
+tracks/9/use_blend = true
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Car:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2, 4.9),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-80.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_d7182"]
@@ -280,6 +323,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm7pn"]
 size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydwin"]
 
 [node name="Introduction" type="Node"]
 script = ExtResource("1_nexf8")
@@ -407,8 +452,25 @@ metadata/_custom_type_script = "uid://cddi0ewxwl2ki"
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_gm7pn")
 
+[node name="DialogInteractableArea2D" type="Area2D" parent="World"]
+position = Vector2(424, 280)
+script = ExtResource("15_gm7pn")
+dialog = ExtResource("16_ydwin")
+metadata/_custom_type_script = "uid://d1ithttgd13on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DialogInteractableArea2D"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_ydwin")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.24488387, 0.36581427, 0.46723247, 1)
+
+[node name="Crickets" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ifb0t")
+volume_db = -15.0
+autoplay = true
+
+[node name="Car" type="AudioStreamPlayer" parent="."]
 
 [connection signal="closed" from="CanvasLayer/IntroLetter" to="." method="_on_intro_letter_closed"]
 [connection signal="pressed" from="CanvasLayer/MenuButtons/Start" to="." method="_on_play_button_pressed"]
