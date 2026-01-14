@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b8vn6g2j7nsua"]
+[gd_scene load_steps=52 format=4 uid="uid://b8vn6g2j7nsua"]
 
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="1_by3pn"]
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_ogn51"]
@@ -7,21 +7,35 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_by3pn"]
 [ext_resource type="Texture2D" uid="uid://658rpeuipvxk" path="res://assets/tilemap_assets/modern_interiors/interiors_free/16x16/interiors_free_16x16.png" id="5_loe52"]
 [ext_resource type="PackedScene" uid="uid://bf4n3ivsbhuc2" path="res://scenes/characters/player/tile_moving_character.tscn" id="5_ogn51"]
+[ext_resource type="Script" uid="uid://d1ithttgd13on" path="res://scripts/objects/interaction/dialog_interactable_area_2d.gd" id="5_tda3e"]
 [ext_resource type="PackedScene" uid="uid://dp4fjjn7xbwpd" path="res://scenes/items/straw_doll/straw_doll.tscn" id="6_3bn6e"]
+[ext_resource type="Resource" uid="uid://bjsh3b34jukj0" path="res://resources/dialogic/dialogs/blockage.dtl" id="6_deeic"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_x7u1i"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_cjk06"]
 [ext_resource type="PackedScene" uid="uid://dnvcrq074u4st" path="res://scenes/items/fireplace.tscn" id="7_iqcbx"]
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="8_cjk06"]
 [ext_resource type="Resource" uid="uid://cmwik5mujkglt" path="res://resources/dialogic/dialogs/fireplace_success.dtl" id="8_flchh"]
+[ext_resource type="Script" uid="uid://ddidgqhxya36k" path="res://scenes/levels/hotel/elevator.gd" id="8_qlukj"]
+[ext_resource type="Resource" uid="uid://dgmrpebdt0sq8" path="res://resources/dialogic/dialogs/loot/straw_doll_success.dtl" id="9_0ygld"]
+[ext_resource type="Resource" uid="uid://c0lsmxp0tlug8" path="res://resources/items/master_key.tres" id="9_40jlu"]
+[ext_resource type="Script" uid="uid://djim6vmt4rrkm" path="res://scenes/levels/hotel/toilet.gd" id="9_bfj04"]
 [ext_resource type="Script" uid="uid://gnrrvg7yfjx7" path="res://scenes/levels/hotel/water_pipe.gd" id="9_bw70e"]
-[ext_resource type="Script" uid="uid://becrgb1fcq4yd" path="res://scripts/objects/interaction/dialog_interactable_item_giver_area_2d.gd" id="9_mp8d6"]
+[ext_resource type="Resource" uid="uid://bx3goppbxukjk" path="res://resources/dialogic/dialogs/out/elevator_fail.dtl" id="9_lanss"]
 [ext_resource type="Resource" uid="uid://dbjnx0we7gu7n" path="res://resources/items/dirty_looking_glass.tres" id="10_uqt5w"]
 [ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="11_7ov68"]
+[ext_resource type="Resource" uid="uid://dtro2oxirrhl0" path="res://resources/dialogic/dialogs/toilet/toilet_success.dtl" id="11_ie06u"]
+[ext_resource type="Resource" uid="uid://d0yuyo27nux6x" path="res://resources/dialogic/dialogs/toilet/toilet.dtl" id="11_or18l"]
 [ext_resource type="PackedScene" uid="uid://bfkue3cadv61v" path="res://scenes/interfaces/overlays/digital_panel.tscn" id="12_687bi"]
 [ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="13_687bi"]
 [ext_resource type="Script" uid="uid://d33rh61na25ov" path="res://scenes/levels/hotel/hidden_label.gd" id="14_bfj04"]
+[ext_resource type="Resource" uid="uid://vso63axjj6jm" path="res://resources/dialogic/dialogs/toilet/toilet_fail.dtl" id="15_qompp"]
 [ext_resource type="PackedScene" uid="uid://dxrwhcqshm38d" path="res://scenes/levels/hotel/water_pipe.tscn" id="18_mp8d6"]
-[ext_resource type="Resource" uid="uid://uhlf2go07knm" path="res://resources/items/lupa.tres" id="20_7ov68"]
+[ext_resource type="Script" uid="uid://csw5gguonp3x1" path="res://scripts/objects/interaction/dialog_interactable_item_trader_area_2d.gd" id="19_deeic"]
+[ext_resource type="Resource" uid="uid://uhlf2go07knm" path="res://resources/items/looking_glass.tres" id="20_7ov68"]
+[ext_resource type="Resource" uid="uid://c2345nxsomyj1" path="res://resources/dialogic/dialogs/toilet/mirror.dtl" id="22_0i6x1"]
+[ext_resource type="Resource" uid="uid://038ogfu80hn0" path="res://resources/dialogic/dialogs/toilet/mirror_success.dtl" id="23_vnknn"]
+[ext_resource type="Texture2D" uid="uid://81ob4cyicksa" path="res://assets/sparckle.png" id="25_t7dsr"]
+[ext_resource type="Resource" uid="uid://csj0j727v0xd4" path="res://resources/dialogic/dialogs/water_pipe/water_looking_glass.dtl" id="32_exhh0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cjk06"]
 light_mode = 2
@@ -42,6 +56,12 @@ region = Rect2(224, 947, 16, 37)
 atlas = ExtResource("5_loe52")
 region = Rect2(130, 964, 25, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ygld"]
+size = Vector2(42, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7dsr"]
+size = Vector2(49, 23)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqt5w"]
 radius = 13.0
 
@@ -58,6 +78,12 @@ shadow_size = 3
 shadow_color = Color(0.57483715, 0.45283526, 0.43207142, 0.7294118)
 shadow_offset = Vector2(0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deeic"]
+size = Vector2(78, 25)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lanss"]
+light_mode = 1
+
 [sub_resource type="Resource" id="Resource_ogn51"]
 script = ExtResource("7_cjk06")
 
@@ -69,7 +95,7 @@ b = Vector2(0, 37)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="InventoryInterface" parent="CanvasLayer" instance=ExtResource("1_ogn51")]
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_ogn51")]
 metadata/_edit_lock_ = true
 
 [node name="FakeFloor" type="TileMapLayer" parent="."]
@@ -118,50 +144,80 @@ tile_map_data = PackedByteArray("AAAOAAEAAQAAABoAAAARAAsAAQACAAgAAAAMAAsAAQAAAAg
 tile_set = ExtResource("3_x7u1i")
 metadata/_edit_lock_ = true
 
-[node name="Blockage" type="Node2D" parent="World/Decor"]
+[node name="Blockage" type="Area2D" parent="World/Decor"]
 y_sort_enabled = true
+position = Vector2(53, 319)
+script = ExtResource("5_tda3e")
+dialog = ExtResource("6_deeic")
+metadata/_custom_type_script = "uid://d1ithttgd13on"
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Decor/Blockage"]
-position = Vector2(29.000002, 313)
+position = Vector2(-23, -5)
 rotation = -0.086140856
 texture = SubResource("AtlasTexture_3bn6e")
 offset = Vector2(0, -21)
 
 [node name="Sprite2D2" type="Sprite2D" parent="World/Decor/Blockage"]
-position = Vector2(36.000004, 318.99997)
+position = Vector2(-19.000008, 0)
 rotation = 0.07531104
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999999, 0.9999999)
 texture = SubResource("AtlasTexture_iqcbx")
 offset = Vector2(0, -14)
 
 [node name="Sprite2D4" type="Sprite2D" parent="World/Decor/Blockage"]
-position = Vector2(15.000002, 326.99997)
-rotation = 0.07531104
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-39, -5.0000005)
+rotation = -0.075049154
+scale = Vector2(0.9999999, 0.9999999)
 texture = SubResource("AtlasTexture_iqcbx")
 offset = Vector2(0, -14)
 flip_h = true
 
 [node name="Sprite2D5" type="Sprite2D" parent="World/Decor/Blockage"]
-position = Vector2(44, 331)
+position = Vector2(-8, 13)
 rotation = -1.6778383
 texture = SubResource("AtlasTexture_flchh")
 offset = Vector2(7, -20)
 flip_h = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="World/Decor/Blockage"]
-position = Vector2(19.999996, 322)
+position = Vector2(-33.000008, 6.000001)
 rotation = -0.001319617
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999999, 0.9999999)
 texture = SubResource("AtlasTexture_bw70e")
 offset = Vector2(0, -12)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/Blockage"]
+position = Vector2(-28, -9)
+shape = SubResource("RectangleShape2D_0ygld")
+
+[node name="Elevator" type="Area2D" parent="World/Decor"]
+position = Vector2(219, 39)
+script = ExtResource("8_qlukj")
+item_to_check_for = ExtResource("9_40jlu")
+should_consume_item = true
+fail_dialog = ExtResource("9_lanss")
+activation_event = 1
+free_when_drop = null
+should_drop_expression = null
+fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
+battle_scene_enable = null
+battle_scene_file = null
+update_busy = null
+metadata/_custom_type_script = "uid://csw5gguonp3x1"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/Elevator"]
+position = Vector2(14.5, -20.5)
+shape = SubResource("RectangleShape2D_t7dsr")
+
 [node name="StrawDoll" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("6_3bn6e")]
 position = Vector2(264, 32)
+success_dialog = ExtResource("9_0ygld")
 should_drop_expression = "GlobalInventory.has_item(item_to_check_for)"
 fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
 interact_position_marker = NodePath("Marker2D")
+metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="World/Decor/StrawDoll"]
 position = Vector2(0, 16)
@@ -172,18 +228,24 @@ success_dialog = ExtResource("8_flchh")
 should_drop_expression = "GlobalInventory.has_item(item_to_check_for)"
 fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
 interact_position_marker = NodePath("Marker2D2")
+metadata/_edit_group_ = true
 
 [node name="Marker2D2" type="Marker2D" parent="World/Decor/Fireplace"]
 position = Vector2(-8, 15)
 
 [node name="Toilet" type="Area2D" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker")]
 position = Vector2(26, 263)
-script = ExtResource("9_mp8d6")
+script = ExtResource("9_bfj04")
 item_to_drop = ExtResource("10_uqt5w")
+success_dialog = ExtResource("11_ie06u")
+fail_dialog = ExtResource("15_qompp")
 activation_event = 1
-should_drop_expression = "not GlobalInventory.has_item(item_to_drop)"
+should_drop_expression = "not GlobalVariables.toilet_interacted"
+fail_dialog_expression = "GlobalVariables.toilet_interacted"
+dialog = ExtResource("11_or18l")
 interact_position_marker = NodePath("Marker2D")
 metadata/_custom_type_script = "uid://becrgb1fcq4yd"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/Toilet"]
 shape = SubResource("CircleShape2D_uqt5w")
@@ -196,6 +258,7 @@ position = Vector2(325, 293)
 script = ExtResource("11_7ov68")
 overlay_scene = ExtResource("12_687bi")
 metadata/_custom_type_script = "uid://cheqal1ea658b"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/WaterPanel"]
 shape = SubResource("CircleShape2D_687bi")
@@ -213,13 +276,35 @@ label_settings = SubResource("LabelSettings_687bi")
 horizontal_alignment = 1
 script = ExtResource("14_bfj04")
 
+[node name="Mirror" type="Area2D" parent="World/Decor"]
+position = Vector2(72, 215)
+script = ExtResource("19_deeic")
+item_to_check_for = ExtResource("20_7ov68")
+success_dialog = ExtResource("23_vnknn")
+fail_dialog = ExtResource("22_0i6x1")
+activation_event = 1
+should_drop_expression = "GlobalInventory.has_item(item_to_check_for)"
+fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
+metadata/_custom_type_script = "uid://csw5gguonp3x1"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/Mirror"]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_deeic")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Decor/Mirror"]
+material = SubResource("CanvasItemMaterial_lanss")
+position = Vector2(0, -14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("25_t7dsr")
+
 [node name="Celing" type="TileMapLayer" parent="World"]
 z_index = 1
 tile_map_data = PackedByteArray("AAANAP//AAALAAQAAAAQAP//AAANAAQAAAAPAP//AAAMAAQAAAAOAP//AAAMAAQAAAANABYAAAAPAAIAAAAOABYAAAAPAAIAAAAPABYAAAAPAAIAAAAQABYAAAAPAAIAAAAIAAUAAAAQAAAAAAAIAAYAAAAPAAEAAAAIAAcAAAAPAAEAAAAIAAgAAAAPAAEAAAAIAAkAAAAPAAEAAAAIAAoAAAAPAAEAAAAIAAsAAAAPAAEAAAAIAAwAAAAPAAEAAAAIAA0AAAAPAAEAAAAJAP//AAAQAAQAAAAJAAAAAAAPAAEAAAAJAAEAAAAPAAEAAAAJAAIAAAAPAAEAAAAJAAMAAAAPAAEAAAAJAAQAAAAPAAEAAAAKABYAAAAPAAIAAAALABYAAAAPAAIAAAAMABYAAAAPAAIAAAAUAP//AAAOAAQAAAAUAAAAAAAPAAEAABAUAAEAAAAPAAEAABAUAAIAAAAPAAEAABAUAAMAAAAPAAEAABAUAAQAAAAPAAEAABAVAAUAAAAQAAAAABAVAAYAAAAPAAEAABAVAAcAAAAPAAEAABAVAAgAAAAPAAEAABAVAAkAAAAPAAEAABAVAAoAAAAPAAEAABAVAAsAAAAPAAEAABAVAAwAAAAPAAEAABAVAA0AAAAPAAEAABATABYAAAAPAAIAABASABYAAAAPAAIAABARABYAAAAPAAIAABAUAA4AAAAHAAIAAAAUAA8AAAAOAAMAAAAUABAAAAAOAAMAAAAUABUAAAAHAAIAAAAUABYAAAAPAAMAAAAVAA4AAAAQAAMAAAAVAA8AAAAQAAMAAAAVABAAAAAQAAMAAAAVABEAAAALAAEAAAAVABIAAAAHAAAAAAAVABMAAAAHAAAAAAAVABQAAAALAAEAACAVABUAAAAPAAIAAAAIABYAAAAPAAMAAAAJABYAAAAPAAMAABAIABUAAAAPAAIAAAAJABUAAAAHAAIAABAIABQAAAALAAEAADAIABMAAAAHAAAAABAIABIAAAAHAAAAABAIABEAAAALAAEAABAIABAAAAAQAAMAABAJABAAAAAOAAMAABAIAA8AAAAQAAMAABAJAA8AAAAOAAMAABAIAA4AAAAQAAMAABAJAA4AAAAHAAIAABAJAP7/AAAOAAMAAAAKAP7/AAAPAAMAAAALAP7/AAAPAAMAAAAMAP7/AAAPAAMAAAANAP7/AAAPAAMAAAAOAP7/AAAPAAMAAAAPAP7/AAAPAAMAAAAQAP7/AAAPAAMAAAARAP7/AAAPAAMAAAASAP7/AAAPAAMAAAATAP7/AAAPAAMAAAAUAP7/AAAQAAMAAAAJAP3/AAAHAAIAAAAUAP3/AAAIAAIAAAAKAP3/AAAPAAIAAAALAP3/AAAPAAIAAAAMAP3/AAAPAAIAAAANAP3/AAAPAAIAAAAOAP3/AAAPAAIAAAAPAP3/AAAPAAIAAAAQAP3/AAAPAAIAAAARAP3/AAAPAAIAAAASAP3/AAAPAAIAAAATAP3/AAAPAAIAAAAaAAwAAAAPAAEAAAAaAA0AAAAPAAEAAAAaAA4AAAAPAAEAAAAaAA8AAAAPAAEAAAAaABAAAAAPAAEAAAAaABEAAAAPAAEAAAAaABIAAAAPAAEAAAAaABMAAAAPAAEAAAAaABQAAAAPAAEAAAAaABUAAAAQAAMAAAAZABUAAAAPAAIAAAAYABUAAAAPAAIAAAAXABUAAAAPAAIAAAAWABUAAAAPAAIAAAAVABYAAAAPAAMAAAAWABYAAAAPAAMAAAAXABYAAAAPAAMAAAAYABYAAAAPAAMAAAAZABYAAAAPAAMAAAAaABYAAAAQAAMAAAAAAAsAAAAQAAIAAAAAAAwAAAAQAAMAAAAAAA0AAAAQAAMAAAAAAA4AAAAQAAMAAAAAAA8AAAAQAAMAAAAAABAAAAAQAAMAAAAEABEAAAAMAAMAAAD6/w0AAAAOAAMAAAD6/w4AAAAOAAMAAAD6/w8AAAAOAAMAAAD6/xAAAAAOAAMAAAD7/w0AAAAPAAMAAAD7/w4AAAAPAAMAAAD7/w8AAAAPAAMAAAD7/xAAAAAPAAMAAAD8/w0AAAAPAAMAAAD8/w4AAAAPAAMAAAD8/w8AAAAPAAMAAAD8/xAAAAAPAAMAAAD9/w0AAAAPAAMAAAD9/w4AAAAPAAMAAAD9/w8AAAAPAAMAAAD9/xAAAAAPAAMAAAD+/w0AAAAPAAMAAAD+/w4AAAAPAAMAAAD+/w8AAAAPAAMAAAD+/xAAAAAPAAMAAAD//w0AAAAPAAMAAAD//w4AAAAPAAMAAAD//w8AAAAPAAMAAAD//xAAAAAPAAMAAAD8/xEAAAAMAAMAAAD//wsAAAAPAAIAAAD+/wsAAAAPAAIAAAD9/wsAAAAPAAIAAAD8/wsAAAAPAAIAAAD7/wsAAAAPAAIAAAD6/wsAAAAHAAIAAAD6/wwAAAAOAAMAAAD//wwAAAAPAAMAAAD+/wwAAAAPAAMAAAD9/wwAAAAPAAMAAAD8/wwAAAAPAAMAAAD7/wwAAAAPAAMAAAD6/xUAAAAOAAMAAAD6/xYAAAAOAAMAAAD7/xYAAAAPAAMAAAD8/xYAAAAPAAMAAAD9/xYAAAAPAAMAAAD+/xYAAAAPAAMAAAD//xYAAAAPAAMAAAAAABYAAAAPAAMAAAABABYAAAAPAAMAAAACABYAAAAPAAMAAAADABYAAAAPAAMAAAAEABYAAAAPAAMAAAAFABYAAAAPAAMAAAAGABYAAAAPAAMAAAAHABYAAAAPAAMAAAAHABUAAAAPAAIAAAAGABUAAAAPAAIAAAAFABUAAAAPAAIAAAAEABUAAAAPAAIAAAADABUAAAAPAAIAAAACABUAAAAPAAIAAAABABUAAAAPAAIAAAAAABUAAAAPAAIAAAD//xUAAAAPAAIAAAD+/xUAAAAPAAIAAAD9/xUAAAAPAAIAAAD8/xUAAAAPAAIAAAD7/xUAAAAPAAIAAAD6/xEAAAAQAAQAAAD6/xIAAAAPAAEAAAD6/xMAAAAPAAEAAAD6/xQAAAAPAAEAAAAGAA4AAQAFAB4AAGAGAA8AAQAFAB4AAGAGABAAAQAFAB4AAGAaAAkAAAAOAAAAAAAaAAoAAAAPAAEAAAAaAAsAAAAPAAEAAAA=")
 tile_set = ExtResource("3_x7u1i")
 metadata/_edit_lock_ = true
 
-[node name="TileMovingCharacter" parent="World" instance=ExtResource("5_ogn51")]
+[node name="Player" parent="World" instance=ExtResource("5_ogn51")]
 position = Vector2(241, 338)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -244,7 +329,7 @@ top_level = true
 position = Vector2(241, 294)
 script = ExtResource("6_x7u1i")
 follow_mode = 1
-follow_target = NodePath("../World/TileMovingCharacter")
+follow_target = NodePath("../World/Player")
 zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_ogn51")
 tween_on_load = false
@@ -271,6 +356,7 @@ script = ExtResource("9_bw70e")
 item_to_check_for = ExtResource("10_uqt5w")
 should_consume_item = true
 item_to_drop = ExtResource("20_7ov68")
+success_dialog = ExtResource("32_exhh0")
 activation_event = 1
 interact_position_marker = NodePath("Marker2D")
 metadata/_custom_type_script = "uid://csw5gguonp3x1"

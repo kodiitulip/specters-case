@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://deotowhojwkwo"]
 
 [ext_resource type="Script" uid="uid://cq0yjt5lh3jn2" path="res://scenes/interfaces/puzzles/puzzle_box/puzzle_box_overlay.gd" id="1_7s0hg"]
-[ext_resource type="Resource" uid="uid://c1so8164c4851" path="res://resources/items/music_player.tres" id="2_m0nbx"]
+[ext_resource type="Resource" uid="uid://dbjnx0we7gu7n" path="res://resources/items/dirty_looking_glass.tres" id="2_m0nbx"]
 [ext_resource type="Texture2D" uid="uid://bv87hmy2wv84k" path="res://assets/items/box.png" id="2_pcq2n"]
 [ext_resource type="Texture2D" uid="uid://cpv5adgtjo6k4" path="res://assets/ui/1bit_ui_pack_by_batuhan/1_bit_ui_by_batuhan_k.png" id="3_cugxw"]
 
@@ -155,6 +155,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7s0hg")
 answer_order = [NodePath("GridContainer/B1"), NodePath("GridContainer/B2"), NodePath("GridContainer/B3"), NodePath("GridContainer/B4"), NodePath("GridContainer/B5"), NodePath("GridContainer/B6")]
+random_answer = true
 item_to_give = ExtResource("2_m0nbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -239,10 +240,3 @@ stretch_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_85b0a")
 }
-
-[connection signal="toggled" from="GridContainer/B1" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B2" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B3" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B4" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B5" to="." method="_on_b_1_toggled" flags=18]
-[connection signal="toggled" from="GridContainer/B6" to="." method="_on_b_1_toggled" flags=18]

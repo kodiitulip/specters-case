@@ -57,16 +57,27 @@ directories/dch_directory={
 "pam": "res://resources/dialogic/characters/pam.dch"
 }
 directories/dtl_directory={
+"blockage": "res://resources/dialogic/dialogs/blockage.dtl",
 "blocking": "res://resources/dialogic/dialogs/ghost/blocking.dtl",
+"elevator_fail": "res://resources/dialogic/dialogs/out/elevator_fail.dtl",
 "ending_demo": "res://resources/dialogic/dialogs/ending_demo.dtl",
 "errante": "res://resources/dialogic/dialogs/ghost/errante.dtl",
 "fireplace": "res://resources/dialogic/dialogs/fireplace.dtl",
 "fireplace_success": "res://resources/dialogic/dialogs/fireplace_success.dtl",
+"hotel_sign": "res://resources/dialogic/dialogs/out/hotel_sign.dtl",
 "intro": "res://resources/dialogic/dialogs/intro.dtl",
+"mirror": "res://resources/dialogic/dialogs/toilet/mirror.dtl",
+"mirror_success": "res://resources/dialogic/dialogs/toilet/mirror_success.dtl",
 "player_lost": "res://resources/dialogic/dialogs/ghost/player_lost.dtl",
 "straw_doll_fail": "res://resources/dialogic/dialogs/loot/straw_doll_fail.dtl",
+"straw_doll_success": "res://resources/dialogic/dialogs/loot/straw_doll_success.dtl",
+"toilet": "res://resources/dialogic/dialogs/toilet/toilet.dtl",
+"toilet_fail": "res://resources/dialogic/dialogs/toilet/toilet_fail.dtl",
+"toilet_success": "res://resources/dialogic/dialogs/toilet/toilet_success.dtl",
 "water_candle": "res://resources/dialogic/dialogs/water_pipe/water_candle.dtl",
-"you_got_item": "res://resources/dialogic/dialogs/loot/you_got_item.dtl"
+"water_looking_glass": "res://resources/dialogic/dialogs/water_pipe/water_looking_glass.dtl",
+"you_got_item": "res://resources/dialogic/dialogs/loot/you_got_item.dtl",
+"you_got_item_toilet": "res://resources/dialogic/dialogs/loot/you_got_item_toilet.dtl"
 }
 layout/style_directory={
 "battle": "res://resources/dialogic/themes/battle.tres"
@@ -78,8 +89,10 @@ variables={
 "debug": false,
 "puzzles": {
 "item_icon": "",
-"item_name": ""
-}
+"item_name": "",
+"water_code": ""
+},
+"toilet": false
 }
 layout/default_style="Default"
 extensions_folder="res://addons/dialogic_additions"

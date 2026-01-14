@@ -67,10 +67,11 @@ func _handle_dropping_item() -> void:
 	
 	var pos: Vector2 = (interact_position_marker.global_position
 		if interact_position_marker else global_position)
-	var inst: PickableInteractableArea2D = LOOSE_ITEM.instantiate()
-	inst.global_position = pos
-	inst.set_item_data(item_to_drop)
-	get_parent().add_child.call_deferred(inst)
+	if item_to_drop:
+		var inst: PickableInteractableArea2D = LOOSE_ITEM.instantiate()
+		inst.global_position = pos
+		inst.set_item_data(item_to_drop)
+		get_parent().add_child.call_deferred(inst)
 	if success_dialog:
 		Dialogic.start(success_dialog)
 		await Dialogic.timeline_ended
