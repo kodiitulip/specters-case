@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c0lsmxp0tlug8"]
+
+[ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="1_ikpi4"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="2_bojft"]
+
+[resource]
+resource_name = "Chave Mestra"
+script = ExtResource("2_bojft")
+item_name = "Chave Mestra"
+item_description = "Uma chave. Tem uma etiqueta escrito \"Chave mestra para manutenção\"."
+item_icon = ExtResource("1_ikpi4")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://csw5gguonp3x1" path="res://scripts/objects/interaction/dialog_interactable_item_trader_area_2d.gd" id="1_2j18b"]
 [ext_resource type="Texture2D" uid="uid://ttbedx3o74x6" path="res://assets/straw_doll.png" id="2_e6a4f"]
 [ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="2_rknlv"]
-[ext_resource type="Resource" uid="uid://c1so8164c4851" path="res://resources/items/music_player.tres" id="3_w3d78"]
+[ext_resource type="Resource" uid="uid://c0lsmxp0tlug8" path="res://resources/items/master_key.tres" id="3_w3d78"]
 [ext_resource type="Resource" uid="uid://blkte76o6f17n" path="res://resources/dialogic/dialogs/loot/straw_doll_fail.dtl" id="4_ptcov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bw70e"]

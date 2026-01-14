@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dbjnx0we7gu7n"]
+
+[ext_resource type="Texture2D" uid="uid://c8e72ng8y1okl" path="res://icon.svg" id="1_imupy"]
+[ext_resource type="Script" uid="uid://dbs75u1g8tvpi" path="res://scripts/resources/item_data.gd" id="2_ghdll"]
+
+[resource]
+resource_name = "Lupa Suja"
+script = ExtResource("2_ghdll")
+item_name = "Lupa Suja"
+item_description = "Uma lupa. Poderia ser usada para encontrar segredos, mas está muito suja..."
+item_icon = ExtResource("1_imupy")
+metadata/_custom_type_script = "uid://dbs75u1g8tvpi"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b8vn6g2j7nsua"]
+[gd_scene load_steps=34 format=4 uid="uid://b8vn6g2j7nsua"]
 
 [ext_resource type="TileSet" uid="uid://by66pul2nwf2" path="res://resources/tileset/navigation_tile_set.tres" id="1_by3pn"]
 [ext_resource type="PackedScene" uid="uid://ck2xg28ndep6c" path="res://scenes/interfaces/inventory/inventory_interface.tscn" id="1_ogn51"]
@@ -14,9 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://cuw84s7cfo74o" path="res://scenes/characters/enemies/revenant.tscn" id="8_cjk06"]
 [ext_resource type="Resource" uid="uid://cmwik5mujkglt" path="res://resources/dialogic/dialogs/fireplace_success.dtl" id="8_flchh"]
 [ext_resource type="Script" uid="uid://gnrrvg7yfjx7" path="res://scenes/levels/hotel/water_pipe.gd" id="9_bw70e"]
-[ext_resource type="Resource" uid="uid://bfvp7rdxc0ab8" path="res://resources/items/lit_candle.tres" id="9_hx5c0"]
-[ext_resource type="Resource" uid="uid://bvppokquppuor" path="res://resources/items/unlit_candle.tres" id="16_6ttjb"]
-[ext_resource type="Resource" uid="uid://bmoqhvdy5phdb" path="res://resources/dialogic/dialogs/water_pipe/water_candle.dtl" id="17_5p4n3"]
+[ext_resource type="Script" uid="uid://becrgb1fcq4yd" path="res://scripts/objects/interaction/dialog_interactable_item_giver_area_2d.gd" id="9_mp8d6"]
+[ext_resource type="Resource" uid="uid://dbjnx0we7gu7n" path="res://resources/items/dirty_looking_glass.tres" id="10_uqt5w"]
+[ext_resource type="Script" uid="uid://cheqal1ea658b" path="res://scripts/objects/interaction/overlay_interactable_area_2d.gd" id="11_7ov68"]
+[ext_resource type="PackedScene" uid="uid://bfkue3cadv61v" path="res://scenes/interfaces/overlays/digital_panel.tscn" id="12_687bi"]
+[ext_resource type="Theme" uid="uid://deumsw3rtheqj" path="res://resources/themes/paper.tres" id="13_687bi"]
+[ext_resource type="Script" uid="uid://d33rh61na25ov" path="res://scenes/levels/hotel/hidden_label.gd" id="14_bfj04"]
+[ext_resource type="PackedScene" uid="uid://dxrwhcqshm38d" path="res://scenes/levels/hotel/water_pipe.tscn" id="18_mp8d6"]
+[ext_resource type="Resource" uid="uid://uhlf2go07knm" path="res://resources/items/lupa.tres" id="20_7ov68"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cjk06"]
 light_mode = 2
@@ -37,16 +42,26 @@ region = Rect2(224, 947, 16, 37)
 atlas = ExtResource("5_loe52")
 region = Rect2(130, 964, 25, 23)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqt5w"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_687bi"]
+radius = 7.28011
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_687bi"]
+light_mode = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_687bi"]
+font_size = 14
+font_color = Color(0.9301049, 0.71286726, 0.70838434, 1)
+shadow_size = 3
+shadow_color = Color(0.57483715, 0.45283526, 0.43207142, 0.7294118)
+shadow_offset = Vector2(0, 1)
+
 [sub_resource type="Resource" id="Resource_ogn51"]
 script = ExtResource("7_cjk06")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ogn51"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1, 8, 1)
-gravity = Vector3(0, 98, 0)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bw70e"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_687bi"]
 a = Vector2(0, -22)
 b = Vector2(0, 37)
 
@@ -99,7 +114,7 @@ metadata/_edit_lock_ = true
 
 [node name="Decor" type="TileMapLayer" parent="World"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAOAAEAAQAAABoAAAARAAsAAQACAAgAAAAMAAsAAQAAAAgAAAANAAsAAQADAAgAAAAOAAsAAQABAAgAAAAPAAsAAQABAAgAAAAQAAsAAQADAAgAAAAMAAoAAQAAAAcAAAARAAoAAQACAAcAAAAOAAkAAQAAAA4AAAAXABIAAQAAAAgAAAAXABEAAQAAAAcAAAAXABAAAQAAAAcAAAAXAA8AAQAAAAcAAAAXAA4AAQAAAAUAAAAYAA4AAQACAAUAAAAYAA8AAQACAAcAAAAYABAAAQACAAcAAAAYABEAAQACAAcAAAAYABIAAQACAAgAAAACAAwAAQAAAB4AAAADAAwAAQABAB4AAAAEAAwAAQABAB4AAAAFAAwAAQABAB4AAAAGAAwAAQACAB4AAAABABAAAQAEAB4AAAAHABAAAQADAB4AABAXAAsAAQAEAEQAAAAWAAoAAQAJABoAAAANAAEAAQAEAB0AAAAQAAIAAQAMAD4AAAA=")
+tile_map_data = PackedByteArray("AAAOAAEAAQAAABoAAAARAAsAAQACAAgAAAAMAAsAAQAAAAgAAAANAAsAAQADAAgAAAAOAAsAAQABAAgAAAAPAAsAAQABAAgAAAAQAAsAAQADAAgAAAAMAAoAAQAAAAcAAAARAAoAAQACAAcAAAAOAAkAAQAAAA4AAAAXABIAAQAAAAgAAAAXABEAAQAAAAcAAAAXABAAAQAAAAcAAAAXAA8AAQAAAAcAAAAXAA4AAQAAAAUAAAAYAA4AAQACAAUAAAAYAA8AAQACAAcAAAAYABAAAQACAAcAAAAYABEAAQACAAcAAAAYABIAAQACAAgAAAACAAwAAQAAAB4AAAADAAwAAQABAB4AAAAEAAwAAQABAB4AAAAFAAwAAQABAB4AAAAGAAwAAQACAB4AAAABABAAAQAEAB4AAAAHABAAAQADAB4AABAXAAsAAQAEAEQAAAANAAEAAQAEAB0AAAAQAAIAAQAMAD4AAAAUABIAAQAJABoAAAA=")
 tile_set = ExtResource("3_x7u1i")
 metadata/_edit_lock_ = true
 
@@ -144,6 +159,8 @@ offset = Vector2(0, -12)
 
 [node name="StrawDoll" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("6_3bn6e")]
 position = Vector2(264, 32)
+should_drop_expression = "GlobalInventory.has_item(item_to_check_for)"
+fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
 interact_position_marker = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="World/Decor/StrawDoll"]
@@ -152,10 +169,49 @@ position = Vector2(0, 16)
 [node name="Fireplace" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker") instance=ExtResource("7_iqcbx")]
 position = Vector2(384, 176)
 success_dialog = ExtResource("8_flchh")
+should_drop_expression = "GlobalInventory.has_item(item_to_check_for)"
+fail_dialog_expression = "not GlobalInventory.has_item(item_to_check_for)"
 interact_position_marker = NodePath("Marker2D2")
 
 [node name="Marker2D2" type="Marker2D" parent="World/Decor/Fireplace"]
 position = Vector2(-8, 15)
+
+[node name="Toilet" type="Area2D" parent="World/Decor" node_paths=PackedStringArray("interact_position_marker")]
+position = Vector2(26, 263)
+script = ExtResource("9_mp8d6")
+item_to_drop = ExtResource("10_uqt5w")
+activation_event = 1
+should_drop_expression = "not GlobalInventory.has_item(item_to_drop)"
+interact_position_marker = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://becrgb1fcq4yd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/Toilet"]
+shape = SubResource("CircleShape2D_uqt5w")
+
+[node name="Marker2D" type="Marker2D" parent="World/Decor/Toilet"]
+position = Vector2(20, 0)
+
+[node name="WaterPanel" type="Area2D" parent="World/Decor"]
+position = Vector2(325, 293)
+script = ExtResource("11_7ov68")
+overlay_scene = ExtResource("12_687bi")
+metadata/_custom_type_script = "uid://cheqal1ea658b"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Decor/WaterPanel"]
+shape = SubResource("CircleShape2D_687bi")
+
+[node name="Label" type="Label" parent="World/Decor"]
+z_index = 3
+material = SubResource("CanvasItemMaterial_687bi")
+offset_left = 34.0
+offset_top = 184.0
+offset_right = 110.0
+offset_bottom = 207.0
+theme = ExtResource("13_687bi")
+text = "1  2  3  5"
+label_settings = SubResource("LabelSettings_687bi")
+horizontal_alignment = 1
+script = ExtResource("14_bfj04")
 
 [node name="Celing" type="TileMapLayer" parent="World"]
 z_index = 1
@@ -204,28 +260,23 @@ interact_position_marker = NodePath("InteractMarker")
 [node name="InteractMarker" type="Marker2D" parent="Revenant"]
 position = Vector2(4, 20)
 
-[node name="DialogInteractableItemTraderArea2D" type="Area2D" parent="." node_paths=PackedStringArray("interact_position_marker")]
+[node name="WaterPipe" parent="." instance=ExtResource("18_mp8d6")]
+position = Vector2(353, 299)
+
+[node name="WaterPipeLpa" type="Area2D" parent="." node_paths=PackedStringArray("interact_position_marker")]
 position = Vector2(353, 299)
 collision_layer = 0
 collision_mask = 4
-input_pickable = false
 script = ExtResource("9_bw70e")
-item_to_check_for = ExtResource("9_hx5c0")
+item_to_check_for = ExtResource("10_uqt5w")
 should_consume_item = true
-item_to_drop = ExtResource("16_6ttjb")
-success_dialog = ExtResource("17_5p4n3")
+item_to_drop = ExtResource("20_7ov68")
 activation_event = 1
-fail_dialog_expression = "false"
 interact_position_marker = NodePath("Marker2D")
 metadata/_custom_type_script = "uid://csw5gguonp3x1"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="DialogInteractableItemTraderArea2D"]
-modulate = Color(0, 0.5364201, 0.9377293, 1)
-amount = 24
-process_material = SubResource("ParticleProcessMaterial_ogn51")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WaterPipeLpa"]
+shape = SubResource("SegmentShape2D_687bi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogInteractableItemTraderArea2D"]
-shape = SubResource("SegmentShape2D_bw70e")
-
-[node name="Marker2D" type="Marker2D" parent="DialogInteractableItemTraderArea2D"]
-position = Vector2(10, 20)
+[node name="Marker2D" type="Marker2D" parent="WaterPipeLpa"]
+position = Vector2(-21, 20)
