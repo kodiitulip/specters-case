@@ -15,7 +15,7 @@ config/name_localized={
 "en": "Specter's Case",
 "pt_BR": "Caso do Espectro"
 }
-config/description="A protagonista Pam, recém se formou como uma Investigadora Paranormal e recebeu seu primeiro caso. A vizinhança de _Frost Hollow_ recentemente têm reportado um número grande de ocorrências paranormais e precisa da sua ajuda. Investigue a vizinhança e interrogue seus habitantes para descobrir a origem das atividades anormais e libertar essa comunidade dos espíritos que a assombra."
+config/description="Relatos do sobrenatural. Foram reportadas aparições e presenças em um hotel aos arredores de Quillbrook. Você, Pamela Maren, está encarregada de investigar o local e exorcisar os fantasmas de lá. Resolva puzzles e duele com os espíritos que assombram o hotel para conseguir finalmente resolver esse mistério que está em aberto há anos."
 run/main_scene="uid://b7glbwlwtqvmi"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FlowerGarden/Specter's Case"
@@ -24,7 +24,7 @@ boot_splash/bg_color=Color(0.10022258, 0.13610247, 0.23731115, 1)
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/image="uid://7d83fqjtscx6"
-config/icon="res://icon.svg"
+config/icon="uid://7d83fqjtscx6"
 boot_splash/minimum_display_time=2500
 boot_splash/bg_color.editor_hint=Color(0.14, 0.14, 0.14, 1)
 boot_splash/image.editor_hint=""
